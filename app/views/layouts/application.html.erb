@@ -1,14 +1,56 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>NuxWS</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= content_for?(:title) ? yield(:title) : "NuxWS" %></title>
+	  <%= csrf_meta_tags %>
+	  <%= javascript_include_tag "application" %>
+	
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+		
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+  </head>
 
-<%= yield %>
+  <body>
+	  <%= render :partial => 'shared/header' %>
 
-</body>
+	  <div class="container">
+		  <div class="content">
+			  <div class="row">
+				  <div class="span6 offset3">
+					  <% flash.each do |name, msg| %>
+					  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+						  <a class="close" data-dismiss="alert">×</a>
+						  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+					  </div>
+					  <% end %>
+				  </div>
+			  </div>
+
+			  <div class="row">
+				  <div class="span12">
+					  <%= yield %>
+				  </div>
+			  </div><!--/row-->
+		  </div><!--/content-->
+	  
+	  </div> <!-- /container -->
+
+	  <%= render :partial => 'shared/footer' %>
+
+    <!-- Javascripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- <%= javascript_include_tag "application" %> -->
+
+  </body>
 </html>
