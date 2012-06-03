@@ -9,19 +9,28 @@
 			<%= link_to "Nuxos Minecraft", root_url, :class => "brand" %>
 			<div class="nav-collapse">
 				<ul class="nav">
-					<li class="active"><a href="#">Home</a></li>
 					<li><a href="http://map.nuxos-minecraft.fr/">La MAP</a></li>
+					<li class="divider-vertical"></li>
 					<li><a href="http://forum.nuxos-minecraft.fr/">Le Forum</a></li>
+					<li class="divider-vertical"></li>
 					<li><a href="#tutos">Les tutos</a></li>
+					<li class="divider-vertical"></li>
 					<li><a href="#lieux">Les lieux</a></li>
-					<li><a href="#about">A props</a></li>
+					<li class="divider-vertical"></li>
 					<li><a href="#contact">Contactez nous</a></li>
+					<li class="divider-vertical"></li>
 				</ul>
 				
 				<ul class="nav pull-right">
+					<li class="divider-vertical"></li>
 					<%- if current_user %>
+					<li class="<%= controller_name == "users" ? "active" : "" %>" ><%= link_to current_user.login, current_user %></li>
+					<li class="divider-vertical"></li>
+					<li><%= link_to "Se deconnecter", logout_path %></li>
 					<% else %>
-						<li><%= link_to "Login", new_user_session_path %></li>
+					<li class="<%= controller_name == "user_sessions" ? "active" : "" %>" ><%= link_to "Login", login_path %></li>
+					<li class="divider-vertical"></li>
+					<li class="<%= controller_name == "users" ? "active" : "" %>" ><%= link_to "S'enregistrer", new_user_path %></li>
 					<% end %>
 				</ul>
 			</div><!--/.nav-collapse -->
