@@ -15,10 +15,10 @@ class Ability
 
       can :manage, User, :id => user.id
 
-      #can :create, Place
+      can :create, Place
       #can :create, Doc
 
-      #can :manage, Place, :user_id => user.id
+      can :manage, Place, :user_id => user.id
       #can :manage, Doc, :user_id => user.id
     end
   end

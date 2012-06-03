@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
 
   validates_presence_of :login, :password, :password_confirmation, :email
 
-  has_many :components
+  has_many :places
+
+  paginates_per 20
 
   after_create :create_default_role
 
