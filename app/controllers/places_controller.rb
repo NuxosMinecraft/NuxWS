@@ -1,5 +1,7 @@
 class PlacesController < ApplicationController
   load_and_authorize_resource
+  require 'open-uri'
+  
   # GET /places
   # GET /places.json
   def index
@@ -27,6 +29,8 @@ class PlacesController < ApplicationController
   def new
     @place = Place.new
 
+    @markers = return_markers
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @place }
@@ -36,6 +40,7 @@ class PlacesController < ApplicationController
   # GET /places/xxx/edit
   def edit
     @place = Place.find(params[:id])
+    @markers = return_markers
   end
 
   # POST /places
@@ -43,6 +48,11 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(params[:place])
     @place.user = current_user
+    
+    @markers = return_markers
+    
+    puts params[:map_marker]
+    
     
     respond_to do |format|
       if @place.save
@@ -84,4 +94,23 @@ class PlacesController < ApplicationController
     end
   end
   
+  private
+  def return_markers
+    @markers = JSON.parse(open("http://map.nuxos-minecraft.fr/tiles/_markers_/marker_world.json").read)
+
+    @select_markers = {}
+    
+    @markers["sets"].keys.each do |set|
+      @select_markers[set.to_s] = [] 
+    end
+    
+    @markers["sets"].keys.each do |set_name|
+      @markers["sets"][set_name]["markers"].each do |name, set|
+        value = "#{set["x"]}/#{set["y"]}/#{set["z"]}"
+        @select_markers[set_name.to_s] << [set["label"], value]
+      end
+    end
+
+    return @select_markers
+  end
 end

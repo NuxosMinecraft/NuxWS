@@ -19,6 +19,12 @@
 				<%= f.text_area :description, :class => 'text_field', :rows => 5, :cols => 10 %>
 			</div>
 		</div>
+		<div class="control-group">
+			<%= f.label :map_marker, :class => 'control-label' %>
+			<div class="controls">
+				<%= f.select :map_marker, grouped_options_for_select(@select_markers, @place.map_marker), :prompt => "Choisir un lieu", :class => 'text_field' %>
+			</div>
+		</div>
 	</div>
 	
 	<div class="span6">

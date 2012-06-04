@@ -5,7 +5,6 @@
 
 <div class="row">
 	<div class="span4">
-		<h2>Description courte</h2>
 		<p><%= @place.short_description %></p>
 	</div>
 	<div class="span4">
@@ -18,7 +17,6 @@
 
 <div class="row">
 	<div class="span4">
-		<h2>Description complète</h2>
 		<p><%= @place.description %></p>
 	</div>
 	<div class="span4">
@@ -43,8 +41,10 @@
 			<% end %>
 		</p>
 		<p>
-			<%= link_to @place.map_link, :class => "btn btn-success btn-small" do%>
+			<%- if @place.map_link %>
+			<%= link_to @place.map_link, :class => "btn btn-success btn-small", :target => "_blank" do%>
 			Voir sur la map &raquo;
+			<% end %>
 			<% end %>
 		</p>
 	</div>

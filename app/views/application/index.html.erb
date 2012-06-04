@@ -16,8 +16,10 @@
 					<%= link_to @place, :class => "btn btn-primary btn-mini" do%>
 					Plus d'infos &raquo;
 					<% end %>
-					<%= link_to @place.map_link, :class => "btn btn-success btn-mini" do%>
-					Sur la map &raquo;
+					<%- if @place.map_link %>
+						<%= link_to @place.map_link, :class => "btn btn-success btn-mini", :target => "_blank" do%>
+						Sur la map &raquo;
+						<% end %>
 					<% end %>
 					
 				</p>
