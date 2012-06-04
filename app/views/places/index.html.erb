@@ -25,7 +25,13 @@
       <tr>
         <td><%= link_to place.name, place %></td>
 		<td><%= link_to place.short_description, place %></td>
-		<td>N/A</td>
+		<td>
+			<%- if place.map_link %>
+			<%= link_to place.map_link, :class => "btn btn-success btn-mini", :target => "_blank" do%>
+			Map &raquo;
+			<% end %>
+			<% end %>
+		</td>
         <% if can? :edit, place or can? :destroy, place %>
           <td>
             <% if can? :edit, place %>
