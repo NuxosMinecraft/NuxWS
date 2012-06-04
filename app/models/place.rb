@@ -3,7 +3,6 @@ class Place < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :name, use: :slugged
-  acts_as_authentic
 
   validates_presence_of :user_id, :name, :short_description
 

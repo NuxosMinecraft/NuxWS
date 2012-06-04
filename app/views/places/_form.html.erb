@@ -1,45 +1,56 @@
-<%= form_for @place, :html => { :class => 'form-horizontal well' } do |f| %>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :short_description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :short_description, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :description, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :history, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :history, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :creators, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :creators, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :various, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :various, :class => 'text_field' %>
-    </div>
-  </div>
+<%= form_for @place, :html => { :class => 'form-horizontal' } do |f| %>
+<div class="row">
+	<div class="span6">
+		<div class="control-group">
+			<%= f.label :name, :class => 'control-label' %>
+			<div class="controls">
+				<%= f.text_field :name, :class => 'text_field' %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :short_description, :class => 'control-label' %>
+			<div class="controls">
+				<%= f.text_area :short_description, :class => 'text_field', :rows => 5, :cols => 10 %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :description, :class => 'control-label' %>
+			<div class="controls">
+				<%= f.text_area :description, :class => 'text_field', :rows => 5, :cols => 10 %>
+			</div>
+		</div>
+	</div>
+	
+	<div class="span6">
+		<div class="control-group">
+			<%= f.label :history, :class => 'control-label' %>
+			<div class="controls">
+				<%= f.text_area :history, :class => 'text_field', :rows => 5, :cols => 10 %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :creators, :class => 'control-label' %>
+			<div class="controls">
+				<%= f.text_area :creators, :class => 'text_field', :rows => 5, :cols => 10 %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :various, :class => 'control-label' %>
+			<div class="controls">
+				<%= f.text_area :various, :class => 'text_field', :rows => 5, :cols => 10 %>
+			</div>
+		</div>
+	</div>
+</div>
 
+<div class="row">
+	<div class="span12">
+		<div class="form-actions">
+			<%= f.submit nil, :class => 'btn btn-primary' %>
+			<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+			places_path, :class => 'btn' %>
+		</div>
+	</div>
+</div>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                places_path, :class => 'btn' %>
-  </div>
 <% end %>
