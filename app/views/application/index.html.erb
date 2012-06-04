@@ -5,7 +5,7 @@
 			<div class="hero-unit hero-small">
 				<h2>Nous rejoindre!</h2>
 				<p>Comment nous rejoindre</p>
-				<p><a class="btn btn-primary btn-large">Plus d'infos &raquo;</a></p>
+				<p><a class="btn btn-primary btn-small">C'est parti ! &raquo;</a></p>
 			</div>
 		</div>
 		<div class="span8">
@@ -13,10 +13,10 @@
 				<h2>D&eacute;couvrez <%= @place.name %></h2>
 				<p><%= @place.short_description %></p>
 				<p>
-					<%= link_to @place, :class => "btn btn-primary btn-small" do%>
+					<%= link_to @place, :class => "btn btn-primary btn-mini" do%>
 					Plus d'infos &raquo;
 					<% end %>
-					<%= link_to @place.map_link, :class => "btn btn-success btn-small" do%>
+					<%= link_to @place.map_link, :class => "btn btn-success btn-mini" do%>
 					Sur la map &raquo;
 					<% end %>
 					
@@ -28,19 +28,38 @@
 	<!-- Example row of columns -->
 	<div class="row">
 		<div class="span4">
-			<h2>Heading</h2>
-			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-			<p><a class="btn" href="#">View details &raquo;</a></p>
+			<h2>Les derniers lieux</h2>
+			<dl class="dl-horizontal" >
+				<%- @places.each do |place| %>
+				<dt><%= link_to place.name, place %></dt>
+				<dd><%= place.short_description %></dd>
+				<% end %>
+			</dl>
+			<p>
+				<%= link_to places_url, :class => "btn" do %>
+				Voir tout les lieux &raquo;
+				<% end %>
+			</p>
 		</div>
 		<div class="span4">
-			<h2>Heading</h2>
-			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-			<p><a class="btn" href="#">View details &raquo;</a></p>
+			<h2>Les dernieres docs</h2>
+			<dl class="dl-horizontal" >
+				<%- @docs.each do |doc| %>
+				<dt><%= link_to doc.title, doc %></dt>
+				<dd><%= doc.short_description %></dd>
+				<% end %>
+			</dl>
+			<p>
+				<%= link_to "", :class => "btn" do %>
+				Voir toute les docs &raquo;
+				<% end %>
+			</p>
 		</div>
+
 		<div class="span4">
-			<h2>Heading</h2>
-			<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-			<p><a class="btn" href="#">View details &raquo;</a></p>
+			<h2></h2>
+			<p></p>
+			<p></p>
 		</div>
 	</div>
 </div> <!-- /container -->
