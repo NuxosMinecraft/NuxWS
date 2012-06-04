@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def index
     @place = Place.random # display random place in homepage
     @places = Place.limit(5)
-    @docs = []
+    @news = []
   end
   
   

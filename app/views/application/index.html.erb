@@ -42,16 +42,16 @@
 			</p>
 		</div>
 		<div class="span4">
-			<h2>Les dernieres docs</h2>
+			<h2>Les dernieres news</h2>
 			<dl class="dl-horizontal" >
-				<%- @docs.each do |doc| %>
-				<dt><%= link_to doc.title, doc %></dt>
-				<dd><%= doc.short_description %></dd>
+				<%- @news.each do |news| %>
+				<dt><%= link_to news.title, news %></dt>
+				<dd><%= news.short_content %></dd>
 				<% end %>
 			</dl>
 			<p>
 				<%= link_to "", :class => "btn" do %>
-				Voir toute les docs &raquo;
+				Voir toute les news &raquo;
 				<% end %>
 			</p>
 		</div>

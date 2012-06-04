@@ -3,6 +3,53 @@
 
 <br/>
 
-<p>
-Nothing to see here actually.
-</p>
+<div class="row">
+	<div class="span4">
+		<h2>Description courte</h2>
+		<p><%= @place.short_description %></p>
+	</div>
+	<div class="span4">
+		<h2>Divers</h2>
+		<p><%= @place.various %></p>
+	</div>
+</div>
+
+<br />
+
+<div class="row">
+	<div class="span4">
+		<h2>Description complète</h2>
+		<p><%= @place.description %></p>
+	</div>
+	<div class="span4">
+		<h2>Histoire</h2>
+		<p><%= @place.history %></h2>
+	</div>
+</div>
+
+<br />
+
+<div class="row">
+	<div class="span4">
+		<h2>Liens et actions</h2>
+		<p>
+			<% if can? :edit, @place %>
+			<%= link_to t('.edit', :default => t("helpers.links.edit")), edit_place_path(@place), :class => 'btn btn-mini' %>
+			<% end %>
+			<% if can? :destroy, @place %>
+			<%= link_to t('.destroy', :default => t("helpers.links.destroy")), place_path(@place),
+			:method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+			:class => 'btn btn-mini btn-danger' %>
+			<% end %>
+		</p>
+		<p>
+			<%= link_to @place.map_link, :class => "btn btn-success btn-small" do%>
+			Voir sur la map &raquo;
+			<% end %>
+		</p>
+	</div>
+	<div class="span4">
+		<h1>Créateurs</h1>
+		<p><%= @place.creators %></p>
+	</div>
+</div>
