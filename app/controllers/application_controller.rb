@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   def index
+    @place = Place.random # display random place in homepage
   end
   
   

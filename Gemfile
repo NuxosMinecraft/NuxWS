@@ -46,3 +46,4 @@ gem 'kaminari'
 gem 'cancan'
 gem 'friendly_id'
 gem 'ransack'
+gem 'randumb'   # https://github.com/spilliton/randumb
