@@ -10,6 +10,7 @@
 		</div>
 		<div class="span8">
 			<div class="hero-unit hero-small">
+				<% if @place %>
 				<h2>D&eacute;couvrez <%= @place.name %></h2>
 				<p><%= @place.short_description %></p>
 				<p>
@@ -23,6 +24,7 @@
 					<% end %>
 					
 				</p>
+				<% end %>
 			</div>
 		</div>
 	</div>
