@@ -47,3 +47,6 @@ gem 'cancan'
 gem 'friendly_id'
 gem 'ransack'
 gem 'randumb'   # https://github.com/spilliton/randumb
+gem 'carrierwave' # https://github.com/jnicklas/carrierwave
+gem 'rmagick'
+gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
