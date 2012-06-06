@@ -1,11 +1,12 @@
 <div class="container footer">
 	<div class="content">
 		<div class="row">
-			<div class="span12">
-				<footer>
-					<p>Running <a href='http://github.com/NuxosMinecraft/NuxWS' target='_blank' title='Nuxos Web Site'>NuxWS</a> v0.1</p>
-				</footer>
+			<div class="span10">
+				<p>Running <a href='http://github.com/NuxosMinecraft/NuxWS' target='_blank' title='Nuxos Web Site'>NuxWS</a> v0.1</p>
 			</div>
+			<div class="span2">
+				Role: <%= @current_user.role.name %>
+			</span>
 		</div>
 	</div>
 </div>
