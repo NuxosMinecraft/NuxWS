@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120605071238) do
+ActiveRecord::Schema.define(:version => 20120606184400) do
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(:version => 20120605071238) do
     t.string   "map_marker"
   end
 
+  create_table "roles", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "rid"
+  end
+
   create_table "users", :force => true do |t|
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
@@ -57,7 +64,6 @@ ActiveRecord::Schema.define(:version => 20120605071238) do
     t.string   "perishable_token",    :default => "", :null => false
     t.string   "single_access_token"
     t.string   "email"
-    t.string   "role"
     t.integer  "login_count",         :default => 0,  :null => false
     t.datetime "last_request_at"
     t.datetime "last_login_at"
@@ -65,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20120605071238) do
     t.string   "last_login_ip"
     t.string   "current_login_ip"
     t.string   "slug"
+    t.integer  "role_id"
   end
 
   add_index "users", ["last_request_at"], :name => "index_users_on_last_request_at"

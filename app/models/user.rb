@@ -9,21 +9,22 @@ class User < ActiveRecord::Base
   validates_presence_of :login, :password, :password_confirmation, :email
 
   has_many :places
-
+  belongs_to :role
+  
   paginates_per 20
 
   after_create :create_default_role
 
   def create_default_role
-    self.role = "user"
-    if User.find_all_by_role("admin").count == 0
-      self.role = "admin"
+    self.role = Role.find_by_id(0)
+    if User.count == 0
+      self.role = Role.find_by_id(16)
     end
     self.save
   end
 
   def admin?
-    return (self.role == "admin") ? true : false
+    return (self.role.id == 16) ? true : false
   end
 
 end
