@@ -16,15 +16,16 @@ class User < ActiveRecord::Base
   after_create :create_default_role
 
   def create_default_role
-    self.role = Role.find_by_id(0)
+    self.role = Role.find_by_rid("0")
     if User.count == 0
-      self.role = Role.find_by_id(16)
+      self.role = Role.find_by_rid("16")
     end
     self.save
   end
 
   def admin?
-    return (self.role.id == 16) ? true : false
+    return false if !self.role
+    return (self.role.rid == 16) ? true : false
   end
 
 end

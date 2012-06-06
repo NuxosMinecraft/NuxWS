@@ -1,0 +1,24 @@
+<div class="row">
+	<div class="span2"><h1>Les forums</h1></div>
+	<div class="span2 offset8">
+		<%= link_to "Créer un forum", new_forum_path, :class => "btn" if can?(:create, Forum) %>
+	</div>
+</div>
+
+<br />
+
+<%- @forums.each do |forum| %>
+<div class="row forum_element">
+	<div class="span9">
+	<h4>&raquo; <%= link_to forum.title, forum %></h4>
+	<small><%= forum.description %></small>
+	</div>
+	<div class="span3">
+		Posts: N/A<br />
+		Dernier: N/A
+	</div>
+</div>
+<%- if @forums.count > 0 %>
+<div class="forums-separator"></div>
+<% end %>
+<% end %>
