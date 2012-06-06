@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120606184914) do
+ActiveRecord::Schema.define(:version => 20120606222747) do
 
   create_table "forums", :force => true do |t|
     t.string   "title"
@@ -61,6 +61,18 @@ ActiveRecord::Schema.define(:version => 20120606184914) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "rid"
+  end
+
+  create_table "topics", :force => true do |t|
+    t.string   "title",                         :null => false
+    t.text     "content",                       :null => false
+    t.boolean  "moderation", :default => false, :null => false
+    t.boolean  "pin",        :default => false, :null => false
+    t.boolean  "locked",     :default => false, :null => false
+    t.integer  "forum_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "users", :force => true do |t|

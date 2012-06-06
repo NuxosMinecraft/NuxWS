@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :places
   belongs_to :role
+  has_many :topics
   
   paginates_per 20
 
