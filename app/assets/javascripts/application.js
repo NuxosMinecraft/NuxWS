@@ -15,3 +15,5 @@
 //= require jquery_nested_form
 //= require twitter/bootstrap
 //= require_tree .
+//= require jquery.markitup
+//= require sets/markdown/set.js

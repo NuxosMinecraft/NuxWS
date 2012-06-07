@@ -51,3 +51,4 @@ gem 'carrierwave' # https://github.com/jnicklas/carrierwave
 gem 'rmagick'
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem "bb-ruby", :git => "git://github.com/marcandre/bb-ruby.git"
+gem 'markitup_rails'
