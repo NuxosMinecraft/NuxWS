@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/marcandre/bb-ruby.git
-  revision: 77a4b3c63e06e053cfbaf04331d9dc31f505c247
-  specs:
-    bb-ruby (0.9.7)
-
-GIT
   remote: git://github.com/ryanb/nested_form.git
   revision: d1a3653525c0fdc54c55d19b99e98df92ba12360
   specs:
@@ -129,6 +123,7 @@ GEM
       polyamorous (~> 0.5.0)
     rdoc (3.12)
       json (~> 1.4)
+    redcarpet (2.1.1)
     rmagick (2.13.1)
     sass (3.1.19)
     sass-rails (3.2.5)
@@ -166,7 +161,6 @@ PLATFORMS
 
 DEPENDENCIES
   authlogic
-  bb-ruby!
   cancan
   carrierwave
   coffee-rails (~> 3.2.1)
@@ -181,6 +175,7 @@ DEPENDENCIES
   rails_config
   randumb
   ransack
+  redcarpet
   rmagick
   sass-rails (~> 3.2.3)
   sentient_user

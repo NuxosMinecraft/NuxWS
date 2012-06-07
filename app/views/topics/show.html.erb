@@ -12,7 +12,7 @@
 
 <div class="row">
 	<div class="span7 offset2">
-		<%= raw @topic.content.bbcode_to_html %>
+		<%= markdown @topic.content %>
 	</div>
 </div>
 
@@ -22,7 +22,7 @@
 <div class="row">
 	<div class="span7 offset2">
 		<%= message.title %><br />
-		<%= message.content %>
+		<%= markdown message.content %>
 	</div>
 </div>
 <% end %>
