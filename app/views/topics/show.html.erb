@@ -11,6 +11,6 @@
 
 <div class="row">
 	<div class="span7 offset2">
-		<%= @topic.content %>
+		<%= raw @topic.content.bbcode_to_html %>
 	</div>
 </div>
