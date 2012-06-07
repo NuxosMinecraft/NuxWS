@@ -5,8 +5,12 @@
 				<p>Running <a href='http://github.com/NuxosMinecraft/NuxWS' target='_blank' title='Nuxos Web Site'>NuxWS</a> v0.1</p>
 			</div>
 			<div class="span2">
-				Role: <%= @current_user.role.name %>
-			</span>
+        <%- if @current_user %>
+        <%- if @current_user.role %>
+        Role: <%= @current_user.role.name %>
+        <% end %>
+        <% end %>
+      </div>
 		</div>
 	</div>
 </div>
