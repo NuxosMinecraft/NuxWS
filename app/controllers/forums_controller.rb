@@ -16,7 +16,8 @@ class ForumsController < ApplicationController
   # GET /forums/xxx.json
   def show
     @forum = Forum.find(params[:id])
-
+    @topics = @forum.topics
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @forum }
@@ -37,7 +38,6 @@ class ForumsController < ApplicationController
   # GET /forums/xxx/edit
   def edit
     @forum = Forum.find(params[:id])
-    @markers = return_markers
   end
 
   # POST /forums

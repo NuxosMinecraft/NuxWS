@@ -10,11 +10,11 @@
 <%- @topics.each do |topic| %>
 <div class="row topic_element">
 	<div class="span9">
-		<h4>&raquo; <%= link_to topic.title, forum_topic_path(@forum, topic) %></h4>
+		<h4>&raquo; <%= link_to topic.title, forum_topic(@forum) %></h4>
 	</div>
 	<div class="span3">
-		Par: <%= link_to topic.user.login, topic.user %><br />
-		Le: <%= topic.created_at %>
+		Par: N/A<br />
+		Le: N/A
 	</div>
 </div>
 <%- if @topics.count > 0 %>

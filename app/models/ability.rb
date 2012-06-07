@@ -16,17 +16,17 @@ class Ability
       
       if user.role.rid == 4 or user.role.rid == 8
         # padawan or player
-        can :manage, [Place], :user_id => user.id
+        can :manage, [Place, Topic], :user_id => user.id
         cannot :destroy, [Place], :user_id => user.id
-        # same for Topic, Message can be deleted
+        # same for Message can be deleted
       end
       if user.role.rid == 12
         # moderator
-        can :manage, [Place, Forum, User]
+        can :manage, [Place, Forum, Topic, User]
       end
       if user.role.rid == 16
         # Admin
-        can :manage, [Place, Forum, User]
+        can :manage, [Place, Forum, Topic, User]
       end
     end
   end
