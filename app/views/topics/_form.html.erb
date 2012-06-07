@@ -8,7 +8,7 @@
   <div class="control-group">
     <%= f.label :content, :class => 'control-label' %>
     <div class="controls" style="display: inline-block;">
-      <%= f.text_area :content, :class => 'text_field', :rows => 10, :cols => 20, :class => "span5 markItUp" %>
+      <%= f.text_area :content, :class => 'text_field', :rows => 10, :cols => 20, :class => "markItUp" %>
     </div>
   </div>
   <%- if @current_user.role.rid >= 12 %>
