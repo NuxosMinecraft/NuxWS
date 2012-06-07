@@ -10,7 +10,17 @@
 <%- @topics.each do |topic| %>
 <div class="row topic_element">
 	<div class="span9">
-		<h4>&raquo; <%= link_to topic.title, forum_topic_path(@forum, topic) %></h4>
+		<h4>
+			<%- if can?(:manage, topic )%>
+			<%= link_to "Editer", edit_forum_topic_path(@forum, topic), :class => "btn btn-mini" %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                forum_topic_path(@forum, topic),
+                :method => :delete,
+                :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                :class => 'btn btn-mini btn-danger' %>
+			<% end %>
+			&raquo; <%= link_to topic.title, forum_topic_path(@forum, topic) %>
+		</h4>
 	</div>
 	<div class="span3">
 		Par: <%= link_to topic.user.login, topic.user %><br />
