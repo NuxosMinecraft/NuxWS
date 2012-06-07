@@ -3,7 +3,9 @@ NuxWS::Application.routes.draw do
   resources :user_sessions
   resources :places
   resources :forums do
-    resources :topics
+    resources :topics do
+      resources :messages
+    end
   end
   
   match "/login", :to => "user_sessions#new"

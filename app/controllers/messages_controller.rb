@@ -1,18 +1,18 @@
-class TopicsController < ApplicationController
+class MessagesController < ApplicationController
   load_and_authorize_resource
   # GET /topics
   # GET /topics.json
   def index
-    @forum = Forum.find(params[:forum_id])
-    redirect_to @forum
+    @message = Message.find(params[:message_id])
+    redirect_to @message
   end
 
   # GET /topics/xxx
   # GET /topics/xxx.json
   def show
+    @message = Message.find(params[:id])
+    @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
-    @topic = Topic.find(params[:id])
-    @messages = @topic.messages
     
     respond_to do |format|
       format.html # show.html.erb
@@ -23,8 +23,11 @@ class TopicsController < ApplicationController
   # GET /topics/new
   # GET /topics/new.json
   def new
+    @message = Message.new
+    @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
-    @topic = Topic.new
+
+    @message.title = @topic.title
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,27 +37,31 @@ class TopicsController < ApplicationController
 
   # GET /topics/xxx/edit
   def edit
+    @message = Message.find(params[:id])
+    @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
-    @topic = Topic.find(params[:id])
+    
+    @message.title = @topic.title if @message.title.blank?
+    
   end
 
   # POST /topics
   # POST /topics.json
   def create
+    @message = Message.new(params[:message])
+    @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
-    @topic = Topic.new(params[:topic])
     
-    @topic.forum = @forum
-    @topic.user = current_user
-    @topic.moderation = true if current_user.role.rid <= 1
+    @message.topic = @topic
+    @message.user = current_user
     
     respond_to do |format|
-      if @topic.save
-        format.html { redirect_to [@forum, @topic], notice: 'Topic was successfully created.' }
+      if @message.save
+        format.html { redirect_to forum_topic_path(@forum, @topic), notice: 'Message was successfully created.' }
         format.json { render json: @topic, status: :created, location: @topic }
       else
         format.html { render action: "new" }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
+        format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -62,20 +69,20 @@ class TopicsController < ApplicationController
   # PUT /topics/xxx
   # PUT /topics/.json
   def update
+    @message = Message.find(params[:id])
+    @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
-    @topic = Topic.find(params[:id])
     
     params[:user_id] = current_user.id
-    params[:forum_id] = @forum.id
-    params[:moderation] = true if current_user.role.rid <= 1
+    params[:topic_id] = @topic.id
     
     respond_to do |format|
-      if @topic.update_attributes(params[:topic])
-        format.html { redirect_to [@forum, @topic], notice: 'Topic was successfully updated.' }
+      if @message.update_attributes(params[:message])
+        format.html { redirect_to [@forum, @topic, @message], notice: 'Message was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
+        format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -83,12 +90,13 @@ class TopicsController < ApplicationController
   # DELETE /topics/xxx
   # DELETE /topics/xxx.json
   def destroy
+    @message = Message.find(params[:id])
+    @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
-    @topic = Topic.find(params[:id])
-    @topic.destroy
+    @message.destroy
 
     respond_to do |format|
-      format.html { redirect_to forum_url(@forum) }
+      format.html { redirect_to forum_topic_path(@forum, @topic) }
       format.json { head :no_content }
     end
   end

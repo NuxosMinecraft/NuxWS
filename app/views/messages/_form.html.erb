@@ -1,0 +1,20 @@
+<%= form_for [@forum, @topic, @message], :html => { :class => 'form-horizontal well' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field', :class => "span6" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :content, :class => 'control-label' %>
+    <div class="controls" style="display: inline-block;">
+      <%= f.text_area :content, :class => 'text_field', :rows => 10, :cols => 20, :class => "markItUp" %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                forum_topic_path(@forum, @topic), :class => 'btn' %>
+  </div>
+<% end %>
