@@ -23,6 +23,7 @@
 	<div class="span7 offset2">
 		<%= message.title %><br />
 		<%= raw message.content.bbcode_to_html %>
+		<%= link_to "Editer", edit_forum_topic_message_path(@forum, @topic, message) %>
 	</div>
 </div>
 <% end %>
