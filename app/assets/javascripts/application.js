@@ -16,4 +16,4 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require jquery.markitup
-//= require sets/markdown/set.js
+//= require sets/bbcode/set.js

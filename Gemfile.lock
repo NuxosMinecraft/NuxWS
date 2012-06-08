@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/NuxosMinecraft/markitup_rails.git
+  revision: 2b19e9568b11c0b9fdcd446b23d2050552df11cc
+  specs:
+    markitup_rails (0.1.1)
+      bb-ruby
+      bluecloth
+      rails (~> 3.1)
+
+GIT
   remote: git://github.com/marcandre/bb-ruby.git
   revision: 77a4b3c63e06e053cfbaf04331d9dc31f505c247
   specs:
@@ -87,9 +96,6 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    markitup_rails (0.1.1)
-      bluecloth
-      rails (~> 3.1)
     mime-types (1.18)
     multi_json (1.3.6)
     mysql2 (0.3.11)
@@ -174,7 +180,7 @@ DEPENDENCIES
   haml
   jquery-rails
   kaminari
-  markitup_rails
+  markitup_rails!
   mysql2
   nested_form!
   rails (= 3.2.3)
