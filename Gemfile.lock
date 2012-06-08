@@ -8,6 +8,13 @@ GIT
       rails (~> 3.1)
 
 GIT
+  remote: git://github.com/ledermann/rails-settings.git
+  revision: df8e2c9a02e3265c5e4b86bdad412e8a914addd5
+  specs:
+    ledermann-rails-settings (1.1.0)
+      activerecord (>= 2.3)
+
+GIT
   remote: git://github.com/marcandre/bb-ruby.git
   revision: 77a4b3c63e06e053cfbaf04331d9dc31f505c247
   specs:
@@ -117,8 +124,6 @@ GEM
       activesupport (= 3.2.3)
       bundler (~> 1.0)
       railties (= 3.2.3)
-    rails_config (0.3.0)
-      activesupport (>= 3.0)
     railties (3.2.3)
       actionpack (= 3.2.3)
       activesupport (= 3.2.3)
@@ -180,11 +185,11 @@ DEPENDENCIES
   haml
   jquery-rails
   kaminari
+  ledermann-rails-settings!
   markitup_rails!
   mysql2
   nested_form!
   rails (= 3.2.3)
-  rails_config
   randumb
   ransack
   rmagick

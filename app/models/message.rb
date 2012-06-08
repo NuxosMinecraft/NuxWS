@@ -8,4 +8,9 @@ class Message < ActiveRecord::Base
     
   belongs_to :topic
   belongs_to :user
+  
+  def anonymous?
+    !self.username.blank?
+  end
+  
 end
