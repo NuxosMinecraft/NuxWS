@@ -1,0 +1,35 @@
+Pagination for :
+	- Places
+	- Topics (forum show)
+	- Messages (topic show)
+	- Users list
+
+Add validation step using Minecraft login servers
+
+Online configuration:
+	- Join us block
+	- Forum selection for news block
+	- Rules
+	- Some other things
+
+Finish image upload for Place
+
+Image gallery
+	Using Image model maybe
+
+Users profiles
+
+Forums categories
+
+Forums order
+
+Topics deletion
+
+Message deletions
+
+Topics lock
+
+Topics pin
+
+Full rights tests ...
+
