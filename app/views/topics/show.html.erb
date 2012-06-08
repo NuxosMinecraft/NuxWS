@@ -10,8 +10,14 @@
 
 <br />
 
-<div class="row">
-	<div class="span7 offset2">
+<div class="row forum_topic">
+	<div class="span2 offset1">
+		By: <%= link_to @topic.user.login, @topic.user %><br />
+		Role: <%= @topic.user.role.name %><br />
+		On: <%= @topic.created_at %><br />
+		<%= link_to "Editer", edit_forum_topic_path(@forum, @topic), :class => "btn btn-mini" %>
+	</div>
+	<div class="span9">
 		<%= raw @topic.content.bbcode_to_html %>
 	</div>
 </div>
@@ -19,11 +25,16 @@
 <br />
 
 <%- @messages.each do |message| %>
-<div class="row">
-	<div class="span7 offset2">
+<div class="row forum_message">
+	<div class="span2 offset1">
+		By: <%= link_to message.user.login, message.user %><br />
+		Role: <%= message.user.role.name %><br />
+		On: <%= message.created_at %><br />
+		<%= link_to "Editer", edit_forum_topic_message_path(@forum, @topic, message), :class => "btn btn-mini" %>
+	</div>
+	<div class="span9">
 		<%= message.title %><br />
 		<%= raw message.content.bbcode_to_html %>
-		<%= link_to "Editer", edit_forum_topic_message_path(@forum, @topic, message) %>
 	</div>
 </div>
 <% end %>
