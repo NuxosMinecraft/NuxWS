@@ -11,3 +11,9 @@
 end
 
 Forum.create(:title => "News", :description => "Forum news")
+
+Settings.app_title = "NuxWS"
+Settings.pagination_place = 20
+Settings.pagination_topics = 20
+Settings.pagination_messages = 20
+Settings.news_forum_id = 0

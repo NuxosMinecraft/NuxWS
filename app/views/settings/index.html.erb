@@ -1,0 +1,8 @@
+<%= form_tag("/settings", :method => "put") do %>
+  <% @settings.each_pair do |key, var| %>
+    <%= label_tag(key, key) %>
+    <%= text_field_tag(key, var) %>
+  <% end %>
+  <br />
+  <%= submit_tag("Save Changes") %>
+<% end %>
