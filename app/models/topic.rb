@@ -10,4 +10,8 @@ class Topic < ActiveRecord::Base
   belongs_to :user
   has_many :messages
   
+  def anonymous?
+    !self.username.blank?
+  end
+  
 end
