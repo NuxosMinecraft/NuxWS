@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   def index
     @place = Place.random # display random place in homepage
     @places = Place.limit(5)
-    @news = []
+    @forum_news = Forum.find_by_id(Settings.news_forum_id)
+    @news = @forum_news.topics.limit(5) if @forum_news
   end
   
   rescue_from CanCan::AccessDenied do |exception|

@@ -47,17 +47,19 @@
 		</div>
 		<div class="span4">
 			<h2>Les dernieres news</h2>
+			<% if @forum_news %>
 			<dl class="dl-horizontal" >
 				<%- @news.each do |news| %>
-				<dt><%= link_to news.title, news %></dt>
-				<dd><%= news.short_content %></dd>
+				<dt><%= link_to news.title, [news.forum, news] %></dt>
+				<dd><%= news.content %></dd>
 				<% end %>
 			</dl>
 			<p>
-				<%= link_to "", :class => "btn" do %>
+				<%= link_to Forum.find(Settings.news_forum_id), :class => "btn" do %>
 				Voir toute les news &raquo;
 				<% end %>
 			</p>
+			<% end %>
 		</div>
 
 		<div class="span4">
