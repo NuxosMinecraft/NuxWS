@@ -6,6 +6,8 @@ class Message < ActiveRecord::Base
   #extend FriendlyId
   #friendly_id :title, use: :slugged
     
+  paginates_per Settings.pagination_messages.to_i
+    
   belongs_to :topic
   belongs_to :user
   

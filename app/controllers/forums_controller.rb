@@ -16,7 +16,7 @@ class ForumsController < ApplicationController
   # GET /forums/xxx.json
   def show
     @forum = Forum.find(params[:id])
-    @topics = @forum.topics
+    @topics = @forum.topics.page params[:page]
     
     respond_to do |format|
       format.html # show.html.erb

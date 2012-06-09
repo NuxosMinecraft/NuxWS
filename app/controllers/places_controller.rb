@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    @places = Place.page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

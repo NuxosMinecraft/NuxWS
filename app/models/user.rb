@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   belongs_to :role
   has_many :topics
   
-  paginates_per 20
+  paginates_per Settings.pagination_users.to_i
 
   after_create :create_default_role
 

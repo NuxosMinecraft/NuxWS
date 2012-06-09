@@ -6,7 +6,7 @@ class Place < ActiveRecord::Base
 
   validates_presence_of :user_id, :name, :short_description
 
-  paginates_per 10
+  paginates_per Settings.pagination_places.to_i
 
   belongs_to :user
   has_many :images

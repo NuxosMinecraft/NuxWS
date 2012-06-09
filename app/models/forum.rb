@@ -3,5 +3,7 @@ class Forum < ActiveRecord::Base
   
   validates_presence_of :title
   
+  paginates_per Settings.pagination_topics.to_i
+  
   has_many :topics
 end

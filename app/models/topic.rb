@@ -6,6 +6,8 @@ class Topic < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
     
+  paginates_per Settings.pagination_topics.to_i
+    
   belongs_to :forum
   belongs_to :user
   has_many :messages

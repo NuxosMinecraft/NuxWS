@@ -10,7 +10,7 @@
 <%- @forums.each do |forum| %>
 <div class="row forum_element">
 	<div class="span9">
-	<h4>&raquo; <%= link_to forum.title, forum %></h4>
+		<h4>&raquo; <%= link_to forum.title, forum_topics_path(forum) %></h4>
 	<small><%= forum.description %></small>
 	</div>
 	<div class="span3">

@@ -12,7 +12,7 @@ class TopicsController < ApplicationController
   def show
     @forum = Forum.find(params[:forum_id])
     @topic = Topic.find(params[:id])
-    @messages = @topic.messages
+    @messages = @topic.messages.page params[:page]
     
     respond_to do |format|
       format.html # show.html.erb
