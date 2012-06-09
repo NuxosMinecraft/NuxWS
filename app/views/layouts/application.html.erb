@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><%= content_for?(:title) ? yield(:title) : "NuxWS" %></title>
+    <title><%= Settings.app_title || "NuxWS" %></title>
 	  <%= csrf_meta_tags %>
 	  <%= javascript_include_tag "application" %>
 

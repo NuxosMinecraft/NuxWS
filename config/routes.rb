@@ -11,6 +11,7 @@ NuxWS::Application.routes.draw do
   
   match "/login", :to => "user_sessions#new"
   match "/logout", :to => "user_sessions#destroy"
+  match "/settings", :to => "settings#update", :via => :put
   
   root :to => "application#index"
 end

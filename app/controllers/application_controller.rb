@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include SentientController
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :only_admin
   protect_from_forgery
   
   def index
@@ -13,6 +13,16 @@ class ApplicationController < ActionController::Base
     flash[:error] = "Access denied!"
     redirect_to root_url
   end
+  
+  def only_admin
+    if !@current_user
+      return redirect_to root_url, :error => "Access denied!"
+    end
+    if !@current_user.admin?
+      return redirect_to root_url, :error => "Access denied!"
+    end
+  end
+      
   
   private
   def current_user_session

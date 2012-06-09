@@ -6,9 +6,13 @@
 			</div>
 			<div class="span2">
         <%- if @current_user %>
-        <%- if @current_user.role %>
-        Role: <%= @current_user.role.name %>
-        <% end %>
+	        <%- if @current_user.role %>
+	        Role: <%= @current_user.role.name %>
+	        <% end %>
+			<%- if @current_user.admin? %>
+				<br />
+				Change <%= link_to "application settings.", settings_path %>
+			<% end %>
         <% end %>
       </div>
 		</div>
