@@ -26,3 +26,8 @@ body {
 .forum_message {
 	margin-bottom: 2em;
 }
+
+.thumbnail p {
+	height: 36px;
+	overflow: hidden;
+}

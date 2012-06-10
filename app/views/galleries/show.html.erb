@@ -7,19 +7,19 @@
 
 <br />
 
-<div class="row">
+
+<ul class="thumbnails">
 	<%- @images.each do |image| %>
-		<div class=" span4">
-				<div class="thumbnail">
-					<%= image_tag image.picture.normal.url %>
-					<div class="caption">
-						<h5><%= image.title %></h5>
-						<p><%= image.description %></p>
-						<p><%= link_to "Autres tailles", gallery_image_path(@gallery, image), :class => "btn btn-mini" %></p>
-					</div>
-				</div>
-				<br />
+	<li class="span3">
+		<div class="thumbnail">
+			<%= image_tag image.picture.normal.url %>
+			<div class="caption">
+				<h5><%= image.title %></h5>
+				<p><%= image.description %></p>
+				<p><%= link_to "Autres tailles", gallery_image_path(@gallery, image), :class => "btn btn-mini" %></p>
+			</div>
 		</div>
+	</li>
 	<% end %>
+</ul>
 	
-</div>
