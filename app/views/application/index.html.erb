@@ -10,6 +10,13 @@
 		<div class="span8">
 			<div class="hero-unit hero-small">
 				<% if @place %>
+				<% if @place_images %>
+				<%- @place_images.each do |img| %>
+				<div class="pull-right">
+					<%= image_tag img.picture.thumb.url %>&nbsp;
+				</div>
+				<% end %>
+				<% end %>
 				<h2>D&eacute;couvrez <%= @place.name %></h2>
 				<p><%= @place.short_description %></p>
 				<p>

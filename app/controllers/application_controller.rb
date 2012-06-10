@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   
   def index
     @place = Place.random # display random place in homepage
+    @place_images = nil
+    if @place.galleries.random
+      @place_images = @place.galleries.random.images.random(3)
+    end
+    
     @places = Place.limit(5)
     @forum_news = Forum.find_by_id(Settings.news_forum_id)
     @news = @forum_news.topics.limit(5) if @forum_news

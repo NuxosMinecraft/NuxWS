@@ -89,7 +89,7 @@ class PlacesController < ApplicationController
     @place.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_url }
+      format.html { redirect_to places_path }
       format.json { head :no_content }
     end
   end

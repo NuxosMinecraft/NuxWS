@@ -79,7 +79,7 @@ class ForumsController < ApplicationController
     @forum.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_url }
+      format.html { redirect_to forums_path }
       format.json { head :no_content }
     end
   end
