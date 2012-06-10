@@ -2,7 +2,6 @@
 	<div class="span3"><h1><%= @gallery.title %></h1></div>
 	<div class="span2 offset7">
 		<%= link_to "Editer", edit_gallery_path(@gallery), :class => "btn" if can?(:edit, Gallery) %>
-		<%= link_to "Ajouter des images", new_gallery_image_path(@gallery), :class => "btn" if can?(:create, Image) %>
 	</div>
 </div>
 
