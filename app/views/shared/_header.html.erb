@@ -9,8 +9,8 @@
 			<%= link_to "Nuxos Minecraft", root_url, :class => "brand" %>
 			<div class="nav-collapse">
 				<ul class="nav">
-					<%- if Doc.find(Settings.rules_doc_id) %>
-					<li><%= link_to "La charte", @rules_doc %></li>
+					<%- if Doc.find_all_by_id(Settings.rules_doc_id).count > 0 %>
+					<li><%= link_to "La charte", Doc.find_all_by_id(Settings.rules_doc_id).first %></li>
 					<li class="divider-vertical"></li>
 					<% end %>
 					<li><a href="http://map.nuxos-minecraft.fr/">MAP</a></li>
