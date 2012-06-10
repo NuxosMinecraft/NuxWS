@@ -6,29 +6,9 @@
 <div class="row">
 	<div class="span4">
 		<h3><%= @place.short_description %></h3>
-	</div>
-	<div class="span4">
-		<h2>Divers</h2>
-		<p><%= @place.various %></p>
-	</div>
-</div>
-
-<br />
-
-<div class="row">
-	<div class="span4">
+		<br />
 		<p><%= @place.description %></p>
-	</div>
-	<div class="span4">
-		<h2>Histoire</h2>
-		<p><%= @place.history %></h2>
-	</div>
-</div>
-
-<br />
-
-<div class="row">
-	<div class="span4">
+		<br /><br />
 		<h2>Liens et actions</h2>
 		<p>
 			<% if can? :edit, @place %>
@@ -47,9 +27,37 @@
 			<% end %>
 			<% end %>
 		</p>
+		
 	</div>
+	
 	<div class="span4">
+		<h2>Divers</h2>
+		<p><%= @place.various %></p>
+		<br />
+		<h2>Histoire</h2>
+		<p><%= @place.history %></p>
+		<br />
 		<h2>Créateurs</h2>
 		<p><%= @place.creators %></p>
 	</div>
+	
+	<div class="span4">
+		<% if @place_images %>
+		<h3>Pictures:</h3>
+		<%- @place_images.each do |img| %>
+			<%= image_tag img.picture.thumb.url %>&nbsp;
+		<% end %>
+		<% end %>
+		
+		<% if @place.galleries.count > 0 %>
+		<h3>Galleries:</h3>
+		<ul>
+		<%- @place.galleries.each do |gallery| %>
+		<li><%= link_to gallery.title, gallery %></li>
+		<% end %>
+		</ul>
+		<% end %>
+		
+	</div>
+	
 </div>
