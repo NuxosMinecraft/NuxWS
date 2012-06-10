@@ -1,4 +1,4 @@
-<%= nested_form_for @gallery, :html => { :class => 'form-vertical' } do |f| %>
+<%= nested_form_for @gallery, :html => { :multipart => true, :class => 'form-vertical' } do |f| %>
   <% if @gallery.errors.any? %>
     <div id="error_explanation">
       <h3><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h3>
@@ -44,7 +44,6 @@
 
 
 <div class="row">
-	
 	<%= f.fields_for :images do |image_form| %>
 	<div class="span4">
 		<div class="control-group">
