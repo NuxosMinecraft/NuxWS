@@ -1,4 +1,16 @@
 <%= form_for [@forum, @topic], :html => { :class => 'form-horizontal well' } do |f| %>
+  <% if @topic.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@topic.errors.count, "error") %> prohibited this topic from being saved:</h3>
+
+      <ul>
+		  <% @topic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">

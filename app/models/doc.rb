@@ -5,4 +5,6 @@ class Doc < ActiveRecord::Base
   friendly_id :title, use: :slugged
     
   paginates_per Settings.pagination_docs
+  
+  validates_presence_of :title, :description, :content
 end

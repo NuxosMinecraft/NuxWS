@@ -1,4 +1,17 @@
 <%= form_for [@forum, @topic, @message], :html => { :class => 'form-horizontal well' } do |f| %>
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h3>
+
+      <ul>
+		  <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
@@ -8,7 +21,7 @@
   <div class="control-group">
     <%= f.label :content, :class => 'control-label' %>
     <div class="controls" style="display: inline-block;">
-      <%= f.text_area :content, :class => 'text_field', :rows => 10, :cols => 20, :class => "markItUp" %>
+      <%= f.text_area :content, :class => 'text_field', :rows => 10, :cols => 20, :class => "markItUp-bbcode" %>
     </div>
   </div>
 

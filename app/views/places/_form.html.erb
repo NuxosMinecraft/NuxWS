@@ -1,4 +1,16 @@
 <%= form_for @place, :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @place.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h3>
+
+      <ul>
+		  <% @place.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <div class="row">
 	<div class="span4">
 		<div class="control-group">

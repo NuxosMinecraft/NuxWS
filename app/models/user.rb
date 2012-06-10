@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   acts_as_authentic
 
   validates_presence_of :login, :password, :password_confirmation, :email
-
+  validates :login, :validate_minecraft_login_and_not_hacked => true
   has_many :places
   belongs_to :role
   has_many :topics
