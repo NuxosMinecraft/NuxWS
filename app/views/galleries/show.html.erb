@@ -9,9 +9,7 @@
 
 <div class="row">
 	<%- @images.each do |image| %>
-	<div class="span3">
-		<ul class="thumbnails">
-			<li>
+		<div class=" span4">
 				<div class="thumbnail">
 					<%= image_tag image.picture.normal.url %>
 					<div class="caption">
@@ -20,9 +18,8 @@
 						<p><%= link_to "Autres tailles", gallery_image_path(@gallery, image), :class => "btn btn-mini" %></p>
 					</div>
 				</div>
-			</li>
-		</ul>
-	</div>
+				<br />
+		</div>
 	<% end %>
 	
 </div>
