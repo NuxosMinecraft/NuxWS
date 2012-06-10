@@ -12,6 +12,8 @@
 			<%- if @current_user.admin? %>
 				<br />
 				Change <%= link_to "application settings.", settings_path %>
+				<br />
+				Edit <%= link_to "forum categories", forum_categories_path %>
 			<% end %>
         <% end %>
       </div>

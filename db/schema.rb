@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120610103209) do
+ActiveRecord::Schema.define(:version => 20120610171152) do
 
   create_table "docs", :force => true do |t|
     t.string   "title"
@@ -23,13 +23,20 @@ ActiveRecord::Schema.define(:version => 20120610103209) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "forum_categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "forums", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "position"
-    t.integer  "section_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "forum_category_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "friendly_id_slugs", :force => true do |t|

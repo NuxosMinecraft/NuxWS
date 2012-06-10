@@ -7,11 +7,18 @@
 
 <br />
 
-<%- @forums.each do |forum| %>
+<%- @categories.each do |category| %>
+
+<% if category.forums.count > 0 %>
+
+<h1><%= category.name %></h1>
+<br />
+
+<%- category.forums.each do |forum| %>
 <div class="row forum_element">
 	<div class="span9">
 		<h4>&raquo; <%= link_to forum.title, forum_topics_path(forum) %></h4>
-	<small><%= forum.description %></small>
+		<small><%= forum.description %></small>
 	</div>
 	<div class="span3">
 		Posts: <%= forum.topics.count %>
@@ -24,4 +31,8 @@
 <%- if @forums.count > 0 %>
 <div class="forums-separator"></div>
 <% end %>
+<% end %>
+
+<% end %>
+
 <% end %>

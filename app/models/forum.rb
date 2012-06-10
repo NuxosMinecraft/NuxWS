@@ -1,9 +1,12 @@
 class Forum < ActiveRecord::Base
-  attr_accessible :title, :description, :position
+  attr_accessible :title, :description, :position, :forum_category_id
   
-  validates_presence_of :title
+  default_scope :order => 'position ASC'
+  
+  validates_presence_of :title, :forum_category_id
   
   paginates_per Settings.pagination_topics.to_i
   
   has_many :topics
+  has_one :forum_category
 end
