@@ -9,7 +9,7 @@
 <div class="row">
 	<div class="span4">
 	    <div class="control-group">
-	      <%= label_tag :app_title, :app_title, :class => 'control-label' %>
+	      <%= label_tag :app_title, t(:app_title, :scope => :settings, :default => "Application title"), :class => 'control-label' %>
 	      <div class="controls">
 	        <%= text_field_tag :app_title, Settings.app_title, :class => 'text_field', :class => "span2" %>
 	      </div>
@@ -17,7 +17,7 @@
 	</div>
 	<div class="span4">
 	    <div class="control-group">
-	      <%= label_tag :pagination_users, :pagination_users, :class => 'control-label' %>
+	      <%= label_tag :pagination_users, t(:pagination_users, :scope => :settings, :default => "Pagination, users per pages"), :class => 'control-label' %>
 	      <div class="controls">
 	        <%= number_field_tag :pagination_users, Settings.pagination_users, :class => 'text_field', :class => "span2" %>
 	      </div>
@@ -27,7 +27,7 @@
 <div class="row">
 	<div class="span4">
 	    <div class="control-group">
-	      <%= label_tag :news_forum_id, :news_forum_id, :class => 'control-label' %>
+	      <%= label_tag :news_forum_id, t(:news_forum_id, :scope => :settings, :default => "Which forum for news block"), :class => 'control-label' %>
 	      <div class="controls">
 	        <%= select_tag :news_forum_id, options_from_collection_for_select(Forum.all, :id, :title, Settings.news_forum_id), :class => 'text_field', :class => "span2" %>
 	      </div>
@@ -35,7 +35,7 @@
 	</div>
 	<div class="span4">
 	    <div class="control-group">
-	      <%= label_tag :pagination_places, :pagination_places, :class => 'control-label' %>
+	      <%= label_tag :pagination_places, t(:pagination_users, :scope => :settings, :default => "Pagination, users per pages"), :class => 'control-label' %>
 	      <div class="controls">
 	        <%= number_field_tag :pagination_places, Settings.pagination_places, :class => 'text_field', :class => "span2" %>
 	      </div>
@@ -45,7 +45,7 @@
 <div class="row">
 	<div class="span4 offset4">
 	    <div class="control-group">
-	      <%= label_tag :pagination_topics, :pagination_topics, :class => 'control-label' %>
+	      <%= label_tag :pagination_topics, t(:pagination_topics, :scope => :settings, :default => "Pagination, topics per pages"), :class => 'control-label' %>
 	      <div class="controls">
 	        <%= number_field_tag :pagination_topics, Settings.pagination_topics, :class => 'text_field', :class => "span2" %>
 	      </div>
@@ -55,7 +55,7 @@
 <div class="row">
 	<div class="span4 offset4">
 	    <div class="control-group">
-	      <%= label_tag :pagination_messages, :pagination_messages, :class => 'control-label' %>
+	      <%= label_tag :pagination_messages, t(:pagination_messages, :scope => :settings, :default => "Pagination, messages per pages"), :class => 'control-label' %>
 	      <div class="controls">
 	        <%= number_field_tag :pagination_messages, Settings.pagination_messages, :class => 'text_field', :class => "span2" %>
 	      </div>
