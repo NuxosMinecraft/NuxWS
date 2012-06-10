@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
   def index
     @place = Place.random # display random place in homepage
     @place_images = nil
-    if @place.galleries.random
-      @place_images = @place.galleries.random.images.random(3)
+    if @place
+      if @place.galleries.random
+        @place_images = @place.galleries.random.images.random(3)
+      end
     end
     
     @places = Place.limit(5)
