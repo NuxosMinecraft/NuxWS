@@ -7,6 +7,6 @@ class Forum < ActiveRecord::Base
   
   paginates_per Settings.pagination_topics.to_i
   
-  has_many :topics
+  has_many :topics, :dependent => :delete_all
   has_one :forum_category
 end

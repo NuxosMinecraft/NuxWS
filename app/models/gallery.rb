@@ -4,7 +4,7 @@ class Gallery < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
     
-  has_many :images
+  has_many :images, :dependent => :delete_all
   has_one :place
   
   accepts_nested_attributes_for :images, :allow_destroy => true
