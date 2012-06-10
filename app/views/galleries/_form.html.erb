@@ -1,0 +1,78 @@
+<%= nested_form_for @gallery, :html => { :class => 'form-vertical' } do |f| %>
+<div class="row">
+	
+	<div class="span4">
+		<div class="control-group">
+			<%= f.label :title, :class => 'control-label' %>
+			<div class="controls">
+				<%= f.text_field :title, :class => 'text_field' %>
+			</div>
+		</div>
+	</div>
+	
+	<div class="span4">
+		<div class="control-group">
+			<%= f.label :description, :class => 'control-label' %>
+			<div class="controls">
+				<%= f.text_area :description, :class => 'text_field', :rows => 5, :cols => 5 %>
+			</div>
+		</div>
+	</div>
+	
+	<div class="span4">
+		<div class="control-group">
+			<%= f.label :place_id, :class => 'control-label' %>
+			<div class="controls">
+				<%= f.collection_select :place_id, Place.all, :id, :name, :class => "number_field", :include_blank => true %>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+
+<div class="row">
+	
+	<%= f.fields_for :images do |image_form| %>
+	<div class="span4">
+		<div class="control-group">
+			<%= image_tag image_form.object.picture.thumb.url if !image_form.object.new_record? %>
+		</div>
+		<div class="control-group">
+			<%= image_form.label :title, :class => 'control-label '%>
+			<div class="controls">
+				<%= image_form.text_field :title, :class => "span3" %>
+			</div>
+		</div>
+	
+		<div class="control-group">
+			<%= image_form.label :picture, :class => 'control-label '%>
+			<div class="controls">
+				<%= image_form.file_field :picture, :class => "span3" %>
+			</div>
+		</div>
+		
+		<div class="control-group">
+			<%= image_form.label :description, :class => 'control-label '%>
+			<div class="controls">
+				<%= image_form.text_area :description, :rows => 4, :class => "span3" %>
+			</div>
+		</div>
+		<p><%= image_form.link_to_remove "Remove this image" %></p>
+	</div>
+	
+	<% end %>
+</div>
+
+<p><%= f.link_to_add "Add an image", :images %></p>
+
+<div class="row">
+	<div class="span12">
+		<div class="form-actions">
+			<%= f.submit nil, :class => 'btn btn-primary' %>
+			<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+			galleries_path, :class => 'btn' %>
+		</div>
+	</div>
+</div>
+<% end %>

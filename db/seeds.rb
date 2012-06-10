@@ -17,5 +17,7 @@ Settings.pagination_places = 20
 Settings.pagination_topics = 20
 Settings.pagination_messages = 20
 Settings.pagination_users = 20
+Settings.pagination_galleries = 20
+Settings.pagination_images = 2-
 Settings.news_forum_id = 0
 Settings.block_join_us = "Nous rejoindre\r\n-----------------\r\n\r\nC'est facile, suivez le guide !"

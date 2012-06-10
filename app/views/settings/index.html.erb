@@ -62,6 +62,25 @@
 	      </div>
 	    </div>
 		
+		<br />
+		
+	    <div class="control-group">
+	      <%= label_tag :pagination_galleries, t(:pagination_galleries, :scope => :settings, :default => "Pagination, galleries per pages"), :class => 'control-label' %>
+	      <div class="controls">
+	        <%= number_field_tag :pagination_galleries, Settings.pagination_galleries, :class => 'text_field', :class => "span2" %>
+	      </div>
+	    </div>
+		
+		<br />
+		
+	    <div class="control-group">
+	      <%= label_tag :pagination_images, t(:pagination_images, :scope => :settings, :default => "Pagination, images per pages"), :class => 'control-label' %>
+	      <div class="controls">
+	        <%= number_field_tag :pagination_images, Settings.pagination_images, :class => 'text_field', :class => "span2" %>
+	      </div>
+	    </div>
+		
+		
 	</div>
 	
 	<div class="span4">

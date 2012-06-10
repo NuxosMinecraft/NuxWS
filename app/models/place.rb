@@ -1,5 +1,5 @@
 class Place < ActiveRecord::Base
-  attr_accessible :user_id, :name, :short_description, :description, :history, :creators, :various, :map_marker, :images_attributes
+  attr_accessible :user_id, :name, :short_description, :description, :history, :creators, :various, :map_marker
 
   extend FriendlyId
   friendly_id :name, use: :slugged
@@ -9,10 +9,8 @@ class Place < ActiveRecord::Base
   paginates_per Settings.pagination_places.to_i
 
   belongs_to :user
-  has_many :images
-  
-  accepts_nested_attributes_for :images
-  
+  has_many :galleries
+    
   def map_link
     # ?worldname=world&mapname=surface&zoom=4&x=573.7119719902382&y=64&z=467.64595481225604#
     worldname = "world" # FIXED for the moment...

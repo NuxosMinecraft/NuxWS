@@ -1,4 +1,4 @@
-<%= nested_form_for @place, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @place, :html => { :class => 'form-horizontal' } do |f| %>
 <div class="row">
 	<div class="span4">
 		<div class="control-group">
@@ -47,17 +47,7 @@
 			</div>
 		</div>
 	</div>
-	
-	<div class="span4">
-		<p><%= f.link_to_add "Add an image", :images %></p>
-		<br />
-		<%= f.fields_for :images do |image_form| %>
-		<%= image_form.text_field :title %>
-		<%= image_form.file_field :image %>
-		<%= image_form.text_area :description, :rows => 4, :cols => 10 %>
-		<p><%= image_form.link_to_remove "Remove this image" %></p>
-		<% end %>
-	</div>
+
 </div>
 
 <div class="row">

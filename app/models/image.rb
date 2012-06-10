@@ -2,7 +2,13 @@ class Image < ActiveRecord::Base
   attr_accessible :title, :description, :picture
   mount_uploader :picture, PictureUploader
   
-  belongs_to :place
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+    
+  belongs_to :gallery
   
-  validates_associated :place
+  validates_associated :gallery
+  validates_presence_of :title, :picture
+  
+  paginates_per Settings.pagination_images
 end

@@ -13,11 +13,9 @@
 					<li class="divider-vertical"></li>
 					<li><%= link_to "Forums", forums_url %></li>
 					<li class="divider-vertical"></li>
-					<li><a href="#tutos">Les tutos</a></li>
+					<li class="<%= controller_name == "galleries" ? "active" : "" %>" ><%= link_to "Galleries photos", galleries_url %></li>
 					<li class="divider-vertical"></li>
 					<li class="<%= controller_name == "places" ? "active" : "" %>" ><%= link_to "Les lieux", places_url %></li>
-					<li class="divider-vertical"></li>
-					<li><a href="#contact">Contactez nous</a></li>
 					<li class="divider-vertical"></li>
 				</ul>
 				

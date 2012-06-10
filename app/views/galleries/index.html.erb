@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="span3"><h1>Les galleries</h1></div>
+	<div class="span2 offset7">
+		<%= link_to "Créer une gallerie", new_gallery_path, :class => "btn" if can?(:create, Gallery) %>
+	</div>
+</div>
+
+<br />
+
+<%- @galleries.each do |gallery| %>
+<div class="row gallery_element">
+	<div class="span9">
+		<h4>&raquo; <%= link_to gallery.title, gallery_path(gallery) %></h4>
+	<small><%= gallery.description %></small>
+	</div>
+	<div class="span3">
+		Images: <%= gallery.images.count %>
+	</div>
+</div>
+<%- if @galleries.count > 0 %>
+<div class="forums-separator"></div>
+<% end %>
+<% end %>
