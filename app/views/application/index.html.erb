@@ -51,7 +51,7 @@
 			<dl class="dl-horizontal" >
 				<%- @news.each do |news| %>
 				<dt><%= link_to news.title, [news.forum, news] %></dt>
-				<dd><%= news.content %></dd>
+				<dd><%= truncate(news.content, :length => 20) %></dd>
 				<% end %>
 			</dl>
 			<p>
