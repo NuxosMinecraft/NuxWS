@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/NuxosMinecraft/markitup_rails.git
-  revision: 2b19e9568b11c0b9fdcd446b23d2050552df11cc
+  revision: 94fcada670cf5a87276b4bd84e6e520548ba988b
   specs:
     markitup_rails (0.1.1)
       bb-ruby
