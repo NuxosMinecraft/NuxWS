@@ -47,7 +47,7 @@
 	<%= f.fields_for :images do |image_form| %>
 	<div class="span4">
 		<div class="control-group">
-			<%= image_tag image_form.object.picture.thumb.url if !image_form.object.new_record? %>
+			<%= image_tag image_form.object.picture.thumb.url if image_form.object.picture? %>
 		</div>
 		<div class="control-group">
 			<%= image_form.label :title, :class => 'control-label '%>
@@ -60,6 +60,7 @@
 			<%= image_form.label :picture, :class => 'control-label '%>
 			<div class="controls">
 				<%= image_form.file_field :picture, :class => "span3" %>
+				<%= image_form.hidden_field :picture_cache %>
 			</div>
 		</div>
 		

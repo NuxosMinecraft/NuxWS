@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-  attr_accessible :title, :description, :picture
+  attr_accessible :title, :description, :picture, :picture_cache
   mount_uploader :picture, PictureUploader
   
   extend FriendlyId

@@ -1,0 +1,34 @@
+<div class="row">
+	<div class="span10">
+		<h1><%= link_to @image.gallery.title, @image.gallery %> &raquo; <small><%= @image.title %></small></h1>
+	</div>
+</div>
+<br />
+
+<div class="row">
+	<div class="span12">
+		Full size: <%= link_to "link", @image.picture.url %>
+		<br />
+		<%= image_tag @image.picture.url %>
+	</div>
+</div>
+
+<br />
+
+<div class="row">
+	<div class="span12">
+		<ul class="thumbnails">
+			<%- [:normal, :small, :thumb].each do |size| %>
+			<li class="span3">
+				<div class="thumbnail">
+					<%= image_tag @image.picture.url(size) %>
+					<div class="caption">
+						Direct link: <%= link_to "size #{size.to_s}", @image.picture.url(size) %>
+					</div>
+				</div>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+

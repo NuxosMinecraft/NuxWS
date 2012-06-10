@@ -7,16 +7,22 @@
 
 <br />
 
-<%- @images.each do |image| %>
-<div class="row gallery_element">
-	<div class="span9">
-		<h4>&raquo; <%= link_to image.title, gallery_image_path(@gallery, image) %></h4>
-		<small><%= image.description %></small>
-		<br />
-		<%= image_tag image.picture.thumb.url %>
+<div class="row">
+	<%- @images.each do |image| %>
+	<div class="span3">
+		<ul class="thumbnails">
+			<li>
+				<div class="thumbnail">
+					<%= image_tag image.picture.normal.url %>
+					<div class="caption">
+						<h5><%= image.title %></h5>
+						<p><%= image.description %></p>
+						<p><%= link_to "Autres tailles", gallery_image_path(@gallery, image), :class => "btn btn-mini" %></p>
+					</div>
+				</div>
+			</li>
+		</ul>
 	</div>
+	<% end %>
+	
 </div>
-<%- if @images.count > 0 %>
-<div class="forums-separator"></div>
-<% end %>
-<% end %>
