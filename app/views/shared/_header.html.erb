@@ -9,13 +9,19 @@
 			<%= link_to "Nuxos Minecraft", root_url, :class => "brand" %>
 			<div class="nav-collapse">
 				<ul class="nav">
+					<%- if Doc.find(Settings.rules_doc_id) %>
+					<li><%= link_to "La charte", @rules_doc %></li>
+					<li class="divider-vertical"></li>
+					<% end %>
 					<li><a href="http://map.nuxos-minecraft.fr/">MAP</a></li>
 					<li class="divider-vertical"></li>
 					<li><%= link_to "Forums", forums_url %></li>
 					<li class="divider-vertical"></li>
 					<li class="<%= controller_name == "galleries" ? "active" : "" %>" ><%= link_to "Galleries photos", galleries_url %></li>
 					<li class="divider-vertical"></li>
-					<li class="<%= controller_name == "places" ? "active" : "" %>" ><%= link_to "Les lieux", places_url %></li>
+					<li class="<%= controller_name == "places" ? "active" : "" %>" ><%= link_to "Lieux", places_url %></li>
+					<li class="divider-vertical"></li>
+					<li class="<%= controller_name == "docs" ? "active" : "" %>" ><%= link_to "Documents", docs_url %></li>
 					<li class="divider-vertical"></li>
 				</ul>
 				

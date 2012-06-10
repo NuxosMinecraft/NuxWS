@@ -24,6 +24,14 @@
 	      </div>
 	    </div>
 		
+	    <div class="control-group">
+	      <%= label_tag :rules_doc_id, t(:rules_doc_id, :scope => :settings, :default => "Which doc use for rules link"), :class => 'control-label' %>
+	      <div class="controls">
+	        <%= select_tag :rules_doc_id, options_from_collection_for_select(Doc.all, :id, :title, Settings.rules_doc_id), :class => 'text_field', :class => "span2" %>
+	      </div>
+	    </div>
+		
+		
 	</div>
 	
 	

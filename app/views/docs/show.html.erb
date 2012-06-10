@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="span10">
+		<h1><%= @doc.title %></h1>
+	</div>
+	<div class="span2">
+		<%= link_to "Editer", edit_doc_path(@doc), :class => "btn" if can?(:edit, @doc) %>
+	</div>
+</div>
+<br/>
+<div class="row">
+	<div class="span10 offset1">
+		<%= markdown @doc.description %>
+	</div>
+</div>
+
+<hr>
+
+<div class="row">
+	<div class="span10 offset1">
+		<%= markdown @doc.content %>
+	</div>
+</div>

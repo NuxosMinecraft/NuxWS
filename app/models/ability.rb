@@ -19,15 +19,16 @@ class Ability
         can :manage, [Gallery, Image] # no specific user association
         can :manage, [Place, Topic, Message], :user_id => user.id
         cannot :destroy, [Place], :user_id => user.id
+        can :manage, [Doc], :modos_only => false
         # same for Message can be deleted
       end
       if user.role.rid == 12
         # moderator
-        can :manage, [Place, Forum, Topic, Message, Gallery, Image, User]
+        can :manage, [Place, Forum, Topic, Message, Gallery, Image, Doc, User]
       end
       if user.role.rid == 16
         # Admin
-        can :manage, [Place, Forum, Topic, Message, Gallery, Image, User]
+        can :manage, [Place, Forum, Topic, Message, Gallery, Image, Doc, User]
       end
     end
   end

@@ -11,6 +11,7 @@ NuxWS::Application.routes.draw do
   resources :galleries do
     resources :images
   end
+  resources :docs
   
   match "/login", :to => "user_sessions#new"
   match "/logout", :to => "user_sessions#destroy"
