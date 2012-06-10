@@ -17,3 +17,4 @@
 //= require_tree .
 //= require jquery.markitup
 //= require sets/bbcode/set.js
+//= require sets/markdown/set.js
