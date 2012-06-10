@@ -14,7 +14,19 @@
 	        <%= text_field_tag :app_title, Settings.app_title, :class => 'text_field', :class => "span2" %>
 	      </div>
 	    </div>
+		
+		<br />
+		
+	    <div class="control-group">
+	      <%= label_tag :news_forum_id, t(:news_forum_id, :scope => :settings, :default => "Which forum for news block"), :class => 'control-label' %>
+	      <div class="controls">
+	        <%= select_tag :news_forum_id, options_from_collection_for_select(Forum.all, :id, :title, Settings.news_forum_id), :class => 'text_field', :class => "span2" %>
+	      </div>
+	    </div>
+		
 	</div>
+	
+	
 	<div class="span4">
 	    <div class="control-group">
 	      <%= label_tag :pagination_users, t(:pagination_users, :scope => :settings, :default => "Pagination, users per pages"), :class => 'control-label' %>
@@ -22,47 +34,45 @@
 	        <%= number_field_tag :pagination_users, Settings.pagination_users, :class => 'text_field', :class => "span2" %>
 	      </div>
 	    </div>
-	</div>
-</div>
-<div class="row">
-	<div class="span4">
-	    <div class="control-group">
-	      <%= label_tag :news_forum_id, t(:news_forum_id, :scope => :settings, :default => "Which forum for news block"), :class => 'control-label' %>
-	      <div class="controls">
-	        <%= select_tag :news_forum_id, options_from_collection_for_select(Forum.all, :id, :title, Settings.news_forum_id), :class => 'text_field', :class => "span2" %>
-	      </div>
-	    </div>
-	</div>
-	<div class="span4">
+		
+		<br />
+		
 	    <div class="control-group">
 	      <%= label_tag :pagination_places, t(:pagination_users, :scope => :settings, :default => "Pagination, users per pages"), :class => 'control-label' %>
 	      <div class="controls">
 	        <%= number_field_tag :pagination_places, Settings.pagination_places, :class => 'text_field', :class => "span2" %>
 	      </div>
 	    </div>
-	</div>
-</div>
-<div class="row">
-	<div class="span4 offset4">
+		
+		<br />
+		
 	    <div class="control-group">
 	      <%= label_tag :pagination_topics, t(:pagination_topics, :scope => :settings, :default => "Pagination, topics per pages"), :class => 'control-label' %>
 	      <div class="controls">
 	        <%= number_field_tag :pagination_topics, Settings.pagination_topics, :class => 'text_field', :class => "span2" %>
 	      </div>
 	    </div>
-	</div>
-</div>
-<div class="row">
-	<div class="span4 offset4">
+		
+		<br />
+		
 	    <div class="control-group">
 	      <%= label_tag :pagination_messages, t(:pagination_messages, :scope => :settings, :default => "Pagination, messages per pages"), :class => 'control-label' %>
 	      <div class="controls">
 	        <%= number_field_tag :pagination_messages, Settings.pagination_messages, :class => 'text_field', :class => "span2" %>
 	      </div>
 	    </div>
+		
+	</div>
+	
+	<div class="span4">
+	    <div class="control-group">
+	      <%= label_tag :block_join_us, t(:pagination_messages, :scope => :settings, :default => "Text for join us block"), :class => 'control-label' %>
+	      <div class="controls">
+	        <%= text_area_tag :block_join_us, Settings.block_join_us, :class => 'text_area', :class => "span4", :rows => 5 %>
+	      </div>
+	    </div>
 	</div>
 </div>
-
 
 
 <div class="row">
