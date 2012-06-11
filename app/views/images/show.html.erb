@@ -7,7 +7,7 @@
 
 <div class="row">
 	<div class="span12">
-		Full size: <%= link_to "link", @image.picture.url %>
+		Full size: <%= link_to "link", @image.picture.url, :class => "btn btn-mini" %>
 		<br />
 		<%= image_tag @image.picture.url %>
 	</div>
@@ -23,7 +23,7 @@
 				<div class="thumbnail">
 					<%= image_tag @image.picture.url(size) %>
 					<div class="caption">
-						Direct link: <%= link_to "size #{size.to_s}", @image.picture.url(size) %>
+						Direct link: <%= link_to "size #{size.to_s}", @image.picture.url(size), :class => "btn btn-mini" %>
 					</div>
 				</div>
 			</li>
