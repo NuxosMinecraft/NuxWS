@@ -18,7 +18,10 @@
 			<div class="span7 tb_msg">
 				<div class="row tb_msg_dating">
 					<div class="span5">
-						<b>le:</b> <%= msg.created_at %>
+						<%- if !topic %>
+						<h4><%= msg.title %></h4>
+						<% end %>
+						<%- if !topic %>&nbsp;&nbsp;&nbsp;<% end %><b>le:</b> <%= msg.created_at %>
 					</div>
 					<div class="span2">
 						<%- if topic %>
