@@ -11,21 +11,26 @@
 
 <% if category.forums.count > 0 %>
 
-<h1><%= category.name %></h1>
-<br />
+<div class="page-header">
+	<h2><%= category.name %></h2>
+</div>
 
 <%- category.forums.each do |forum| %>
 <div class="row forum_element">
 	<div class="span9">
-		<h4>&raquo; <%= link_to forum.title, forum_topics_path(forum) %></h4>
+		<div class="fe_title">
+		<h3>&raquo; <%= link_to forum.title, forum_topics_path(forum) %></h3>
 		<small><%= forum.description %></small>
+		</div>
 	</div>
 	<div class="span3">
+		<div class="fe_facts">
 		Posts: <%= forum.topics.count %>
 		<br />
 		<%- if forum.topics.last %>
 		Dernier: <%= link_to forum.topics.last.title, forum_topic_path(forum, forum.topics.last) %>
 		<% end %>
+		</div>
 	</div>
 </div>
 <%- if @forums.count > 0 %>
@@ -34,5 +39,9 @@
 <% end %>
 
 <% end %>
+
+<br />
+<br />
+
 
 <% end %>

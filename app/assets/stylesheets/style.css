@@ -9,7 +9,7 @@ body {
 }
 
 .forums-separator {
-	border-top: 1px solid lightgrey;
+	/* border-top: 1px dashed lightgrey; */
 	margin-bottom: 2em;
 }
 
@@ -30,4 +30,33 @@ body {
 .thumbnail p {
 	height: 36px;
 	overflow: hidden;
+}
+
+.forum_element {
+	min-height: 4em;
+	color: #444444;
+}
+
+.forum_element .fe_title {
+	border: 1px solid #DDDDDD;
+	
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	
+	min-height: 4em;
+	background-color: #F0F4F7;
+	padding: 0.3em 0.7em;
+}
+
+.forum_element .fe_facts {
+	border: 1px solid #DDDDDD;
+	
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	
+	min-height: 4em;
+	background-color: #E7EAEF;
+	padding: 0.3em 0.7em;
 }
