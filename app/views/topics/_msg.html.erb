@@ -1,0 +1,51 @@
+<div class="row block_message">
+	<!-- 9 usable columns, two last are for last topics unread -->
+	<div class="span9 offset1 topic_block">
+		<div class="row">
+			<div class="span2 tb_author">
+				<img class="tb_skin skin pull-left" src="http://www.minecraft.net/skin/<%= msg.user.login %>.png"/>
+				<script type="text/javascript">
+					renderMCSkins('skin', 2);
+				</script>
+				
+				<h4><%= link_to msg.user.login, msg.user %></h4>
+				<!-- TODO: add custom role mention -->
+				<%= msg.user.role.name %><br />
+				
+				Messages: <%= msg.user.messages.count %><br />
+			</div>
+			
+			<div class="span7 tb_msg">
+				<div class="row tb_msg_dating">
+					<div class="span5">
+						<b>le:</b> <%= msg.created_at %>
+					</div>
+					<div class="span2">
+						<%- if topic %>
+						<%= link_to "Editer", edit_forum_topic_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
+						<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+						forum_topic_path(@forum, @topic),
+						:method => :delete,
+						:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+						:class => 'btn btn-mini btn-danger' if can?(:destroy, @topic) %>
+						<% else %>
+						<%= link_to "Editer", edit_forum_topic_message_path(@forum, @topic, msg), :class => "btn btn-mini" if can?(:edit, msg) %>
+						<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+						forum_topic_message_path(@forum, @topic, msg),
+						:method => :delete,
+						:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+						:class => 'btn btn-mini btn-danger' if can?(:destroy, msg) %>
+						<% end %>
+					</div>
+				</div>
+				
+				<div class="row tb_msg_content">
+					<div class="span7">
+						<%= raw msg.content.bbcode_to_html %>
+					</div>
+				</div>
+				
+			</div> <!-- span2 tb_msg -->
+		</div>
+	</div>
+</div>

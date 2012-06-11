@@ -10,63 +10,31 @@
 
 <br />
 
-<div class="row forum_topic">
-	<div class="span2 offset1">
-		By: <%= link_to @topic.user.login, @topic.user %><br />
-		Role: <%= @topic.user.role.name %><br />
-		On: <%= @topic.created_at %><br />
-		<%= link_to "Editer", edit_forum_topic_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
-        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-            forum_topic_path(@forum, @topic),
-            :method => :delete,
-            :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-            :class => 'btn btn-mini btn-danger' if can?(:destroy, @topic) %>
+<div class="row">
+	<!-- 9 usable columns, two last are for last topics unread -->
+	<div class="span9 offset1 topic_header">
+		<div class="row">
+			<div class="span2 th_author">
+				<h4>Auteur</h4>
+			</div>
+			<div class="span7">
+				<h4>Sujet: <%= @topic.title %></h4>
+			</div>
+		</div>
 	</div>
-	<div class="span8">
-		<%= raw @topic.content.bbcode_to_html %>
-	</div>
-	<div class="span1">
-		<img class="skin" src="http://www.minecraft.net/skin/<%= @topic.user.login %>.png"/>
-		<script type="text/javascript">
-        renderMCSkins('skin', 2);
-		</script>
-	</div>
-	
 </div>
+
+
+<%= render :partial => "msg", :locals => {:topic => @topic, :msg => @topic} %>
 
 <br />
 
 <%- @messages.each do |message| %>
-<div class="row forum_message">
-	<%- if message.deleted %>
-	<div class="span11 offset1">
-		<%= link_to "Editer", edit_forum_topic_message_path(@forum, @topic, message), :class => "btn btn-mini" if can?(:edit, message) %>
-		By: <%= link_to message.user.login, message.user %>. Message deleted: <%= message.deletion_reason %>
-	</div>
-	<% else %>
-	<div class="span2 offset1">
-		By: <%= link_to message.user.login, message.user %><br />
-		Role: <%= message.user.role.name %><br />
-		On: <%= message.created_at %><br />
-		<%= link_to "Editer", edit_forum_topic_message_path(@forum, @topic, message), :class => "btn btn-mini" if can?(:edit, message) %>
-        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-            forum_topic_message_path(@forum, @topic, message),
-            :method => :delete,
-            :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-            :class => 'btn btn-mini btn-danger' if can?(:destroy, message) %>
-	</div>
-	<div class="span8">
-		<%= message.title %><br />
-		<%= raw message.content.bbcode_to_html %>
-	</div>
-	<div class="span1">
-		<img class="skin" src="http://www.minecraft.net/skin/<%= message.user.login %>.png"/>
-		<script type="text/javascript">
-        renderMCSkins('skin', 2);
-		</script>
-	</div>
-	<% end %>
-</div>
+<%- if message.deleted %>
+<%= render :partial => "msg_deleted", :locals => {:msg => message} %>
+<% else %>
+<%= render :partial => "msg", :locals => {:topic => nil, :msg => message} %>
+<% end %>
 <% end %>
 
 <%= paginate @messages %>

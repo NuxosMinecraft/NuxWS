@@ -1,0 +1,19 @@
+<div class="row block_message">
+	<!-- 9 usable columns, two last are for last topics unread -->
+	<div class="span9 offset1 topic_block">
+		<div class="row">
+			<div class="span2 tb_author">
+				<%= link_to msg.user.login, msg.user %>
+			</div>
+			<div class="span2 tb_date">
+				<b>le:</b> <%= msg.created_at %>
+			</div>
+			<div class="span4 tb_deleted">
+				Msg deleted: <%= msg.deletion_reason %>
+			</div>
+			<div class="span1 tb_edit">
+				<%= link_to "Editer", edit_forum_topic_message_path(@forum, @topic, msg), :class => "btn btn-mini" if can?(:edit, msg) %>
+			</div>
+		</div>
+	</div>
+</div>

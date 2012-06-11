@@ -124,3 +124,52 @@ body {
 
 .topics_list .tl_tp .tl_tp_actions {
 }
+
+.topic_header {
+	background-color: #305084;
+	color: #FFFFFF;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	padding: 5px;
+	
+	margin-bottom: 0.5em;
+}
+
+.topic_header .th_author {
+	text-align: center;
+}
+
+.forum_topic {
+	background-color: #E1E5EA;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	
+	padding: 5px;
+}
+
+.topic_block {
+	background-color: #E7EAEF;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	
+	padding: 10px;
+}
+
+.tb_author .tb_skin {
+	margin-right: 1em;
+}
+
+.tb_msg_dating {
+	margin-bottom: 0.5em;
+}
+
+.tb_msg_content div {
+	border-top: 1px solid #9999AA;
+}
+
+.block_message {
+	margin-bottom: 0.5em;
+}
