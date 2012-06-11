@@ -8,29 +8,52 @@
 
 <br />
 
-<%- @topics.each do |topic| %>
-<div class="row topic_element">
-	<div class="span9">
-		<h4>
-			<%- if can?(:manage, topic )%>
-			<%= link_to "Editer", edit_forum_topic_path(@forum, topic), :class => "btn btn-mini" %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                forum_topic_path(@forum, topic),
-                :method => :delete,
-                :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                :class => 'btn btn-mini btn-danger' %>
-			<% end %>
-			&raquo; <%= link_to topic.title, forum_topic_path(@forum, topic) %>
-		</h4>
-	</div>
-	<div class="span3">
-		Par: <%= link_to topic.user.login, topic.user %><br />
-		Le: <%= topic.created_at %>
-	</div>
-</div>
-<%- if @topics.count > 0 %>
-<div class="topics-separator"></div>
-<% end %>
-<% end %>
+
+		
+<table class="table topics_list_header">
+	<thead>
+		<tr class="tl_header">
+			<th width="70%">Titre / Démarré par</th>
+			<th width="20%">Dernier message</th>
+			<th width="10%">Actions</th>
+		</tr>
+	</thead>
+</table>
+
+<table class="table topics_list">
+	<tbody>
+		<%- @topics.each do |topic| %>
+		<tr class="tl_t">
+			<td width="70%" class="tl_t_title">
+				<h4><span class="badge" title="messages count"><%= topic.messages.count %></span> <%= link_to topic.title, forum_topic_path(@forum, topic) %></h4>
+				Démarré par <%= link_to topic.user.login, topic.user %>
+			</td>
+	
+			<td width="20%" class="tl_t_infos">
+				<%- if topic.messages.last %>
+				<%= topic.messages.last.created_at%>
+				<br />
+				by: <%= link_to topic.messages.last.user.login, topic.messages.last.user %>
+				<% end %>
+			</td>
+	
+			<td width="10%" class="tl_t_actions">
+				<h4>
+					<%- if can?(:manage, topic )%>
+					<%= link_to "Editer", edit_forum_topic_path(@forum, topic), :class => "btn btn-mini" %>
+					<br />
+					<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+					forum_topic_path(@forum, topic),
+					:method => :delete,
+					:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+					:class => 'btn btn-mini btn-danger' %>
+					<% end %>
+				</h4>
+			</td>
+	
+		</tr>
+		<% end %>
+	</tbody>
+</table>
 
 <%= paginate @topics %>

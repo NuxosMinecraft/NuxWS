@@ -60,3 +60,58 @@ body {
 	background-color: #E7EAEF;
 	padding: 0.3em 0.7em;
 }
+
+.topics_list_header {
+	background-color: #305084;
+	color: #FFFFFF;
+	
+	border-top: 1px solid #5DC0FA;
+	
+	-moz-border-radius-topleft: 10px;
+	-webkit-border-top-left-radius: 10px;
+	border-top-left-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-webkit-border-top-right-radius: 10px;
+	border-top-right-radius: 10px;
+	
+	border-collapse: separate;
+		
+	/* reset bootstrap stuff */
+	margin-bottom: 1px;
+}
+
+.topics_list .tl_t {
+}
+
+.topics_list .tl_t .tl_t_title {
+	background-color: #F0F4F7;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	border-right: 1px solid #FFFFFF;
+}
+
+.topics_list .tl_t .tl_t_infos {
+	background-color: #E7EAEF;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	border-right: 1px solid #FFFFFF;
+}
+
+.topics_list .tl_t .tl_t_actions {
+	background-color: #F0F4F7;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	text-align: center;
+}
+
+.topics_list .tl_tp {
+}
+
+.topics_list .tl_tp .tl_tp_title {
+}
+
+.topics_list .tl_tp .tl_tp_infos {
+}
+
+.topics_list .tl_tp .tl_tp_actions {
+}
