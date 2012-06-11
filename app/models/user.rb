@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :places
   belongs_to :role
   has_many :topics
+  has_many :messages
   
   paginates_per Settings.pagination_users.to_i
 

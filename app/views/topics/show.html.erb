@@ -48,9 +48,15 @@
             :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
             :class => 'btn btn-mini btn-danger' if can?(:destroy, message) %>
 	</div>
-	<div class="span9">
+	<div class="span8">
 		<%= message.title %><br />
 		<%= raw message.content.bbcode_to_html %>
+	</div>
+	<div class="span1">
+		<img class="skin" src="http://www.minecraft.net/skin/<%= message.user.login %>.png"/>
+		<script type="text/javascript">
+        renderMCSkins('skin', 2);
+		</script>
 	</div>
 	<% end %>
 </div>
