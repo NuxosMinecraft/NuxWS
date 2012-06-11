@@ -9,7 +9,7 @@ class Gallery < ActiveRecord::Base
   
   accepts_nested_attributes_for :images, :allow_destroy => true
   
-  paginates_per Settings.pagination_galleries
+  paginates_per Settings.pagination_galleries.to_i
   
   validates_presence_of :title
 end

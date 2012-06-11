@@ -10,5 +10,5 @@ class Image < ActiveRecord::Base
   validates_associated :gallery
   validates_presence_of :title, :picture
   
-  paginates_per Settings.pagination_images
+  paginates_per Settings.pagination_images.to_i
 end

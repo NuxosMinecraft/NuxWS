@@ -7,17 +7,19 @@
 
 <br />
 
-<%- @galleries.each do |gallery| %>
-<div class="row gallery_element">
-	<div class="span9">
-		<h4>&raquo; <%= link_to gallery.title, gallery_path(gallery) %></h4>
-	<small><%= gallery.description %></small>
-	</div>
-	<div class="span3">
-		Images: <%= gallery.images.count %>
-	</div>
-</div>
-<%- if @galleries.count > 0 %>
-<div class="forums-separator"></div>
-<% end %>
-<% end %>
+<ul class="thumbnails">
+	<%- @galleries.each do |gallery| %>
+	<li class="span3">
+		<div class="thumbnail">
+			<%= image_tag gallery.images.random.picture.normal.url if gallery.images.count > 0 %>
+			<div class="caption">
+				<h5><%= gallery.title %></h5>
+				<p><%= gallery.description %></p>
+				<p><%= link_to "Voir gallerie", gallery, :class => "btn btn-mini" %></p>
+			</div>
+		</div>
+	</li>
+	<% end %>
+</ul>
+
+<%= paginate @galleries %>
