@@ -3,8 +3,8 @@
 		<h2><%= link_to @forum.title, @forum %> &raquo; <small><%= @topic.title %></small></h2>
 	</div>
 	<div class="span2">
-		<%= link_to "Répondre", new_forum_topic_message_path(@forum, @topic), :class => "btn" if can?(:create, Message) %>
-		<%= link_to "Editer sujet", edit_forum_topic_path(@forum, @topic), :class => "btn" if can?(:edit, @topic) %>
+		<%= link_to "Répondre", new_forum_topic_message_path(@forum, @topic), :class => "btn btn-mini" if can?(:create, Message) %>
+		<%= link_to "Editer sujet", edit_forum_topic_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
 	</div>
 </div>
 
@@ -70,4 +70,3 @@
 <% end %>
 
 <%= paginate @messages %>
-			

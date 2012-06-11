@@ -41,8 +41,8 @@
   <% end %>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= f.submit nil, :class => 'btn btn-primary btn-mini' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                forum_topic_path(@forum, @topic), :class => 'btn' %>
+                forum_topic_path(@forum, @topic), :class => 'btn btn-mini' %>
   </div>
 <% end %>

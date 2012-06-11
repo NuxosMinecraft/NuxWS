@@ -70,20 +70,20 @@
 				<%= image_form.text_area :description, :rows => 4, :class => "span3" %>
 			</div>
 		</div>
-		<p><%= image_form.link_to_remove "Remove this image" %></p>
+		<p><%= image_form.link_to_remove "Remove this image", :class => 'btn btn-danger btn-mini'  %></p>
 	</div>
 	
 	<% end %>
 </div>
 
-<p><%= f.link_to_add "Add an image", :images %></p>
+<p><%= f.link_to_add "Add an image", :images, :class => 'btn btn-success btn-mini' %></p>
 
 <div class="row">
 	<div class="span12">
 		<div class="form-actions">
-			<%= f.submit nil, :class => 'btn btn-primary' %>
+			<%= f.submit nil, :class => 'btn btn-primary btn-mini' %>
 			<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-			galleries_path, :class => 'btn' %>
+			galleries_path, :class => 'btn btn-mini' %>
 		</div>
 	</div>
 </div>
