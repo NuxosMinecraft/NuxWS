@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   after_create :create_default_role
 
   def create_default_role
-    self.role = Role.find_by_rid("0")
+    self.role = Role.find_by_rid("1")
     if User.count == 0
       self.role = Role.find_by_rid("16")
     end

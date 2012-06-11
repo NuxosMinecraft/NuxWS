@@ -18,7 +18,7 @@ class Ability
         # padawan or player
         can :manage, [Gallery, Image] # no specific user association
         can :manage, [Place, Topic, Message], :user_id => user.id
-        cannot :destroy, [Place], :user_id => user.id
+        cannot :destroy, [Place, Topic, Message], :user_id => user.id
         can :manage, [Doc], :modos_only => false
         # same for Message can be deleted
       end

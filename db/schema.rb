@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120610171152) do
+ActiveRecord::Schema.define(:version => 20120611062756) do
 
   create_table "docs", :force => true do |t|
     t.string   "title"
@@ -73,13 +73,16 @@ ActiveRecord::Schema.define(:version => 20120610171152) do
     t.string   "title"
     t.text     "content"
     t.string   "username"
-    t.integer  "edits",        :default => 0
+    t.integer  "edits",           :default => 0
     t.integer  "last_edit_by"
     t.string   "slug"
     t.integer  "topic_id"
     t.integer  "user_id"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "deleted",         :default => false
+    t.string   "deletion_reason"
+    t.integer  "deletion_by"
   end
 
   create_table "places", :force => true do |t|

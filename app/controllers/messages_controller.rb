@@ -73,12 +73,11 @@ class MessagesController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
     
-    params[:user_id] = current_user.id
     params[:topic_id] = @topic.id
     
     respond_to do |format|
       if @message.update_attributes(params[:message])
-        format.html { redirect_to [@forum, @topic, @message], notice: 'Message was successfully updated.' }
+        format.html { redirect_to [@forum, @topic], notice: 'Message was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -90,10 +89,17 @@ class MessagesController < ApplicationController
   # DELETE /topics/xxx
   # DELETE /topics/xxx.json
   def destroy
+    # don't really destroy
     @message = Message.find(params[:id])
     @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
-    @message.destroy
+    
+    # mark as deleted with default reason
+    @message.deleted = true
+    @message.deletion_reason = "Message deleted"
+    @message.deletion_by = current_user.id
+    
+    @message.save
 
     respond_to do |format|
       format.html { redirect_to forum_topic_path(@forum, @topic) }
