@@ -2,6 +2,11 @@
 	<div class="span10"><h1><%= @gallery.title %></h1></div>
 	<div class="span2">
 		<%= link_to "Editer", edit_gallery_path(@gallery), :class => "btn btn-mini" if can?(:edit, Gallery) %>
+        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+            @gallery,
+            :method => :delete,
+            :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+            :class => 'btn btn-mini btn-danger' if can?(:destroy, @gallery)%>
 	</div>
 </div>
 
