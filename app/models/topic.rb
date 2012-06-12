@@ -3,6 +3,8 @@ class Topic < ActiveRecord::Base
   
   validates_presence_of :title, :content
   
+  default_scope order('pin DESC', 'created_at DESC') # pinned at top, then latest created at top
+  
   extend FriendlyId
   friendly_id :title, use: :slugged
     
@@ -14,6 +16,24 @@ class Topic < ActiveRecord::Base
   
   def anonymous?
     !self.username.blank?
+  end
+  
+  def pin!
+    self.pin = true
+    self.save
+  end
+  def unpin!
+    self.pin = false
+    self.save
+  end
+  
+  def lock!
+    self.locked = true
+    self.save
+  end
+  def unlock!
+    self.locked = false
+    self.save
   end
   
 end

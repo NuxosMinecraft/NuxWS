@@ -1,5 +1,7 @@
 class TopicsController < ApplicationController
   load_and_authorize_resource
+  before_filter :at_least_modo, :only => [:pin, :unpin, :lock, :unlock]
+  
   # GET /topics
   # GET /topics.json
   def index
@@ -89,6 +91,48 @@ class TopicsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to forum_url(@forum) }
+      format.json { head :no_content }
+    end
+  end
+  
+  # Pin and Lock functions
+  def pin
+    @forum = Forum.find(params[:forum_id])
+    @topic = Topic.find(params[:topic_id])
+    @topic.pin!
+    
+    respond_to do |format|
+      format.html { redirect_to forum_topic_url(@forum, @topic) }
+      format.json { head :no_content }
+    end
+  end
+  def unpin
+    @forum = Forum.find(params[:forum_id])
+    @topic = Topic.find(params[:topic_id])
+    @topic.unpin!
+    
+    respond_to do |format|
+      format.html { redirect_to forum_topic_url(@forum, @topic) }
+      format.json { head :no_content }
+    end
+  end
+  def lock
+    @forum = Forum.find(params[:forum_id])
+    @topic = Topic.find(params[:topic_id])
+    @topic.lock!
+    
+    respond_to do |format|
+      format.html { redirect_to forum_topic_url(@forum, @topic) }
+      format.json { head :no_content }
+    end
+  end
+  def unlock
+    @forum = Forum.find(params[:forum_id])
+    @topic = Topic.find(params[:topic_id])
+    @topic.unlock!
+    
+    respond_to do |format|
+      format.html { redirect_to forum_topic_url(@forum, @topic) }
       format.json { head :no_content }
     end
   end

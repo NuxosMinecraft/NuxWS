@@ -22,6 +22,15 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
   
+  def at_least_modo
+    if !@current_user
+      return redirect_to root_url, :error => "Access denied!"
+    end
+    if @current_user.role.rid < 12
+      return redirect_to root_url, :error => "Access denied!"
+    end
+  end
+  
   def only_admin
     if !@current_user
       return redirect_to root_url, :error => "Access denied!"

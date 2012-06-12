@@ -4,6 +4,10 @@ NuxWS::Application.routes.draw do
   resources :places
   resources :forums do
     resources :topics do
+      match :pin, :to => "topics#pin"
+      match :unpin, :to => "topics#unpin"
+      match :lock, :to => "topics#lock"
+      match :unlock, :to => "topics#unlock"
       resources :messages
     end
   end

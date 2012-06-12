@@ -20,7 +20,7 @@ class Ability
         can :manage, [Place, Topic, Message], :user_id => user.id
         cannot :destroy, [Place, Topic, Message], :user_id => user.id
         can :manage, [Doc], :modos_only => false
-        # same for Message can be deleted
+        cannot :create, Message, :topic => {:locked => true}
       end
       if user.role.rid == 12
         # moderator

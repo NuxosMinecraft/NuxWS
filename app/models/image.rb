@@ -2,7 +2,7 @@ class Image < ActiveRecord::Base
   attr_accessible :title, :description, :picture, :picture_cache
   mount_uploader :picture, PictureUploader
 
-  default_scope :order => 'created_at DESC'
+  default_scope :order => 'created_at ASC'
   
   extend FriendlyId
   friendly_id :title, use: :slugged

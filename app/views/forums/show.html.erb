@@ -24,12 +24,12 @@
 	<tbody>
 		<%- @topics.each do |topic| %>
 		<tr class="tl_t">
-			<td width="70%" class="tl_t_title">
+			<td width="70%" class="tl_t_title <%= topic.pin ? "tl_t_title_pinned" : "" %>">
 				<h4><span class="badge" title="messages count"><%= topic.messages.count %></span> <%= link_to topic.title, forum_topic_path(@forum, topic) %></h4>
 				Démarré par <%= link_to topic.user.login, topic.user %>
 			</td>
 	
-			<td width="20%" class="tl_t_infos">
+			<td width="20%" class="tl_t_infos <%= topic.pin ? "tl_t_infos_pinned" : "" %>">
 				<%- if topic.messages.last %>
 				<%= topic.messages.last.created_at%>
 				<br />
@@ -37,7 +37,7 @@
 				<% end %>
 			</td>
 	
-			<td width="10%" class="tl_t_actions">
+			<td width="10%" class="tl_t_actions <%= topic.pin ? "tl_t_actions_pinned" : "" %>">
 				<h4>
 					<%- if can?(:manage, topic )%>
 					<%= link_to "Editer", edit_forum_topic_path(@forum, topic), :class => "btn btn-mini" %>

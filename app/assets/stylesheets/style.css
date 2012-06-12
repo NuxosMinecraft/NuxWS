@@ -113,17 +113,17 @@ body {
 	text-align: center;
 }
 
-.topics_list .tl_tp {
+.topics_list .tl_t .tl_t_title_pinned {
+	background-color: #F5F5F0;
+}
+.topics_list .tl_t .tl_t_infos_pinned {
+	background-color: #DEDEDE;
+}
+.topics_list .tl_t .tl_t_actions_pinned {
+	background-color: #F5F5F0;
 }
 
-.topics_list .tl_tp .tl_tp_title {
-}
 
-.topics_list .tl_tp .tl_tp_infos {
-}
-
-.topics_list .tl_tp .tl_tp_actions {
-}
 
 .topic_header {
 	background-color: #305084;
