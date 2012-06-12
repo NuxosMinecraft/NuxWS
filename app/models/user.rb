@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessible :login, :password, :password_confirmation, :email, :jid
 
+  default_scope :order => 'created_at DESC'
+
   include SentientUser
   extend FriendlyId
   friendly_id :login, use: :slugged

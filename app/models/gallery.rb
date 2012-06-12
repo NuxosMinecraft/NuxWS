@@ -1,5 +1,7 @@
 class Gallery < ActiveRecord::Base
   attr_accessible :title, :description, :place_id, :images_attributes
+
+  default_scope :order => 'created_at DESC'
   
   extend FriendlyId
   friendly_id :title, use: :slugged
