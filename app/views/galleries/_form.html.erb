@@ -42,39 +42,40 @@
 	
 </div>
 
-
-<div class="row">
+<ul class="thumbnails">
 	<%= f.fields_for :images do |image_form| %>
-	<div class="span4">
-		<div class="control-group">
-			<%= image_tag image_form.object.picture.thumb.url if image_form.object.picture? %>
-		</div>
-		<div class="control-group">
-			<%= image_form.label :title, :class => 'control-label '%>
-			<div class="controls">
-				<%= image_form.text_field :title, :class => "span3" %>
+	<li class="span4">
+		<div class="thumbnail">
+			<div class="control-group">
+				<%= image_tag image_form.object.picture.thumb.url if image_form.object.picture? %>
 			</div>
-		</div>
+			<div class="control-group">
+				<%= image_form.label :title, :class => 'control-label '%>
+				<div class="controls">
+					<%= image_form.text_field :title, :class => "span3" %>
+				</div>
+			</div>
 	
-		<div class="control-group">
-			<%= image_form.label :picture, :class => 'control-label '%>
-			<div class="controls">
-				<%= image_form.file_field :picture, :class => "span3" %>
-				<%= image_form.hidden_field :picture_cache %>
+			<div class="control-group">
+				<%= image_form.label :picture, :class => 'control-label '%>
+				<div class="controls">
+					<%= image_form.file_field :picture, :class => "span3" %>
+					<%= image_form.hidden_field :picture_cache %>
+				</div>
 			</div>
-		</div>
 		
-		<div class="control-group">
-			<%= image_form.label :description, :class => 'control-label '%>
-			<div class="controls">
-				<%= image_form.text_area :description, :rows => 4, :class => "span3" %>
+			<div class="control-group">
+				<%= image_form.label :description, :class => 'control-label '%>
+				<div class="controls">
+					<%= image_form.text_area :description, :rows => 4, :class => "span3" %>
+				</div>
 			</div>
+			<p><%= image_form.link_to_remove "Remove this image", :class => 'btn btn-danger btn-mini'  %></p>
 		</div>
-		<p><%= image_form.link_to_remove "Remove this image", :class => 'btn btn-danger btn-mini'  %></p>
-	</div>
+	</li>
 	
 	<% end %>
-</div>
+</ul>
 
 <p><%= f.link_to_add "Add an image", :images, :class => 'btn btn-success btn-mini' %></p>
 
