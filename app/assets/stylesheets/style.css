@@ -173,3 +173,12 @@ body {
 .block_message {
 	margin-bottom: 0.5em;
 }
+
+.thumb_edit_gallery {
+	min-height: 35em;
+	margin-bottom: 1em;
+}
+
+.add_nested_fields_gallery_image {
+	margin-left: 3em;
+}

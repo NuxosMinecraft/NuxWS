@@ -44,7 +44,7 @@
 
 <ul class="thumbnails">
 	<%= f.fields_for :images do |image_form| %>
-	<li class="span4">
+	<li class="span4 thumb_edit_gallery">
 		<div class="thumbnail">
 			<div class="control-group">
 				<%= image_tag image_form.object.picture.thumb.url if image_form.object.picture? %>
@@ -75,9 +75,11 @@
 	</li>
 	
 	<% end %>
+	
+	<%= f.link_to_add "Add an image", :images, :class => 'btn btn-success btn-mini add_nested_fields_gallery_image' %>
+	
 </ul>
 
-<p><%= f.link_to_add "Add an image", :images, :class => 'btn btn-success btn-mini' %></p>
 
 <div class="row">
 	<div class="span12">
