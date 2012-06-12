@@ -1,5 +1,5 @@
 class Topic < ActiveRecord::Base
-  attr_accessible :title, :content, :pin
+  attr_accessible :title, :content, :pin, :locked
   
   validates_presence_of :title, :content
   

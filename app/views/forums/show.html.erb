@@ -25,7 +25,7 @@
 		<%- @topics.each do |topic| %>
 		<tr class="tl_t">
 			<td width="70%" class="tl_t_title <%= topic.pin ? "tl_t_title_pinned" : "" %>">
-				<h4><span class="badge" title="messages count"><%= topic.messages.count %></span> <%= link_to topic.title, forum_topic_path(@forum, topic) %></h4>
+<h4><span class="badge" title="messages count"><%= topic.messages.count %></span> <%= link_to topic.title, forum_topic_path(@forum, topic) %><i class="<%= topic.pin ? "icon-flag pull-right" : "" %>"></i><i class="<%= topic.locked ? "icon-lock pull-right" : "" %>"></i></h4>
 				Démarré par <%= link_to topic.user.login, topic.user %>
 			</td>
 	
