@@ -23,15 +23,6 @@
       <%= f.text_area :content, :class => 'text_field', :rows => 10, :cols => 20, :class => "markItUp-bbcode" %>
     </div>
   </div>
-  <%- if @current_user.role.rid >= 12 %>
-  <div class="control-group">
-	  <%= f.label :pin, :class => 'control-label' %>
-	  <div class="controls">
-		  <%= f.check_box :pin, :class => 'checkbox_field' %>
-	  </div>
-	  Pinner cette discussion
-  </div>
-  <% end %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary btn-mini' %>
