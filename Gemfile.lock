@@ -172,6 +172,8 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    unread (0.1.1)
+      activerecord (>= 2.3.6)
 
 PLATFORMS
   ruby
@@ -200,3 +202,4 @@ DEPENDENCIES
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   unicorn
+  unread

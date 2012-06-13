@@ -7,42 +7,48 @@
 
 <br />
 
-<%- @categories.each do |category| %>
+<div class="row">
+	<div class="span10">
+		<%- @categories.each do |category| %>
 
-<% if category.forums.count > 0 %>
+		<% if category.forums.count > 0 %>
 
-<table class="table forums_list_header">
-	<thead>
-		<tr class="fl_header">
-			<th width="80%"><%= category.name %></th>
-			<th width="20%">Derniers messages</th>
-		</tr>
-	</thead>
-</table>
+		<table class="table forums_list_header">
+			<thead>
+				<tr class="fl_header">
+					<th width="80%"><%= category.name %></th>
+					<th width="20%">Derniers messages</th>
+				</tr>
+			</thead>
+		</table>
 
 
-<table class="table forums_list">
-	<tbody>
-		<%- category.forums.each do |forum| %>
-		<tr class="fl_t">
-			<td width="80%" class="fl_t_title">
-				<h3>&raquo; <%= link_to forum.title, forum_topics_path(forum) %></h3>
-				<small><%= forum.description %></small>
-			</td>
+		<table class="table forums_list">
+			<tbody>
+				<%- category.forums.each do |forum| %>
+				<tr class="fl_t">
+					<td width="80%" class="fl_t_title">
+						<h3>&raquo; <%= link_to forum.title, forum_topics_path(forum) %></h3>
+						<small><%= forum.description %></small>
+					</td>
 		
-			<td width="20%" class="fl_t_msgs">
-				Posts: <%= forum.topics.count %>
-				<br />
-				<%- if forum.topics.last %>
-				Dernier: <%= link_to forum.topics.last.title, forum_topic_path(forum, forum.topics.last) %>
+					<td width="20%" class="fl_t_msgs">
+						Posts: <%= forum.topics.count %>
+						<br />
+						<%- if forum.topics.last %>
+						Dernier: <%= link_to forum.topics.last.title, forum_topic_path(forum, forum.topics.last) %>
+						<% end %>
+					</td>
+				</tr>
 				<% end %>
-			</td>
-		</tr>
+			</tbody>
+		</table>
+
 		<% end %>
-	</tbody>
-</table>
 
-<% end %>
-
-
-<% end %>
+		<% end %>
+	</div>
+	<div class="span2">
+		<%= render :partial => 'forums/sidebar' %>
+	</div>
+</div>

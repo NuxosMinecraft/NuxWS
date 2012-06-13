@@ -53,3 +53,4 @@ gem "bb-ruby", :git => "git://github.com/marcandre/bb-ruby.git"
 gem 'markitup_rails', :git => "git://github.com/NuxosMinecraft/markitup_rails.git"
 gem 'ledermann-rails-settings', :require => 'rails-settings', :git => "git://github.com/ledermann/rails-settings.git" # https://github.com/ledermann/rails-settings
 gem 'redcarpet' # markdown
+gem 'unread' # https://github.com/ledermann/unread

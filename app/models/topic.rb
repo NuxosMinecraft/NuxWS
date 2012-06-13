@@ -5,6 +5,8 @@ class Topic < ActiveRecord::Base
   
   default_scope order('pin DESC', 'created_at DESC') # pinned at top, then latest created at top
   
+  acts_as_readable :on => :last_message_at
+  
   extend FriendlyId
   friendly_id :title, use: :slugged
     

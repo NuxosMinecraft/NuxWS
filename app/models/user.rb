@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :login, use: :slugged
   acts_as_authentic
-
+  acts_as_reader
+  
   validates_presence_of :login, :password, :password_confirmation, :email
   validates :login, :validate_minecraft_login_and_not_hacked => true
   has_many :places

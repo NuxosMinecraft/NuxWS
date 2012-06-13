@@ -11,8 +11,16 @@ class Message < ActiveRecord::Base
   belongs_to :topic
   belongs_to :user
   
+  after_save :update_topic_last_message_at
+  
   def anonymous?
     !self.username.blank?
+  end
+  
+  def update_topic_last_message_at
+    topic = self.topic
+    topic.last_message_at = self.created_at
+    topic.save
   end
   
 end

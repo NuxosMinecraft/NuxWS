@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120611062756) do
+ActiveRecord::Schema.define(:version => 20120613065426) do
 
   create_table "docs", :force => true do |t|
     t.string   "title"
@@ -99,6 +99,15 @@ ActiveRecord::Schema.define(:version => 20120611062756) do
     t.string   "map_marker"
   end
 
+  create_table "read_marks", :force => true do |t|
+    t.integer  "readable_id"
+    t.integer  "user_id",                     :null => false
+    t.string   "readable_type", :limit => 20, :null => false
+    t.datetime "timestamp"
+  end
+
+  add_index "read_marks", ["user_id", "readable_type", "readable_id"], :name => "index_read_marks_on_user_id_and_readable_type_and_readable_id"
+
   create_table "roles", :force => true do |t|
     t.string   "name",       :null => false
     t.datetime "created_at", :null => false
@@ -118,18 +127,21 @@ ActiveRecord::Schema.define(:version => 20120611062756) do
   add_index "settings", ["target_type", "target_id", "var"], :name => "index_settings_on_target_type_and_target_id_and_var", :unique => true
 
   create_table "topics", :force => true do |t|
-    t.string   "title",                         :null => false
-    t.text     "content",                       :null => false
-    t.boolean  "moderation", :default => false, :null => false
-    t.boolean  "pin",        :default => false, :null => false
-    t.boolean  "locked",     :default => false, :null => false
+    t.string   "title",                              :null => false
+    t.text     "content",                            :null => false
+    t.boolean  "moderation",      :default => false, :null => false
+    t.boolean  "pin",             :default => false, :null => false
+    t.boolean  "locked",          :default => false, :null => false
     t.integer  "forum_id"
     t.integer  "user_id"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "slug"
     t.string   "username"
+    t.datetime "last_message_at"
   end
+
+  add_index "topics", ["last_message_at"], :name => "index_topics_on_last_message_at"
 
   create_table "users", :force => true do |t|
     t.datetime "created_at",                          :null => false
