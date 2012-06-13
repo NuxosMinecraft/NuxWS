@@ -70,13 +70,13 @@
 					<%= image_form.text_area :description, :rows => 4, :class => "span3" %>
 				</div>
 			</div>
-			<p><%= image_form.link_to_remove "Remove this image", :class => 'btn btn-danger btn-mini'  %></p>
+			<p><%= image_form.link_to_remove content_tag(:i, "", :class => "icon-trash") + " Remove this image", :class => 'btn btn-danger btn-mini'  %></p>
 		</div>
 	</li>
 	
 	<% end %>
 	
-	<%= f.link_to_add "Add an image", :images, :class => 'btn btn-success btn-mini add_nested_fields_gallery_image' %>
+	<%= f.link_to_add content_tag(:i, "", :class => "icon-plus") + " Add an image", :images, :class => 'btn btn-success btn-mini add_nested_fields_gallery_image' %>
 	
 </ul>
 
@@ -85,7 +85,7 @@
 	<div class="span12">
 		<div class="form-actions">
 			<%= f.submit nil, :class => 'btn btn-primary btn-mini' %>
-			<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+			<%= link_to content_tag(:i, "", :class => "icon-remove") + " " + t('.cancel', :default => t("helpers.links.cancel")),
 			galleries_path, :class => 'btn btn-mini' %>
 		</div>
 	</div>

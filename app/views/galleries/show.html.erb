@@ -1,8 +1,8 @@
 <div class="row">
 	<div class="span10"><h1><%= @gallery.title %></h1></div>
 	<div class="span2">
-		<%= link_to "Editer", edit_gallery_path(@gallery), :class => "btn btn-mini" if can?(:edit, Gallery) %>
-        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+		<%= link_to content_tag(:i, "", :class => "icon-pencil") + " Éditer", edit_gallery_path(@gallery), :class => "btn btn-mini" if can?(:edit, Gallery) %>
+        <%= link_to content_tag(:i, "", :class => "icon-trash") + " " + t('.destroy', :default => t("helpers.links.destroy")),
             @gallery,
             :method => :delete,
             :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
@@ -21,7 +21,7 @@
 			<div class="caption">
 				<h5><%= image.title %></h5>
 				<p><%= image.description %></p>
-				<p><%= link_to "Autres tailles", gallery_image_path(@gallery, image), :class => "btn btn-mini" %></p>
+				<p><%= link_to content_tag(:i, "", :class => "icon-eye-open") + " Autres tailles", gallery_image_path(@gallery, image), :class => "btn btn-mini" %></p>
 			</div>
 		</div>
 	</li>

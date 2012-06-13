@@ -12,10 +12,10 @@
 		<h2>Liens et actions</h2>
 		<p>
 			<% if can? :edit, @place %>
-			<%= link_to t('.edit', :default => t("helpers.links.edit")), edit_place_path(@place), :class => 'btn btn-mini' %>
+			<%= link_to content_tag(:i, "", :class => "icon-pencil") + " " + t('.edit', :default => t("helpers.links.edit")), edit_place_path(@place), :class => 'btn btn-mini' %>
 			<% end %>
 			<% if can? :destroy, @place %>
-			<%= link_to t('.destroy', :default => t("helpers.links.destroy")), place_path(@place),
+			<%= link_to content_tag(:i, "", :class => "icon-trash") + " " + t('.destroy', :default => t("helpers.links.destroy")), place_path(@place),
 			:method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
 			:class => 'btn btn-mini btn-danger' %>
 			<% end %>
