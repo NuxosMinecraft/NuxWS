@@ -54,3 +54,5 @@ gem 'markitup_rails', :git => "git://github.com/NuxosMinecraft/markitup_rails.gi
 gem 'ledermann-rails-settings', :require => 'rails-settings', :git => "git://github.com/ledermann/rails-settings.git" # https://github.com/ledermann/rails-settings
 gem 'redcarpet' # markdown
 gem 'unread' # https://github.com/ledermann/unread
+
+gem 'exceptional' # https://www.exceptional.io/
