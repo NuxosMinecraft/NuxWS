@@ -21,5 +21,6 @@ Settings.pagination_galleries = 20
 Settings.pagination_images = 20
 Settings.pagination_docs = 20
 Settings.news_forum_id = 0
+Settings.presentations_forum_id = 0
 Settings.rules_doc_id = 0
 Settings.block_join_us = "Nous rejoindre\r\n-----------------\r\n\r\nC'est facile, suivez le guide !"
