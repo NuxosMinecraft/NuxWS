@@ -22,18 +22,9 @@
 				<div class="btn-group pull-right">
 					<%- if current_user %>
 					
-					<%- if current_user.admin? %>
 					<%= link_to users_path, :class => "btn btn-inverse" do %>
 					<i class="icon-leaf icon-white"></i>
 					<%= current_user.role.name %>
-					<% end %>
-					
-					<% else %>
-					
-					<%= link_to current_user, :class => "btn btn-inverse disabled" do %>
-					<i class="icon-leaf icon-white"></i>
-					<%= current_user.role.name %>
-					<% end %>
 					
 					<% end %>
 					
