@@ -27,9 +27,9 @@
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary btn-mini' %>
 	<%- if @topic.new_record? %>
-	<%= link_to t('.cancel', :default => t("helpers.links.cancel")), forum_path(@forum), :class => 'btn btn-mini' %>
+	<%= link_to content_tag(:i, "", :class => "icon-remove") + " " + t('.cancel', :default => t("helpers.links.cancel")), forum_path(@forum), :class => 'btn btn-mini' %>
 	<% else %>
-	<%= link_to t('.cancel', :default => t("helpers.links.cancel")), forum_topic_path(@forum, @topic), :class => 'btn btn-mini' %>
+	<%= link_to content_tag(:i, "", :class => "icon-remove") +  " " + t('.cancel', :default => t("helpers.links.cancel")), forum_topic_path(@forum, @topic), :class => 'btn btn-mini' %>
 	<% end %>
   </div>
 <% end %>

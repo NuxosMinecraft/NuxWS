@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="span3"><h1>Les galleries</h1></div>
 	<div class="span2 offset7">
-		<%= link_to "Créer une gallerie", new_gallery_path, :class => "btn btn-mini" if can?(:create, Gallery) %>
+		<%= link_to content_tag(:i, "", :class => "icon-plus") + " Créer une gallerie", new_gallery_path, :class => "btn btn-mini" if can?(:create, Gallery) %>
 	</div>
 </div>
 
@@ -15,7 +15,7 @@
 			<div class="caption">
 				<h5><%= gallery.title %></h5>
 				<p><%= gallery.description %></p>
-				<p><%= link_to "Voir gallerie", gallery, :class => "btn btn-mini" %></p>
+				<p><%= link_to content_tag(:i, "", :class => "icon-picture") + " Voir gallerie", gallery, :class => "btn btn-mini" %></p>
 			</div>
 		</div>
 	</li>

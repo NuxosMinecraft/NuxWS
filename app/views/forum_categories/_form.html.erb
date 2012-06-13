@@ -27,7 +27,7 @@
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary btn-mini' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+    <%= link_to content_tag(:i, "", :class => "icon-remove") + " " + t('.cancel', :default => t("helpers.links.cancel")),
                 forum_categories_path, :class => 'btn btn-mini' %>
   </div>
 <% end %>

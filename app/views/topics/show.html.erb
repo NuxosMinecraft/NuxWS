@@ -3,18 +3,18 @@
 		<h2><%= link_to @forum.title, @forum %> &raquo; <small><%= @topic.title %></small></h2>
 	</div>
 	<div class="span3">
-		<%= link_to "Répondre", new_forum_topic_message_path(@forum, @topic), :class => "btn btn-mini" if can?(:create, Message) %>
+		<%= link_to content_tag(:i, "", :class => "icon-comment") + " Répondre", new_forum_topic_message_path(@forum, @topic), :class => "btn btn-mini" if can?(:create, Message) %>
 		
 		<%- if @topic.locked %>
-		<%= link_to "Déverouiller", forum_topic_unlock_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
+		<%= link_to content_tag(:i, "", :class => "icon-lock") + " Déverouiller", forum_topic_unlock_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
 		<% else %>
-		<%= link_to "Vérouiller", forum_topic_lock_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
+		<%= link_to content_tag(:i, "", :class => "icon-lock") + " Vérouiller", forum_topic_lock_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
 		<% end %>
 		
 		<%- if @topic.pin %>
-		<%= link_to "Depunaiser", forum_topic_unpin_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
+		<%= link_to content_tag(:i, "", :class => "icon-flag") + " Depunaiser", forum_topic_unpin_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
 		<% else %>
-		<%= link_to "Punaiser", forum_topic_pin_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
+		<%= link_to content_tag(:i, "", :class => "icon-flag") + " Punaiser", forum_topic_pin_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
 		<% end %>
 		
 	</div>
