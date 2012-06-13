@@ -206,3 +206,23 @@ body {
 .homepage_row {
 	margin-bottom: 2em;
 }
+
+.role_color_guest {
+	color: #555;
+}
+
+.role_color_padawan {
+	color: #080;
+}
+
+.role_color_player {
+	color: #08F;
+}
+
+.role_color_moderator {
+	color: blue;
+}
+
+.role_color_admin {
+	color: red;
+}

@@ -116,10 +116,11 @@
 				<li>Membres total : <%= User.all.count %></li>
 				<li>
 					Connectés :
-					<%- User.logged_in.each do |user| %>
-					<%= link_to user.login, user %>
-					<% end %>
+					<%= raw User.logged_in.collect { |user| link_to user.login, user, :class => "role_color_#{user.role.name}" }.join(", ")%>
 				</li>
+				<li>&nbsp;</li>
+				<li>
+					Légende : <span class="role_color_guest">invité</span>, <span class="role_color_padawan">padawan</span>, <span class="role_color_player">joueur</span>, <span class="role_color_moderator">moderateur</span>, <span class="role_color_admin">admin</span>.
 			</ul>
 		</div>
 		
