@@ -37,6 +37,14 @@
       <%= f.text_field :email, :class => 'text_field' %>
     </div>
   </div>
+  <% if @current_user.admin? %>
+  <div class="control-group">
+    <%= f.label :role_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :role_id, Role.all, :id, :name, :class => "number_field", :include_blank => true %>
+    </div>
+  </div>
+  <% end %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary btn-mini' %>
