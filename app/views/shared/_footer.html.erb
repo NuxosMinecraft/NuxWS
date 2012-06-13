@@ -4,19 +4,6 @@
 			<div class="span10">
 				<p>Running <a href='http://github.com/NuxosMinecraft/NuxWS' target='_blank' title='Nuxos Web Site'>NuxWS</a> v0.1</p>
 			</div>
-			<div class="span2">
-        <%- if @current_user %>
-	        <%- if @current_user.role %>
-	        Role: <%= @current_user.role.name %>
-	        <% end %>
-			<%- if @current_user.admin? %>
-				<br />
-				Change <%= link_to "application settings.", settings_path %>
-				<br />
-				Edit <%= link_to "forum categories", forum_categories_path %>
-			<% end %>
-        <% end %>
-      </div>
 		</div>
 	</div>
 </div>

@@ -11,36 +11,92 @@
 				<ul class="nav">
 					<%- if Doc.find_all_by_id(Settings.rules_doc_id).count > 0 %>
 					<li><%= link_to "La charte", Doc.find_all_by_id(Settings.rules_doc_id).first %></li>
-					<li class="divider-vertical"></li>
 					<% end %>
 					<li><a href="http://map.nuxos-minecraft.fr/">MAP</a></li>
-					<li class="divider-vertical"></li>
 					<li><%= link_to "Forums", forums_url %></li>
-					<li class="divider-vertical"></li>
 					<li class="<%= controller_name == "galleries" ? "active" : "" %>" ><%= link_to "Galleries photos", galleries_url %></li>
-					<li class="divider-vertical"></li>
 					<li class="<%= controller_name == "places" ? "active" : "" %>" ><%= link_to "Lieux", places_url %></li>
-					<li class="divider-vertical"></li>
 					<li class="<%= controller_name == "docs" ? "active" : "" %>" ><%= link_to "Documents", docs_url %></li>
-					<li class="divider-vertical"></li>
 				</ul>
 				
-				<ul class="nav pull-right">
-					<li class="divider-vertical"></li>
+				<div class="btn-group pull-right">
 					<%- if current_user %>
-					<%- if current_user.role == "admin" %>
-					<li class="<%= controller_name == "users" ? "active" : "" %>" ><%= link_to "Utilisateurs", users_path %></li>
-					<li class="divider-vertical"></li>
+					
+					<%- if current_user.admin? %>
+					<%= link_to users_path, :class => "btn btn-inverse" do %>
+					<i class="icon-leaf icon-white"></i>
+					<%= current_user.role.name %>
 					<% end %>
-					<li class="<%= controller_name == "users" ? "active" : "" %>" ><%= link_to current_user.login, current_user %></li>
-					<li class="divider-vertical"></li>
-					<li><%= link_to "Se deconnecter", logout_path %></li>
+					
 					<% else %>
-					<li class="<%= controller_name == "user_sessions" ? "active" : "" %>" ><%= link_to "Login", login_path %></li>
-					<li class="divider-vertical"></li>
-					<li class="<%= controller_name == "users" ? "active" : "" %>" ><%= link_to "S'enregistrer", new_user_path %></li>
+					
+					<%= link_to current_user, :class => "btn btn-inverse disabled" do %>
+					<i class="icon-leaf icon-white"></i>
+					<%= current_user.role.name %>
 					<% end %>
-				</ul>
+					
+					<% end %>
+					
+					<%= link_to current_user, :class => "btn btn-primary" do %>
+					<i class="icon-user icon-white"></i>
+					<%= current_user.login %>
+					<% end %>
+					
+					<%= link_to "#", :class => "btn btn-info dropdown-toggle", :"data-toggle" => "dropdown" do %>
+					<span class="caret"></span>
+					<% end %>
+					
+					<ul class="dropdown-menu">
+						<li>
+							<%= link_to edit_user_path(current_user) do %>
+							<i class="icon-pencil"></i>
+							Edit profile
+							<% end %>
+						</li>
+						
+						<%- if current_user.admin? %>
+						<li class="divider"></li>
+						
+						<li>
+							<%= link_to settings_path do %>
+							<i class="icon-cog"></i>
+							App settings
+							<% end %>
+						</li>
+						
+						<li>
+							<%= link_to forum_categories_path do %>
+							<i class="icon-th-list"></i>
+							Forum categories
+							<% end %>
+						</li>
+						<% end %>
+						
+						
+						<li class="divider"></li>
+						<li>
+							<%= link_to logout_path do %>
+							<i class="icon-off"></i>
+							Logout
+							<% end %>
+						</li>
+					</ul>
+					
+									
+					<% else %>
+					
+					<%= link_to new_user_path, :class => "btn btn-info" do %>
+					<i class="icon-pencil icon-white"></i>
+					S'inscrire
+					<% end %>
+					
+					<%= link_to login_path, :class => "btn btn-danger" do %>
+					<i class="icon-lock icon-white"></i>
+					Se connecter
+					<% end %>
+										
+					<% end %>
+				</div>
 			</div><!--/.nav-collapse -->
 			
 		</div>

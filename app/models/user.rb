@@ -30,7 +30,12 @@ class User < ActiveRecord::Base
 
   def admin?
     return false if !self.role
-    return (self.role.rid == 16) ? true : false
+    return (self.role.rid == 16)
+  end
+
+  def at_least_modo?
+    return false if !self.role
+    return (self.role.rid >= 12)
   end
 
 end
