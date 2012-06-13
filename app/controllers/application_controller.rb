@@ -2,8 +2,12 @@ class ApplicationController < ActionController::Base
   include SentientController
   helper_method :current_user_session, :current_user, :only_admin
   protect_from_forgery
+  require 'open-uri'
   
-  def index
+  def index    
+    @online_players = JSON.parse(open("http://map.nuxos-minecraft.fr/standalone/dynmap_world.json").read)
+    @online_players = @online_players["players"] if @online_players
+    
     @place = Place.random # display random place in homepage
     @place_images = nil
     if @place

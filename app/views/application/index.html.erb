@@ -1,10 +1,26 @@
 <div class="container">
 	
-	<div class="row homepage_row">
+	<%- if @online_players %>
+	<div class="row">
 		<div class="span12">
-			Bloc ingame : bientôt !
+			<h2>Joueurs connectés sur le serveur :</h2>
 		</div>
 	</div>
+	<div class="row homepage_row">
+		<div class="span10 offset1">
+			<ul class="thumbnails">
+			<%- @online_players.each do |player| %>
+			<li class="span1">
+				<%- map_url = "http://map.nuxos-minecraft.fr/?x=" + player['x'].to_s + "&y=" + player['y'].to_s + "&z=" + player['z'].to_s + "&worldname=" + player['world'].to_s + "&mapname=nether&zoom=6" %>
+				<%- avatar_url = "http://map.nuxos-minecraft.fr/tiles/faces/32x32/#{player['account']}.png" %>
+				<%= link_to map_url, :class => "thumbnail" do %>
+				<%= image_tag avatar_url %>
+				<% end %>
+			<% end %>
+			</ul>
+		</div>
+	</div>
+	<% end %>
 	
 	<div class="row homepage_row">
 		<div class="span6">
