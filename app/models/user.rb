@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     
   paginates_per Settings.pagination_users.to_i
 
-  after_create :create_default_role
+  before_create :create_default_role
   before_update :restrict_update_attrs
   
   def create_default_role
@@ -27,7 +27,6 @@ class User < ActiveRecord::Base
     if User.count == 0
       self.role = Role.find_by_rid("16")
     end
-    self.save
   end
 
   def admin?
