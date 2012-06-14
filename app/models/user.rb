@@ -40,13 +40,14 @@ class User < ActiveRecord::Base
   end
 
   def restrict_update_attrs
-    restrict = 0
+    restrict = nil
     if User.current
       if !User.current.at_least_modo?
         restrict = 1
       end
     else
-      restrict = 1
+      # that should never happend
+      # CanCan will manage that for us
     end
     
     if restrict
