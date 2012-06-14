@@ -11,7 +11,14 @@
 			<ul class="thumbnails">
 			<%- @online_players.each do |player| %>
 			<li class="span1">
-				<%- map_url = "http://map.nuxos-minecraft.fr/?x=" + player['x'].to_s + "&y=" + player['y'].to_s + "&z=" + player['z'].to_s + "&worldname=" + player['world'].to_s + "&mapname=nether&zoom=6" %>
+				<% if player['world'].to_s == "world_nether" %>
+					<%- mapname = "nether" %>
+                                <% elsif player['world'].to_s == "world_the_end" %>
+					<%- mapname = "the_end" %>
+				<% else %>
+					<%- mapname = "surface" %>
+				<% end %>
+				<%- map_url = "http://map.nuxos-minecraft.fr/?x=" + player['x'].to_s + "&y=" + player['y'].to_s + "&z=" + player['z'].to_s + "&worldname=" + player['world'].to_s + "&mapname=" + mapname + "&zoom=6" %>
 				<%- avatar_url = "http://map.nuxos-minecraft.fr/tiles/faces/32x32/#{player['account']}.png" %>
 				<%= link_to map_url, :class => "thumbnail", :title => player["name"] do %>
 				<%= image_tag avatar_url %>
