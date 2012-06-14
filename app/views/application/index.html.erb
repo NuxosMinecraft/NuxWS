@@ -1,6 +1,6 @@
 <div class="container">
 	
-	<%- if @online_players %>
+	<%- if !@online_players.empty? %>
 	<div class="row">
 		<div class="span12">
 			<h2>Joueurs connectés sur le serveur :</h2>
