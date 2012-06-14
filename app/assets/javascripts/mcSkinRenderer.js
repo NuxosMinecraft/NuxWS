@@ -24,7 +24,7 @@
 	*/
 		
 	//this is the image displayed when there is no support for canvas
-	var defaultImageSrc = "images/charRendered.png";
+	var defaultImageSrc = "/assets/images/charRendered.png";
 	//this is the default scale to render the image
 	var scale = 1;
 

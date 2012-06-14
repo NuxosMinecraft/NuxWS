@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
-  include SentientController
   helper_method :current_user_session, :current_user, :only_admin
   protect_from_forgery
+  include SentientController
   require 'open-uri'
   
   def index    

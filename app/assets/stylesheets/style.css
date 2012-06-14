@@ -226,3 +226,7 @@ body {
 .role_color_admin {
 	color: red;
 }
+
+.block {
+	border-right: 1px solid grey;
+}

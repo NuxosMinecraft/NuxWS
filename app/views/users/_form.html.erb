@@ -14,7 +14,11 @@
   <div class="control-group">
     <%= f.label :login, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :login, :class => 'text_field' %>
+		<%- if f.object.new_record? %>
+	      <%= f.text_field :login, :class => "text_field" %>
+		  <% else %>
+		  <%= f.text_field :login, :class => "text_field", :disabled => :disabled %>
+		  <% end %>
 	  <br />
 	  Login is same as your minecraft login, respect case!
     </div>
@@ -37,13 +41,15 @@
       <%= f.text_field :email, :class => 'text_field' %>
     </div>
   </div>
+  <% if @current_user %>
   <% if @current_user.admin? %>
   <div class="control-group">
     <%= f.label :role_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.collection_select :role_id, Role.all, :id, :name, :class => "number_field", :include_blank => true %>
+      <%= f.collection_select :role_id, Role.all, :id, :name, :class => "number_field" %>
     </div>
   </div>
+  <% end %>
   <% end %>
 
   <div class="form-actions">

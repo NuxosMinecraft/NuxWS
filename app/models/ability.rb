@@ -13,6 +13,7 @@ class Ability
       can :read, :all
       can :manage, User, :id => user.id
       cannot :destroy, User, :id => user.id
+      can :create, Topic
       
       if user.role.rid == 4 or user.role.rid == 8
         # padawan or player

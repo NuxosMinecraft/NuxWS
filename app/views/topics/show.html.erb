@@ -5,6 +5,7 @@
 	<div class="span3">
 		<%= link_to content_tag(:i, "", :class => "icon-comment") + " Répondre", new_forum_topic_message_path(@forum, @topic), :class => "btn btn-mini" if can?(:create, Message) %>
 		
+		<% if @current_user.at_least_modo? %>
 		<%- if @topic.locked %>
 		<%= link_to content_tag(:i, "", :class => "icon-lock") + " Déverouiller", forum_topic_unlock_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
 		<% else %>
@@ -15,6 +16,7 @@
 		<%= link_to content_tag(:i, "", :class => "icon-flag") + " Depunaiser", forum_topic_unpin_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
 		<% else %>
 		<%= link_to content_tag(:i, "", :class => "icon-flag") + " Punaiser", forum_topic_pin_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
+		<% end %>
 		<% end %>
 		
 	</div>
