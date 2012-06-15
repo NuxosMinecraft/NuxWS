@@ -5,6 +5,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:category) %></th>
       <th><%= model_class.human_attribute_name(:priority) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%= model_class.human_attribute_name(:message) %></th>
       <th><%= model_class.human_attribute_name(:relations) %></th>	 
     </tr>
@@ -14,6 +15,7 @@
       <tr>
         <td><%= log.category %></td>
 		<td><%= log.priority %></td>
+		<td><%= log.created_at %></td>
 		<td><%= log.message %></td>
 		<td>
 			<%- log.relations.each do |model, id| %>
