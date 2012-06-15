@@ -21,8 +21,9 @@
 			<%- log.relations.each do |model, id| %>
 			<%- if model == :user_id %>
 			<%- user = User.find_by_id(id) %>
-			<%= link_to user.login, user %>
+			<%= link_to user.login, user if user%>
 			<% end %>
+			&nbsp;
 			<% end %>
 		</td>
       </tr>
