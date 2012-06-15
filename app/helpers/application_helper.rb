@@ -9,4 +9,7 @@ module ApplicationHelper
     md.render(text).html_safe
   end
   
+  def ftime(time, format = "%d/%m/%Y %H:%M")
+    time.strftime(format)
+  end
 end

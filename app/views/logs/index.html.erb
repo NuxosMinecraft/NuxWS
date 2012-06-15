@@ -15,7 +15,7 @@
       <tr>
         <td><%= log.category %></td>
 		<td><%= log.priority %></td>
-		<td><%= log.created_at %></td>
+		<td><%= ftime(log.created_at) %></td>
 		<td><%= log.message %></td>
 		<td>
 			<%- log.relations.each do |model, id| %>
