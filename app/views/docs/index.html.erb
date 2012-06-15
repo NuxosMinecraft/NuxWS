@@ -14,9 +14,9 @@
 	<small><%= markdown doc.description %></small>
 	</div>
 	<div class="span3">
-		Créer le: <%= doc.created_at %>
+		Créer le: <%= ftime(doc.created_at) %>
 		<br />
-		Update: <%= doc.updated_at %>
+		Update: <%= ftime(doc.updated_at) %>
 	</div>
 </div>
 <%- if @docs.count > 0 %>

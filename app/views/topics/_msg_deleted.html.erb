@@ -6,7 +6,7 @@
 				<h4><%= link_to msg.user.login, msg.user %></h4>
 			</div>
 			<div class="span3 tb_date">
-				<b>le:</b> <%= msg.created_at %>
+				<b>le:</b> <%= ftime(msg.created_at) %>
 			</div>
 			<div class="span3 tb_deleted">
 				<b>Msg deleted:</b> <i><%= msg.deletion_reason %></i>

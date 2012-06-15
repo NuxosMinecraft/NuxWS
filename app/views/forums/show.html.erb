@@ -38,7 +38,7 @@
 	
 			<td width="20%" class="tl_t_infos <%= topic.pin ? "tl_t_infos_pinned" : "" %>">
 				<%- if topic.messages.last %>
-				<%= topic.messages.last.created_at%>
+				<%= ftime(topic.messages.last.created_at) %>
 				<br />
 				by: <%= link_to topic.messages.last.user.login, topic.messages.last.user %>
 				<% end %>
