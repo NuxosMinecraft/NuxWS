@@ -17,6 +17,7 @@ NuxWS::Application.routes.draw do
   end
   resources :docs
   resources :forum_categories
+  resources :logs
   
   match "/login", :to => "user_sessions#new"
   match "/logout", :to => "user_sessions#destroy"

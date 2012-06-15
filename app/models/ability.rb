@@ -29,10 +29,12 @@ class Ability
       if user.role.rid == 12
         # moderator
         can :manage, [Place, Forum, Topic, Message, Gallery, Image, Doc, ForumCategory, User]
+        can :read, Log
       end
       if user.role.rid == 16
         # Admin
         can :manage, [Place, Forum, Topic, Message, Gallery, Image, Doc, ForumCategory, User]
+        can :read, Log
       end
     end
   end
