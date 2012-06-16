@@ -21,7 +21,7 @@
 						<%- if !topic %>
 						<h4><%= msg.title %></h4>
 						<% end %>
-						<%- if !topic %>&nbsp;&nbsp;&nbsp;<% end %><b>le:</b> <%= msg.created_at %>
+						<%- if !topic %>&nbsp;&nbsp;&nbsp;<% end %><b>le:</b> <%= ftime(msg.created_at) %>
 					</div>
 					<div class="span2">
 						<%- if topic %>
