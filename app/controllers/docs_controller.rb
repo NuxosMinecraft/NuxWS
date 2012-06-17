@@ -46,6 +46,7 @@ class DocsController < ApplicationController
     
     respond_to do |format|
       if @doc.save
+        Log.logit!(:docs, :notice, "User created doc " + @doc.title, {:user_id => @current_user.id, :doc_id => @doc.id})
         format.html { redirect_to @doc, notice: 'Doc was successfully created.' }
         format.json { render json: @doc, status: :created, location: @doc }
       else
@@ -62,6 +63,7 @@ class DocsController < ApplicationController
     
     respond_to do |format|
       if @doc.update_attributes(params[:doc])
+        Log.logit!(:docs, :notice, "User updated doc " + @doc.title, {:user_id => @current_user.id, :doc_id => @doc.id})
         format.html { redirect_to @doc, notice: 'Doc was successfully updated.' }
         format.json { head :no_content }
       else
@@ -75,6 +77,7 @@ class DocsController < ApplicationController
   # DELETE /docs/xxx.json
   def destroy
     @doc = Doc.find(params[:id])
+    Log.logit!(:docs, :notice, "User deleted doc " + @doc.title, {:user_id => @current_user.id, :doc_id => @doc.id})
     @doc.destroy
 
     respond_to do |format|

@@ -22,6 +22,20 @@
 			<%- if model == :user_id %>
 			<%- user = User.find_by_id(id) %>
 			<%= link_to user.login, user if user%>
+			<%- elsif model == :doc_id %>
+			<%- doc = Doc.find_by_id(id) %>
+			<% if doc %>
+			<%= link_to doc.title, doc if doc%>
+			<% else %>
+			<i>deleted</i>
+			<% end %>
+			<%- elsif model == :place_id %>
+			<%- place = Place.find_by_id(id) %>
+			<% if place %>
+			<%= link_to place.name, place if place%>
+			<% else %>
+			<i>deleted</i>
+			<% end %>
 			<% end %>
 			&nbsp;
 			<% end %>

@@ -62,6 +62,7 @@ class PlacesController < ApplicationController
     
     respond_to do |format|
       if @place.save
+        Log.logit!(:places, :notice, "User created place " + @place.name, {:user_id => @current_user.id, :place_id => @place.id})
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
         format.json { render json: @place, status: :created, location: @place }
       else
@@ -79,6 +80,7 @@ class PlacesController < ApplicationController
     
     respond_to do |format|
       if @place.update_attributes(params[:place])
+        Log.logit!(:places, :notice, "User updated place " + @place.name, {:user_id => @current_user.id, :place_id => @place.id})
         format.html { redirect_to @place, notice: 'Place was successfully updated.' }
         format.json { head :no_content }
       else
@@ -92,6 +94,7 @@ class PlacesController < ApplicationController
   # DELETE /places/xxx.json
   def destroy
     @place = Place.find(params[:id])
+    Log.logit!(:places, :notice, "User deleted place " + @place.name, {:user_id => @current_user.id, :place_id => @place.id})
     @place.destroy
 
     respond_to do |format|
