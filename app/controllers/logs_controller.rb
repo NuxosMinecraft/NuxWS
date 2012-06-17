@@ -1,4 +1,6 @@
 class LogsController < ApplicationController
+  before_filter :at_least_modo
+
   load_and_authorize_resource
   # GET /logs
   # GET /logs.json
