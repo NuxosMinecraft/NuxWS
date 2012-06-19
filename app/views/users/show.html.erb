@@ -16,6 +16,26 @@
 				<th>Role: </th>
 				<td><%= @user.role.name %></td>
 			</tr>
+			<tr>
+				<th>Join date: </th>
+				<td><%= ftime(@user.created_at) %></td>
+			</tr>
+			<tr>
+				<th>Last visit: </th>
+				<td><%= ftime(@user.current_login_at) %></td>
+			</tr>
+			<% if @current_user %>
+			<% if @current_user.admin? %>
+			<tr>
+				<th>Email: </th>
+				<td><%= @user.email %></td>
+			</tr>
+			<tr>
+				<th>Last IP: </th>
+				<td><%= @user.current_login_ip %></td>
+			</tr>
+			<% end %>
+			<% end %>
 		</table>
 	</div>
 	<div class="span2">
