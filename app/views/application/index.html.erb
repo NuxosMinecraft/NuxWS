@@ -3,7 +3,7 @@
 	<%- if !@online_players.empty? %>
 	<div class="row">
 		<div class="span12">
-			<h2>Joueurs connectés sur le serveur :</h2>
+			<h2><%= t 'index.players_connected' %></h2>
 		</div>
 	</div>
 	<div class="row homepage_row">
@@ -31,16 +31,16 @@
 	
 	<div class="row homepage_row">
 		<div class="span6">
-			<h2>Nous rejoindre en trois étapes :</h2>
+			<h2><%= t 'index.join_us.title' %></h2>
 			<div class="row">
 				<div class="span4">
 					<span class="badge badge-important">1</span>
-					Inscrivez-vous sur le site :
+					<%= t 'index.join_us.signup_text' %>
 				</div>
 				<div class="span2">
 					<%= link_to new_user_path, :class => "btn btn-inverse btn-mini" do %>
 					<i class="icon-pencil icon-white"></i>
-					Inscription
+					<%= t 'index.join_us.signup' %>
 					<% end %>
 				</div>
 			</div>
@@ -48,12 +48,12 @@
 			<div class="row">
 				<div class="span4">
 					<span class="badge badge-important">2</span>
-					Vous devez ensuite vous présenter dans la partie dédiée :
+					<%= t 'index.join_us.presentation_text' %>
 				</div>
 				<div class="span2">
 					<%= link_to forum_path(Settings.presentations_forum_id), :class => "btn btn-inverse btn-mini" do %>
 					<i class="icon-book icon-white"></i>
-					Présentation
+					<%= t 'index.join_us.presentation' %>
 					<% end %>
 				</div>
 			</div>
@@ -61,20 +61,20 @@
 			<div class="row">
 				<div class="span4">
 					<span class="badge badge-important">3</span>
-					L'adresse de connexion est :
+					<%= t 'index.join_us.address_text' %>
 				</div>
 				<div class="span2">
 					<%= link_to root_url, :class => "btn btn-primary btn-mini" do %>
 					<i class="icon-signal icon-white"></i>
-					nuxos-minecraft.fr
+					<%= t 'index.join_us.address' %>
 					<% end %>
 				</div>
 			</div>
 		</div>
 		<div class="span6">
-			<h2>Lieu à l'honneur cette semaine !</h2>
-			<h3><%= @place.name %></h3>
+			<h2><%= t 'index.place.title' %></h2>
 			<% if @place %>
+			<h3><%= @place.name %></h3>
 			<% if @place_images %>
 			<%- @place_images.each do |img| %>
 			<div class="pull-right">
@@ -82,27 +82,27 @@
 			</div>
 			<% end %>
 			<% end %>
-			<% end %>
 			
 			<p><%= @place.short_description %></p>
 			<p>
 				<%= link_to @place, :class => "btn btn-primary btn-mini" do%>
-				Plus d'infos &raquo;
+				<%= t 'index.place.more_info' %>
 				<% end %>
 				<%- if @place.map_link %>
 					<%= link_to @place.map_link, :class => "btn btn-success btn-mini", :target => "_blank" do%>
-					Sur la map &raquo;
+					<%= t 'index.place.on_the_map' %>
 					<% end %>
 				<% end %>
 					
 			</p>
+			<% end %>
 		</div>
 	</div>
 	
 	
 	<div class="row homepage_row">
 		<div class="span4">
-			<h2>Dernieres news</h2>
+			<h2><%= t 'index.news.title' %></h2>
 			<% if @forum_news %>
 			<dl class="dl-horizontal" >
 				<%- @news.each do |news| %>
@@ -112,28 +112,28 @@
 			</dl>
 			<p>
 				<%= link_to Forum.find(Settings.news_forum_id), :class => "btn btn-mini" do %>
-				Voir toute les news &raquo;
+				<%= t 'index.news.view_all' %>
 				<% end %>
 			</p>
 			<% end %>
 		</div>
 		
 		<div class="span4">
-			<h2>Quelques stats</h2>
+			<h2><%= t 'index.stats.title' %></h2>
 			<ul class="unstyled">
-				<li>Membres total : <%= User.all.count %></li>
+				<li><%= t 'index.stats.total_members', :number => User.all.count %></li>
 				<li>
 					Connectés :
 					<%= raw User.logged_in.collect { |user| link_to user.login, user, :class => "role_color_#{user.role.name}" }.join(", ")%>
 				</li>
 				<li>&nbsp;</li>
 				<li>
-					Légende : <span class="role_color_guest">invité</span>, <span class="role_color_padawan">padawan</span>, <span class="role_color_player">joueur</span>, <span class="role_color_moderator">moderateur</span>, <span class="role_color_admin">admin</span>.
+					<%= t 'index.stats.caption' %> <span class="role_color_guest"><%= t 'index.stats.guest' %></span>, <span class="role_color_padawan"><%= t 'index.stats.padawan' %></span>, <span class="role_color_player"><%= t 'index.stats.player' %></span>, <span class="role_color_moderator"><%= t 'index.stats.moderator' %></span>, <span class="role_color_admin"><%= t 'index.stats.admin' %></span>.
 			</ul>
 		</div>
 		
 		<div class="span4">
-			<h2>Les dons</h2>
+			<h2><%= t 'index.donations.title' %></h2>
 			Bientôt !
 		</div>
 	</div>

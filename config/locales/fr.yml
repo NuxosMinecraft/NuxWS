@@ -1,0 +1,43 @@
+fr:
+    header:
+        galleries: Galeries photos
+        places: Lieux
+        docs: Documents
+        edit_profile: Éditer son profil
+        app_settings: Configuration
+        forum_categories: Catégories du forum
+        actions_logs: Logs des actions
+        logout: Se déconnecter
+        singup: S'inscrire
+        login: Se connecter
+    footer:
+        running_html: "Running <a href='http://github.com/NuxosMinecraft/NuxWS' target='_blank' title='Nuxos Web Site'>NuxWS</a> %{version}"
+    index:
+        players_connected: "Joueurs connectés sur le serveur :"
+        join_us:
+            title: "Nous rejoindre en trois étapes :"
+            signup_text: "Inscrivez-vous sur le site :"
+            signup: Inscription
+            presentation_text: "Vous devez ensuite vous présenter dans la partie dédiée :"
+            presentation: Présentation
+            address_text: "L'adresse de connexion est :"
+            address: nuxos-minecraft.fr
+        place:
+            title: Lieu à l'honneur cette semaine !
+            more_info: Plus d'infos »
+            on_the_map: Sur la map »
+        news:
+            title: Dernières news
+            view_all: Voir toute les news »
+        stats:
+            title: Quelques stats
+            total_members: "Membres total : %{number}"
+            connected: "Connectés :"
+            caption: "Légende : "
+            guest: invité
+            padawan: padawan
+            player: joueur
+            moderator: moderateur
+            admin: admin
+        donations:
+            title: Les dons

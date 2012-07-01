@@ -6,7 +6,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</a>
-			<%= link_to "Nuxos Minecraft", root_url, :class => "brand" %>
+			<%= link_to Settings.app_title || "NuxWS", root_url, :class => "brand" %>
 			<div class="nav-collapse">
 				<ul class="nav">
 					<%- if Doc.find_all_by_id(Settings.rules_doc_id).count > 0 %>
@@ -14,9 +14,9 @@
 					<% end %>
 					<li><a href="http://map.nuxos-minecraft.fr/">MAP</a></li>
 					<li><%= link_to "Forums", forums_url %></li>
-					<li class="<%= controller_name == "galleries" ? "active" : "" %>" ><%= link_to "Galleries photos", galleries_url %></li>
-					<li class="<%= controller_name == "places" ? "active" : "" %>" ><%= link_to "Lieux", places_url %></li>
-					<li class="<%= controller_name == "docs" ? "active" : "" %>" ><%= link_to "Documents", docs_url %></li>
+					<li class="<%= controller_name == "galleries" ? "active" : "" %>" ><%= link_to t('header.galleries'), galleries_url %></li>
+					<li class="<%= controller_name == "places" ? "active" : "" %>" ><%= link_to t('header.places'), places_url %></li>
+					<li class="<%= controller_name == "docs" ? "active" : "" %>" ><%= link_to t('header.docs'), docs_url %></li>
 				</ul>
 				
 				<div class="btn-group pull-right">
@@ -41,7 +41,7 @@
 						<li>
 							<%= link_to edit_user_path(current_user) do %>
 							<i class="icon-pencil"></i>
-							Edit profile
+							<%= t 'header.edit_profile' %>
 							<% end %>
 						</li>
 						
@@ -51,21 +51,21 @@
 						<li>
 							<%= link_to settings_path do %>
 							<i class="icon-cog"></i>
-							App settings
+							<%= t 'header.app_settings' %>
 							<% end %>
 						</li>
 						
 						<li>
 							<%= link_to forum_categories_path do %>
 							<i class="icon-th-list"></i>
-							Forum categories
+							<%= t 'header.forum_categories' %>
 							<% end %>
 						</li>
 						
 						<li>
 							<%= link_to logs_path do %>
 							<i class="icon-info-sign"></i>
-							Actions logs
+							<%= t 'header.actions_logs' %>
 							<% end %>
 						</li>
 						<% end %>
@@ -75,7 +75,7 @@
 						<li>
 							<%= link_to logout_path do %>
 							<i class="icon-off"></i>
-							Logout
+							<%= t 'header.logout' %>
 							<% end %>
 						</li>
 					</ul>
@@ -85,12 +85,12 @@
 					
 					<%= link_to new_user_path, :class => "btn btn-info" do %>
 					<i class="icon-pencil icon-white"></i>
-					S'inscrire
+					<%= t 'header.singup' %>
 					<% end %>
 					
 					<%= link_to login_path, :class => "btn btn-danger" do %>
 					<i class="icon-lock icon-white"></i>
-					Se connecter
+					<%= t 'header.login' %>
 					<% end %>
 										
 					<% end %>
