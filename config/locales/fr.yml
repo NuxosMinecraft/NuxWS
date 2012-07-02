@@ -49,6 +49,14 @@ fr:
         content: Contenu
         deleted: Supprimé
         deletion_reason: Raison
+      place:
+        name: Nom
+        short_description: Description (courte)
+        description: Description
+        map_marker: Marqueur sur la carte
+        history: Histoire
+        creators: Auteurs
+        various: Divers
   helpers:
     submit:
       doc:
@@ -65,6 +73,9 @@ fr:
         update: Mettre à jour
       message:
         create: Poster
+        update: Mettre à jour
+      place:
+        create: Créer le lieux
         update: Mettre à jour
     links:
       cancel: Annuler
@@ -86,7 +97,7 @@ fr:
     place:
       title: Lieu à l'honneur cette semaine !
       more_info: Plus d'infos »
-      on_the_map: Sur la map »
+      on_the_map: Sur la carte »
     news:
       title: Dernières news
       view_all: Voir toute les news »
@@ -171,3 +182,14 @@ fr:
       title: Éditer un message
     new:
       title: Répondre
+  places:
+    index:
+      title: Les lieux
+      table_map_link: Sur la carte
+      map_link: Voir »
+    show:
+      links_and_actions: Liens et actions
+      map_link: Voir sur la carte »
+      various: Divers
+      history: Histoire
+      creators: Auteurs

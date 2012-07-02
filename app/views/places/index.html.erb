@@ -1,7 +1,7 @@
 <%- model_class = Place.new.class -%>
 <div class="row">
 	<div class="span2">
-		<h1>Les lieux</h1>
+		<h1><%= t '.title' %></h1>
 	</div>
 	<div class="span2 offset8">
 		<%= link_to content_tag(:i, "", :class => "icon-plus") + " Nouveau lieu", new_place_path,
@@ -16,7 +16,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:short_description) %></th>
-	  <th><%= model_class.human_attribute_name(:map_link) %></th>
+      <th><%= t '.table_map_link', :default => model_class.human_attribute_name(:map_link) %></th>
       <th></th>
     </tr>
   </thead>
@@ -28,7 +28,7 @@
 		<td>
 			<%- if place.map_link %>
 			<%= link_to place.map_link, :class => "btn btn-success btn-mini", :target => "_blank" do%>
-			Map &raquo;
+			<%= t '.map_link' %>
 			<% end %>
 			<% end %>
 		</td>

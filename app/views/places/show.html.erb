@@ -9,7 +9,7 @@
 		<br />
 		<p><%= @place.description %></p>
 		<br /><br />
-		<h2>Liens et actions</h2>
+		<h2><%= t '.links_and_actions' %></h2>
 		<p>
 			<% if can? :edit, @place %>
 			<%= link_to content_tag(:i, "", :class => "icon-pencil") + " " + t('.edit', :default => t("helpers.links.edit")), edit_place_path(@place), :class => 'btn btn-mini' %>
@@ -23,7 +23,7 @@
 		<p>
 			<%- if @place.map_link %>
 			<%= link_to @place.map_link, :class => "btn btn-success btn-small", :target => "_blank" do%>
-			Voir sur la map &raquo;
+			<%= t '.map_link' %>
 			<% end %>
 			<% end %>
 		</p>
@@ -31,13 +31,13 @@
 	</div>
 	
 	<div class="span4">
-		<h2>Divers</h2>
+		<h2><%= t '.various' %></h2>
 		<p><%= @place.various %></p>
 		<br />
-		<h2>Histoire</h2>
+		<h2><%= t '.history' %></h2>
 		<p><%= @place.history %></p>
 		<br />
-		<h2>Créateurs</h2>
+		<h2><%= t '.creators' %></h2>
 		<p><%= @place.creators %></p>
 	</div>
 	
