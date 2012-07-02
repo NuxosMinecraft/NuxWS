@@ -29,6 +29,14 @@ fr:
         description: Description
         forum_category_id: Catégorie
         position: Position
+      gallery:
+        title: Titre
+        description: Description
+        place_id: Lieux
+      image:
+        title: Titre
+        picture: Image
+        description: Description
   helpers:
     submit:
       doc:
@@ -40,11 +48,16 @@ fr:
       forum:
         create: Créer le forum
         update: Mettre à jour
+      gallery:
+        create: Créer la galerie
+        update: Mettre à jour
     links:
       cancel: Annuler
       confirm: Êtes vous sûr ?
       destroy: Supprimer
       edit: Éditer
+      remove_image: Supprimer cette image
+      add_image: Ajouter une image
   index:
     players_connected: "Joueurs connectés sur le serveur :"
     join_us:
@@ -97,6 +110,7 @@ fr:
     edit:
       title: Éditer un forum
     index:
+      title: Les forums
       new : Créer un forum
       last_message: Dernier message
       topics_count: "Sujets : %{count}"
@@ -110,3 +124,22 @@ fr:
       actions: Actions
       started_by: Démarré par
       by: "par :"
+  galleries:
+    edit:
+      title: Éditer une galerie
+    index:
+      title: Les galeries
+      new: Créer une galerie
+      show: Voir la galerie
+    new:
+      title: Créer une nouvelle galerie
+    show:
+      other_sizes: Autres tailles
+  images:
+    show:
+      direct_link: "Lien direct :"
+      size: Taille %{size}
+      full: pleine
+      normal: normale
+      small: petite
+      thumb: miniature
