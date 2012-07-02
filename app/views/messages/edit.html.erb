@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="span10 offset1">
-		<h2><%= link_to @topic.title, [@forum, @topic] %> &raquo; <small>Editer message</small></h2>
+		<h2><%= link_to @topic.title, [@forum, @topic] %> &raquo; <small><%= t '.title' %></small></h2>
 		<br />
 		<%= render :partial => 'form' %>
 	</div>
