@@ -12,6 +12,12 @@ fr:
         login: Se connecter
     footer:
         running_html: "Running <a href='http://github.com/NuxosMinecraft/NuxWS' target='_blank' title='Nuxos Web Site'>NuxWS</a> %{version}"
+    helpers:
+        links:
+            cancel: Annuler
+            confirm: Êtes vous sûr ?
+            destroy: Supprimer
+            edit: Éditer
     index:
         players_connected: "Joueurs connectés sur le serveur :"
         join_us:
@@ -41,3 +47,13 @@ fr:
             admin: admin
         donations:
             title: Les dons
+    docs:
+        edit:
+            title: Éditer un document
+        index:
+            title: Les documents
+            create: Créer un document
+            created: Créé le %{time}
+            updated: Mis à jour le %{time}
+        new:
+            title: Créer un nouveau document

@@ -3,7 +3,7 @@
 		<h1><%= @doc.title %></h1>
 	</div>
 	<div class="span2">
-		<%= link_to content_tag(:i, "", :class => "icon-pencil") + " Éditer", edit_doc_path(@doc), :class => "btn btn-mini" if can?(:edit, @doc) %>
+		<%= link_to content_tag(:i, "", :class => "icon-pencil") + " " + t('.edit', :default => t("helpers.links.edit")), edit_doc_path(@doc), :class => "btn btn-mini" if can?(:edit, @doc) %>
         <%= link_to content_tag(:i, "", :class => "icon-trash") + " " + t('.destroy', :default => t("helpers.links.destroy")),
             @doc,
             :method => :delete,
