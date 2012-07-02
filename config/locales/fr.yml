@@ -1,59 +1,112 @@
 fr:
-    header:
-        galleries: Galeries photos
-        places: Lieux
-        docs: Documents
-        edit_profile: Éditer son profil
-        app_settings: Configuration
-        forum_categories: Catégories du forum
-        actions_logs: Logs des actions
-        logout: Se déconnecter
-        singup: S'inscrire
-        login: Se connecter
-    footer:
-        running_html: "Running <a href='http://github.com/NuxosMinecraft/NuxWS' target='_blank' title='Nuxos Web Site'>NuxWS</a> %{version}"
-    helpers:
-        links:
-            cancel: Annuler
-            confirm: Êtes vous sûr ?
-            destroy: Supprimer
-            edit: Éditer
+  header:
+    rules: La charte
+    map: Carte
+    forums: Forums
+    galleries: Galeries photos
+    places: Lieux
+    docs: Documents
+    edit_profile: Éditer son profil
+    app_settings: Configuration
+    forum_categories: Catégories du forum
+    actions_logs: Logs des actions
+    logout: Se déconnecter
+    singup: S'inscrire
+    login: Se connecter
+  footer:
+    running_html: "Running <a href='http://github.com/NuxosMinecraft/NuxWS' target='_blank' title='Nuxos Web Site'>NuxWS</a> %{version}"
+  activerecord:
+    attributes:
+      doc:
+        title: Titre
+        description: Description
+        content: Contenu
+      forum_category:
+        name: Nom
+        position: Position
+      forum:
+        title: Titre
+        description: Description
+        forum_category_id: Catégorie
+        position: Position
+  helpers:
+    submit:
+      doc:
+        create: Créer le document
+        update: Mettre à jour
+      forum_category:
+        create: Créer la catégorie
+        update: Mettre à jour
+      forum:
+        create: Créer le forum
+        update: Mettre à jour
+    links:
+      cancel: Annuler
+      confirm: Êtes vous sûr ?
+      destroy: Supprimer
+      edit: Éditer
+  index:
+    players_connected: "Joueurs connectés sur le serveur :"
+    join_us:
+      title: "Nous rejoindre en trois étapes :"
+      signup_text: "Inscrivez-vous sur le site :"
+      signup: Inscription
+      presentation_text: "Vous devez ensuite vous présenter dans la partie dédiée :"
+      presentation: Présentation
+      address_text: "L'adresse de connexion est :"
+      address: nuxos-minecraft.fr
+    place:
+      title: Lieu à l'honneur cette semaine !
+      more_info: Plus d'infos »
+      on_the_map: Sur la map »
+    news:
+      title: Dernières news
+      view_all: Voir toute les news »
+    stats:
+      title: Quelques stats
+      total_members: "Membres total : %{number}"
+      connected: "Connectés :"
+      caption: "Légende : "
+      guest: invité
+      padawan: padawan
+      player: joueur
+      moderator: moderateur
+      admin: admin
+    donations:
+      title: Les dons
+  docs:
+    edit:
+      title: Éditer un document
     index:
-        players_connected: "Joueurs connectés sur le serveur :"
-        join_us:
-            title: "Nous rejoindre en trois étapes :"
-            signup_text: "Inscrivez-vous sur le site :"
-            signup: Inscription
-            presentation_text: "Vous devez ensuite vous présenter dans la partie dédiée :"
-            presentation: Présentation
-            address_text: "L'adresse de connexion est :"
-            address: nuxos-minecraft.fr
-        place:
-            title: Lieu à l'honneur cette semaine !
-            more_info: Plus d'infos »
-            on_the_map: Sur la map »
-        news:
-            title: Dernières news
-            view_all: Voir toute les news »
-        stats:
-            title: Quelques stats
-            total_members: "Membres total : %{number}"
-            connected: "Connectés :"
-            caption: "Légende : "
-            guest: invité
-            padawan: padawan
-            player: joueur
-            moderator: moderateur
-            admin: admin
-        donations:
-            title: Les dons
-    docs:
-        edit:
-            title: Éditer un document
-        index:
-            title: Les documents
-            create: Créer un document
-            created: Créé le %{time}
-            updated: Mis à jour le %{time}
-        new:
-            title: Créer un nouveau document
+      title: Les documents
+      new: Créer un document
+      created: Créé le %{time}
+      updated: Mis à jour le %{time}
+    new:
+      title: Créer un nouveau document
+  forum_categories:
+    index:
+      title: Les catégories du forum
+      table_title: Titre
+      table_position: Position
+      new: Créer une catégorie
+  forums:
+    sidebar:
+      title: Sujets non-lus
+      no_topics: Pas de sujet non-lu
+    edit:
+      title: Éditer un forum
+    index:
+      new : Créer un forum
+      last_message: Dernier message
+      topics_count: "Sujets : %{count}"
+      last_topic: "Dernier :"
+    new:
+      title: Créer un nouveau forum
+    show:
+      new_topic: Créer un nouveau sujet
+      title_started_by: Titre / Démarré par
+      last_message: Dernier message
+      actions: Actions
+      started_by: Démarré par
+      by: "par :"

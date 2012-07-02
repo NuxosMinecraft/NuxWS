@@ -1,8 +1,8 @@
 <div class="row">
 	<div class="span9"><h1><%= @forum.title %></h1></div>
 	<div class="span3">
-		<%= link_to content_tag(:i, "", :class => "icon-plus") + " Créer un nouveau sujet", new_forum_topic_path(@forum), :class => "btn btn-mini" if can?(:create, Topic) %>
-		<%= link_to content_tag(:i, "", :class => "icon-pencil") + " Éditer forum", edit_forum_path(@forum), :class => "btn btn-mini" if can?(:edit, @forum) %>
+		<%= link_to content_tag(:i, "", :class => "icon-plus") + " " + t('.new_topic'), new_forum_topic_path(@forum), :class => "btn btn-mini" if can?(:create, Topic) %>
+		<%= link_to content_tag(:i, "", :class => "icon-pencil") + " " + t('.edit', :default => t("helpers.links.edit")), edit_forum_path(@forum), :class => "btn btn-mini" if can?(:edit, @forum) %>
 	</div>
 </div>
 
@@ -13,9 +13,9 @@
 <table class="table topics_list_header">
 	<thead>
 		<tr class="tl_header">
-			<th width="70%">Titre / Démarré par</th>
-			<th width="20%">Dernier message</th>
-			<th width="10%">Actions</th>
+			<th width="70%"><%= t '.title_started_by' %></th>
+			<th width="20%"><%= t '.last_message' %></th>
+			<th width="10%"><%= t '.actions' %></th>
 		</tr>
 	</thead>
 </table>
@@ -33,21 +33,21 @@
 						<i class="<%= topic.locked ? "icon-lock" : "" %>"></i>
 					</div>
 				</h4>
-				Démarré par <%= link_to topic.user.login, topic.user %>
+				<%= t '.started_by' %> <%= link_to topic.user.login, topic.user %>
 			</td>
 	
 			<td width="20%" class="tl_t_infos <%= topic.pin ? "tl_t_infos_pinned" : "" %>">
 				<%- if topic.messages.last %>
 				<%= ftime(topic.messages.last.created_at) %>
 				<br />
-				by: <%= link_to topic.messages.last.user.login, topic.messages.last.user %>
+				<%= t '.by' %> <%= link_to topic.messages.last.user.login, topic.messages.last.user %>
 				<% end %>
 			</td>
 	
 			<td width="10%" class="tl_t_actions <%= topic.pin ? "tl_t_actions_pinned" : "" %>">
 				<h4>
 					<%- if can?(:manage, topic )%>
-					<%= link_to content_tag(:i, "", :class => "icon-pencil") + " Éditer", edit_forum_topic_path(@forum, topic), :class => "btn btn-mini" %>
+					<%= link_to content_tag(:i, "", :class => "icon-pencil") + " " + t('.edit', :default => t("helpers.links.edit")), edit_forum_topic_path(@forum, topic), :class => "btn btn-mini" %>
 					<br />
 					<%= link_to content_tag(:i, "", :class => "icon-trash") + " " + t('.destroy', :default => t("helpers.links.destroy")),
 					forum_topic_path(@forum, topic),

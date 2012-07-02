@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="span3"><h1><%= t '.title' %></h1></div>
 	<div class="span2 offset7">
-		<%= link_to content_tag(:i, "", :class => "icon-plus") + " " + t('.create'), new_doc_path, :class => "btn btn-mini" if can?(:create, Doc) %>
+		<%= link_to content_tag(:i, "", :class => "icon-plus") + " " + t('.new'), new_doc_path, :class => "btn btn-mini" if can?(:create, Doc) %>
 	</div>
 </div>
 

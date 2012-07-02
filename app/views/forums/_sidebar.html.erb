@@ -1,6 +1,6 @@
 <div class="sidebar">
 	<div class="s_title">
-		<h3>Topics non lu</h3>
+		<h3><%= t '.title' %></h3>
 	</div>
 	<div class="s_elements">
 		<%- if @current_user %>
@@ -12,7 +12,7 @@
 		[<%= ftime(last_msg.created_at) %>]
 		<% end %>
 		<% else %>
-			No last messages available
+			<%= t '.no_topics' %>
 		<% end %>
 	</div>
 </div>
