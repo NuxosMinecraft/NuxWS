@@ -23,6 +23,24 @@ fr:
       next: »
       last: Dernière page
   activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              too_short: "trop court"
+              taken: "déjà pris"
+            login:
+              too_short: "trop court"
+              taken: "déjà pris"
+              blank: "est vide"
+            password:
+              too_short: "trop court"
+              confirmation: "trop court"
+              blank: "est vide"
+            password_confirmation:
+              too_short: "trop court"
+              blank: "est vide"
     attributes:
       doc:
         title: Titre
@@ -57,6 +75,11 @@ fr:
         history: Histoire
         creators: Auteurs
         various: Divers
+      user:
+        email: "Email"
+        login: "Nom d'utilisateur"
+        password: "Mot de passe"
+        password_confirmation: "Confirmation du mot de passe"
   helpers:
     submit:
       doc:
