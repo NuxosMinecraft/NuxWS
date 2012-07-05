@@ -17,45 +17,48 @@ Permissions:
 		- Pas d'accès aux Logs
 		- N'a accès qu'en lecture seule a tout le site
 		- Pas acces aux modifs des categories de forums
-		- Peut se loguer
-		- Peut créer un compte
+		+ Peut se loguer
+		+ Peut créer un compte
 		
 	GUEST:
-		- Accès complet en lecture seule
+		+ Accès complet en lecture seule
 		- N'a pas accès aux settings "/settings", ne peux pas faire un post de cette page
 		- Pas d'accès aux Logs
 		- Pas acces aux modifs des categories de forums
-		- Peut creer un message sur le forum
-		- Peut editer ses propres messages sur le forum
+		+ Peut creer un topic, message sur le forum
+		+ Peut editer ses propres topic, messages sur le forum
 		
 	PADAWAN:
-		- Accès complet en lecture seule
+		+ Accès complet en lecture seule
 		- N'a pas accès aux settings "/settings", ne peux pas faire un post de cette page
 		- Pas d'accès aux Logs
 		- Pas acces aux modifs des categories de forums
-		- Peut creer un message sur le forum
-		- Peut editer ses propres messages sur le forum
-		- Peut creer un topic sur le forum
-		- Peut editer ses topics sur le forum
+		+ Peut creer un message sur le forum
+		+ Peut editer ses propres messages sur le forum
+		+ Peut creer un topic sur le forum
+		+ Peut editer ses topics sur le forum
+		- Ne peut pas créer, editer, supprimer un message dans un topic locked
+		- Ne peut pas editer, supprimer un topic locked
+		- Ne peut pas editer, supprimer un message marqué comme supprimé
 		
 	PLAYER:
-		- Accès complet en lecture seule
+		+ Accès complet en lecture seule
 		- N'a pas accès aux settings "/settings", ne peux pas faire un post de cette page
 		- Pas d'accès aux Logs
 		- Pas acces aux modifs des categories de forums
-		- Peut gérer completement les galleries
-		- Peut gérer completement les Place, si créer par lui
-		- Peut gérer completement les Topic, si créer par lui
-		- Peut gérer completement les Messages, si créer par lui
-		- Ne peut supprimer les Place, Topic, Message qu'il a créer
-		- Peut gérer les Docs, qui ne sont pas "modos_only"
+		+ Peut gérer completement les galleries, images
+		+ Peut gérer completement les Place, si créer par lui
+		+ Peut gérer completement les Topic, si créer par lui
+		+ Peut gérer completement les Messages, si créer par lui
+		- Ne peut supprimer les Place, Topic, Message
+		+ Peut gérer les Docs, qui ne sont pas "modos_only"
 		- Ne peut pas créer, editer, supprimer un message dans un topic locked
 		- Ne peut pas editer, supprimer un topic locked
 		- Ne peut pas editer, supprimer un message marqué comme supprimé
 		
 	MODÉRATOR:
 	ADMIN: (roles identiques)
-		- Peut gérer completement les Place, Forum, Topic, Message, Gallery, Image, Doc, ForumCategory, User
-		- Peut lire les logs
+		+ Peut gérer completement les Place, Forum, Topic, Message, Gallery, Image, Doc, ForumCategory, User
+		+ Peut lire les logs
 		
 	
