@@ -216,3 +216,17 @@ fr:
       various: Divers
       history: Histoire
       creators: Auteurs
+  settings:
+    index:
+      title: Configuration
+    app_title: Titre de l'application
+    news_forum_id: Forum de news
+    presentations_forum_id: Forum de présentation
+    rules_doc_id: Document contenant la charte
+    pagination_users: Membres par page
+    pagination_places: Lieux par page
+    pagination_topics: Sujets par page
+    pagination_messages: Message par page
+    pagination_galleries: Galeries par page
+    pagination_images: Images par page
+    block_join_us: Texte du bloc « Nous rejoindre »

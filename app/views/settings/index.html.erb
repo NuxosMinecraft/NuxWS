@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="span10 offset1">
-		<h2>Application settings</h2>
+		<h2><%= t '.title' %></h2>
 		<br />
 		
 		<%= form_tag("/settings", :method => :put, :html => { :class => 'form-horizontal well' }) do %>
@@ -25,7 +25,7 @@
 	    </div>
 		
 	    <div class="control-group">
-	      <%= label_tag :presentations_forum_id, t(:presentationss_forum_id, :scope => :settings, :default => "Which forum for presentations link"), :class => 'control-label' %>
+	      <%= label_tag :presentations_forum_id, t(:presentations_forum_id, :scope => :settings, :default => "Which forum for presentations link"), :class => 'control-label' %>
 	      <div class="controls">
 	        <%= select_tag :presentations_forum_id, options_from_collection_for_select(Forum.all, :id, :title, Settings.presentations_forum_id), :class => 'text_field', :class => "span2" %>
 	      </div>
@@ -53,7 +53,7 @@
 		<br />
 		
 	    <div class="control-group">
-	      <%= label_tag :pagination_places, t(:pagination_users, :scope => :settings, :default => "Pagination, users per pages"), :class => 'control-label' %>
+	      <%= label_tag :pagination_places, t(:pagination_places, :scope => :settings, :default => "Pagination, places per pages"), :class => 'control-label' %>
 	      <div class="controls">
 	        <%= number_field_tag :pagination_places, Settings.pagination_places, :class => 'text_field', :class => "span2" %>
 	      </div>
@@ -100,7 +100,7 @@
 	
 	<div class="span4">
 	    <div class="control-group">
-	      <%= label_tag :block_join_us, t(:pagination_messages, :scope => :settings, :default => "Text for join us block"), :class => 'control-label' %>
+	      <%= label_tag :block_join_us, t(:block_join_us, :scope => :settings, :default => "Text for join us block"), :class => 'control-label' %>
 	      <div class="controls">
 	        <%= text_area_tag :block_join_us, Settings.block_join_us, :class => 'text_area', :class => "span4", :rows => 5 %>
 	      </div>
