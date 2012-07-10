@@ -75,11 +75,15 @@ fr:
         history: Histoire
         creators: Auteurs
         various: Divers
+      user_session:
+        login: Nom d'utilisateur
+        password: Mot de passe
       user:
-        email: "Email"
+        email: "Adresse email"
         login: "Nom d'utilisateur"
         password: "Mot de passe"
         password_confirmation: "Confirmation du mot de passe"
+        role_id: Rôle
   helpers:
     submit:
       doc:
@@ -99,6 +103,11 @@ fr:
         update: Mettre à jour
       place:
         create: Créer le lieux
+        update: Mettre à jour
+      user_session:
+        create: Se connecter
+      user:
+        create: S'inscrire
         update: Mettre à jour
     links:
       cancel: Annuler
@@ -230,3 +239,28 @@ fr:
     pagination_galleries: Galeries par page
     pagination_images: Images par page
     block_join_us: Texte du bloc « Nous rejoindre »
+  users:
+    edit:
+      title: Éditer le profil d'un membre
+    index:
+      title: Liste des membres
+    new:
+      title: Inscription
+      minecraftnet: Minecraft.net
+      alert_permissons_html: Les permissions en jeu sont gérées par le forum, nous vous demandons votre pseudo <b>Minecraft.net</b><br /><b>Respectez la casse !</b>
+      email: Adresse email
+      alert_email_html: Ecrivez une adresse email <b>valide</b>, elle vous servira pour vous envoyer un lien permettant de valider votre compte, ainsi que de rester en contact avec vous plus tard en jeu par messages privés.
+      alert_hotmail_html: <b>Attention :</b> N'utilisez pas d'adresse <b>Hotmail</b><br /><i>(@hotmail.com|.fr, @msn.com, @live.com|fr)</i>,<br />leur filtre anti-spam considère nos mails comme étant du spam. Ceci est un faux-positif.
+      password: Mot de passe
+      alert_password: "Nous vous conseillons de choisir un mot de passe fort combinant des lettres majuscules et minuscules, des chiffres et des caractères spéciaux (# ou $, voire %)"
+      password_confirmation: "Confirmez le mot de passe :"
+      alert_finished: Si vous avez fini de remplir ce formulaire, vous pouvez le valider.
+    show:
+      title: Profil de %{login}
+      topics_count: "Sujets ouverts :"
+      messages_count: "Messages postés :"
+      role: "Rôle : "
+      join_date: "Inscrit le :"
+      last_visit: "Dernière visite :"
+      email: "Adresse email :"
+      last_ip: "Dernière IP :"

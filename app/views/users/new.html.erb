@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="span6 offset3">
-		<h1>Inscription</h1>
+		<h1><%= t '.title' %></h1>
 	</div>
 </div>
 
@@ -23,11 +23,10 @@
 			
 			<div class="control-group">
 				<%= f.label :login, :class => 'control-label' do %>
-				<h3>Minecraft.net</h3>
+				<h3><%= t '.minecraftnet' %></h3>
 				<% end %>
 				<div class="alert alert-info">
-					Les permissions en jeu sont gérées par le forum, nous vous demandons votre pseudo <b>Minecraft.net</b><br />
-					<b>Respectez la casse !</b>
+					<%= t '.alert_permissons_html' %>
 				</div>
 				<div class="controls">
 					<div class="input-prepend">
@@ -39,15 +38,13 @@
 			<br />
 			<div class="control-group">
 				<%= f.label :email, :class => 'control-label' do %>
-				<h3>Adresse email</h3>
+				<h3><%= t '.email' %></h3>
 				<% end %>
 				<div class="alert alert-info">
-					Ecrivez une adresse email <b>valide</b>, elle vous servira pour vous envoyer un lien permettant de valider votre compte, ainsi que de rester en contact avec vous plus tard en jeu par messages privés.
+					<%= t '.alert_email_html' %>
 				</div>
 				<div class="alert" style="color:#800">
-					<b>Attention :</b> N'utilisez pas d'adresse <b>Hotmail</b>
-					<br /><i>(@hotmail.com|.fr, @msn.com, @live.com|fr)</i>,
-					<br />leur filtre anti-spam considère nos mails comme étant du spam. Ceci est un faux-positif.
+					<%= t '.alert_hotmail_html' %>
 				</div>
 				<div class="controls">
 					<div class="input-prepend">
@@ -59,10 +56,10 @@
 			<br />
 			<div class="control-group">
 				<%= f.label :password, :class => 'control-label' do %>
-				<h3>Mot de passe</h3>
+				<h3><%= t '.password' %></h3>
 				<% end %>
 				<div class="alert alert-info">
-					Nous vous conseillons de choisir un mot de passe fort combinant des lettres majuscules et minuscules, des chiffres et des caractères spéciaux (# ou $, voire %)
+					<%= t '.alert_password' %>
 				</div>
 				<div class="controls">
 					<div class="input-prepend">
@@ -70,7 +67,7 @@
 					</div>
 				</div>
 				<%= f.label :password_confirmation, :class => 'control-label' do %>
-				Confirmez le mot de passe :
+				<%= t '.password_confirmation' %>
 				<% end %>
 				<div class="controls">
 					<div class="input-prepend">
@@ -81,7 +78,7 @@
 				<br /><br />
 
 				<div class="alert alert-success">
-					Si vous avez fini de remplir ce formulaire, vous pouvez le valider.
+					<%= t '.alert_finished' %>
 				</div>
 
 				<div class="form-actions">

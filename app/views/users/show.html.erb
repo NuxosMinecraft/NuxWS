@@ -1,37 +1,37 @@
 <%- model_class = @user.class -%>
 <div class="row">
 	<div class="span10">
-		<h1><%= @user.login %>'s profile</h1>
+		<h1><%= t '.title', :login => @user.login %></h1>
 		<br />
 		<table class="table table-condensed table-striped">
 			<tr>
-				<th>Forum topics: </th>
+				<th><%= t '.topics_count' %></th>
 				<td><%= @user.topics.count %></td>
 			</tr>
 			<tr>
-				<th>Forum messages: </th>
+				<th><%= t '.messages_count' %></th>
 				<td><%= @user.messages.count %></td>
 			</tr>
 			<tr>
-				<th>Role: </th>
+				<th><%= t '.role' %></th>
 				<td><%= @user.role.name %></td>
 			</tr>
 			<tr>
-				<th>Join date: </th>
+				<th><%= t '.join_date' %></th>
 				<td><%= ftime(@user.created_at) %></td>
 			</tr>
 			<tr>
-				<th>Last visit: </th>
+				<th><%= t '.last_visit' %></th>
 				<td><%= ftime(@user.current_login_at) %></td>
 			</tr>
 			<% if @current_user %>
 			<% if @current_user.admin? %>
 			<tr>
-				<th>Email: </th>
+				<th><%= t '.email' %></th>
 				<td><%= @user.email %></td>
 			</tr>
 			<tr>
-				<th>Last IP: </th>
+				<th><%= t '.last_ip' %></th>
 				<td><%= @user.current_login_ip %></td>
 			</tr>
 			<% end %>
