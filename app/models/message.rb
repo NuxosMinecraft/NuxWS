@@ -34,7 +34,7 @@ class Message < ActiveRecord::Base
       restrict = 1
     end
     
-    if restrict
+    if !restrict
       self.deleted = self.deleted_was if self.deleted_changed?
       self.deletion_reason = self.deletion_reason_was if self.deletion_reason_changed?
     end
