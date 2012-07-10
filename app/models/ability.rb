@@ -10,7 +10,7 @@ class Ability
   
   def guest(user)
     puts "Rights: guest"
-    can :create, Topic, Message
+    can :create, [Topic, Message]
     can :edit, [Topic, Message], :user_id => user.id
   end
   
@@ -26,7 +26,7 @@ class Ability
     can :manage, [Gallery, Image] # no specific user association
     can :manage, [Place, Topic, Message], :user_id => user.id
     cannot :destroy, [Place, Topic, Message], :user_id => user.id
-    can :manage, [Doc], :modos_only => false
+    can :manage, Doc, :modos_only => false
   end
   
   def moderator_admin(user)
