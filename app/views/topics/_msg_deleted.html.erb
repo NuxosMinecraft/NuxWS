@@ -6,13 +6,13 @@
 				<h4><%= link_to msg.user.login, msg.user %></h4>
 			</div>
 			<div class="span3 tb_date">
-				<b>le:</b> <%= ftime(msg.created_at) %>
+				<b><%= t '.at' %></b> <%= ftime(msg.created_at) %>
 			</div>
 			<div class="span3 tb_deleted">
-				<b>Msg deleted:</b> <i><%= msg.deletion_reason %></i>
+				<b><%= t '.message_deleted' %></b> <i><%= msg.deletion_reason %></i>
 			</div>
 			<div class="span1 tb_edit">
-				<%= link_to content_tag(:i, "", :class => "icon-pencil") + " Éditer", edit_forum_topic_message_path(@forum, @topic, msg), :class => "btn btn-mini" if can?(:edit, msg) %>
+				<%= link_to content_tag(:i, "", :class => "icon-pencil") + " " + t('.edit', :default => t("helpers.links.edit")), edit_forum_topic_message_path(@forum, @topic, msg), :class => "btn btn-mini" if can?(:edit, msg) %>
 			</div>
 		</div>
 	</div>

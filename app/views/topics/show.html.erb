@@ -3,20 +3,20 @@
 		<h2><%= link_to @forum.title, @forum %> &raquo; <small><%= @topic.title %></small></h2>
 	</div>
 	<div class="span3">
-		<%= link_to content_tag(:i, "", :class => "icon-comment") + " Répondre", new_forum_topic_message_path(@forum, @topic), :class => "btn btn-mini" if can?(:create, Message) %>
+		<%= link_to content_tag(:i, "", :class => "icon-comment") + " " + t('.answer'), new_forum_topic_message_path(@forum, @topic), :class => "btn btn-mini" if can?(:create, Message) %>
 		
 		<% if @current_user %>
 		<% if @current_user.at_least_modo? %>
 		<%- if @topic.locked %>
-		<%= link_to content_tag(:i, "", :class => "icon-lock") + " Déverouiller", forum_topic_unlock_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
+		<%= link_to content_tag(:i, "", :class => "icon-lock") + " " + t('.unlock'), forum_topic_unlock_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
 		<% else %>
-		<%= link_to content_tag(:i, "", :class => "icon-lock") + " Vérouiller", forum_topic_lock_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
+		<%= link_to content_tag(:i, "", :class => "icon-lock") + " " + t('.lock'), forum_topic_lock_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
 		<% end %>
 		
 		<%- if @topic.pin %>
-		<%= link_to content_tag(:i, "", :class => "icon-flag") + " Depunaiser", forum_topic_unpin_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
+		<%= link_to content_tag(:i, "", :class => "icon-flag") + " " + t('.unpin'), forum_topic_unpin_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
 		<% else %>
-		<%= link_to content_tag(:i, "", :class => "icon-flag") + " Punaiser", forum_topic_pin_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
+		<%= link_to content_tag(:i, "", :class => "icon-flag") + " " + t('.pin'), forum_topic_pin_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
 		<% end %>
 		<% end %>
 		<% end %>
@@ -31,10 +31,10 @@
 	<div class="span9 offset1 topic_header">
 		<div class="row">
 			<div class="span2 th_author">
-				<h4>Auteur</h4>
+				<h4><%= t '.author' %></h4>
 			</div>
 			<div class="span7">
-				<h4>Sujet: <%= @topic.title %></h4>
+				<h4><%= t '.subject', :title => @topic.title %></h4>
 			</div>
 		</div>
 	</div>

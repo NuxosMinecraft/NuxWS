@@ -12,7 +12,7 @@
 				<!-- TODO: add custom role mention -->
 				<%= msg.user.role.name %><br />
 				
-				Messages: <%= msg.user.messages.count %><br />
+				<%= t '.messages_count', :number => msg.user.messages.count %><br />
 			</div>
 			
 			<div class="span7 tb_msg">

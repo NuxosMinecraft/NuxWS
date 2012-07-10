@@ -75,6 +75,9 @@ fr:
         history: Histoire
         creators: Auteurs
         various: Divers
+      topic:
+        title: Titre
+        content: Contenu
       user_session:
         login: Nom d'utilisateur
         password: Mot de passe
@@ -103,6 +106,9 @@ fr:
         update: Mettre à jour
       place:
         create: Créer le lieux
+        update: Mettre à jour
+      topic:
+        create: Poster
         update: Mettre à jour
       user_session:
         create: Se connecter
@@ -239,6 +245,22 @@ fr:
     pagination_galleries: Galeries par page
     pagination_images: Images par page
     block_join_us: Texte du bloc « Nous rejoindre »
+  topics:
+    msg:
+      messages_count: "Messages : %{number}"
+    msg_deleted:
+      at: "Le :"
+      message_deleted: "Message supprimé :"
+    new:
+      title: Créer un nouveau sujet
+    show:
+      answer : Répondre
+      unlock: Dévérouiller
+      lock: Vérouiller
+      unpin: Dépunaiser
+      pin: Punaiser
+      author: Auteur
+      subject: "Sujet : %{title}"
   users:
     edit:
       title: Éditer le profil d'un membre
