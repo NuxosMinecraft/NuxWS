@@ -1,5 +1,8 @@
 NuxWS::Application.routes.draw do
-  resources :users
+  resources :users do
+    get "messages", :to => "users#messages"
+    get "topics", :to => "users#topics"
+  end
   resources :user_sessions
   resources :places
   resources :forums do
