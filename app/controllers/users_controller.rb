@@ -81,4 +81,26 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # Non-RESTFULL URLs here.
+  def messages
+    @user = User.find(params[:user_id])
+    @messages = @user.messages.page params[:page]
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @user }
+    end
+  end
+
+  def topics
+    @user = User.find(params[:user_id])
+    @topics = @user.topics.page params[:page]
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @user }
+    end
+  end
+
 end

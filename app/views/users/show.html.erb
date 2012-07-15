@@ -6,11 +6,11 @@
 		<table class="table table-condensed table-striped">
 			<tr>
 				<th><%= t '.topics_count' %></th>
-				<td><%= @user.topics.count %></td>
+				<td><%= link_to @user.topics.count, user_topics_path(@user) %></td>
 			</tr>
 			<tr>
 				<th><%= t '.messages_count' %></th>
-				<td><%= @user.messages.count %></td>
+				<td><%= link_to @user.messages.count, user_messages_path(@user)%></td>
 			</tr>
 			<tr>
 				<th><%= t '.role' %></th>
@@ -45,4 +45,4 @@
 		</script>
 	</div>
 </div>
-		
+
