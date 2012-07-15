@@ -1,4 +1,10 @@
 NuxWS::Application.routes.draw do
+  match "/donations/ipn", :to => "donations#ipn"
+  match "/donations/thanks", :to => "donations#thanks"
+  match "/donations/cancel", :to => "donations#cancel"
+  match "/donations/list", :to => "donations#list"
+  resources :donations
+
   resources :users do
     get "messages", :to => "users#messages"
     get "topics", :to => "users#topics"
@@ -21,10 +27,10 @@ NuxWS::Application.routes.draw do
   resources :docs
   resources :forum_categories
   resources :logs
-  
+
   match "/login", :to => "user_sessions#new"
   match "/logout", :to => "user_sessions#destroy"
   match "/settings", :to => "settings#update", :via => :put
-  
+
   root :to => "application#index"
 end

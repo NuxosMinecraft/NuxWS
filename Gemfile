@@ -55,4 +55,8 @@ gem 'ledermann-rails-settings', :require => 'rails-settings', :git => "git://git
 gem 'redcarpet' # markdown
 gem 'unread' # https://github.com/ledermann/unread
 
+gem 'activemerchant', :require => 'active_merchant'
+
+gem 'by_star' # https://github.com/radar/by_star
+
 gem 'exceptional' # https://www.exceptional.io/

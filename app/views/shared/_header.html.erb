@@ -17,26 +17,27 @@
 					<li class="<%= controller_name == "galleries" ? "active" : "" %>" ><%= link_to t('header.galleries'), galleries_url %></li>
 					<li class="<%= controller_name == "places" ? "active" : "" %>" ><%= link_to t('header.places'), places_url %></li>
 					<li class="<%= controller_name == "docs" ? "active" : "" %>" ><%= link_to t('header.docs'), docs_url %></li>
+					<li class="<%= controller_name == "donations" ? "active" : "" %>" ><%= link_to t('header.donations'), donations_url %></li>
 				</ul>
-				
+
 				<div class="btn-group pull-right">
 					<%- if current_user %>
-					
+
 					<%= link_to users_path, :class => "btn btn-inverse" do %>
 					<i class="icon-leaf icon-white"></i>
 					<%= current_user.role.name %>
-					
+
 					<% end %>
-					
+
 					<%= link_to current_user, :class => "btn btn-primary" do %>
 					<i class="icon-user icon-white"></i>
 					<%= current_user.login %>
 					<% end %>
-					
+
 					<%= link_to "#", :class => "btn btn-info dropdown-toggle", :"data-toggle" => "dropdown" do %>
 					<span class="caret"></span>
 					<% end %>
-					
+
 					<ul class="dropdown-menu">
 						<li>
 							<%= link_to edit_user_path(current_user) do %>
@@ -44,24 +45,24 @@
 							<%= t 'header.edit_profile' %>
 							<% end %>
 						</li>
-						
+
 						<%- if current_user.admin? %>
 						<li class="divider"></li>
-						
+
 						<li>
 							<%= link_to settings_path do %>
 							<i class="icon-cog"></i>
 							<%= t 'header.app_settings' %>
 							<% end %>
 						</li>
-						
+
 						<li>
 							<%= link_to forum_categories_path do %>
 							<i class="icon-th-list"></i>
 							<%= t 'header.forum_categories' %>
 							<% end %>
 						</li>
-						
+
 						<li>
 							<%= link_to logs_path do %>
 							<i class="icon-info-sign"></i>
@@ -69,8 +70,8 @@
 							<% end %>
 						</li>
 						<% end %>
-						
-						
+
+
 						<li class="divider"></li>
 						<li>
 							<%= link_to logout_path do %>
@@ -79,24 +80,24 @@
 							<% end %>
 						</li>
 					</ul>
-					
-									
+
+
 					<% else %>
-					
+
 					<%= link_to new_user_path, :class => "btn btn-info" do %>
 					<i class="icon-pencil icon-white"></i>
 					<%= t 'header.singup' %>
 					<% end %>
-					
+
 					<%= link_to login_path, :class => "btn btn-danger" do %>
 					<i class="icon-lock icon-white"></i>
 					<%= t 'header.login' %>
 					<% end %>
-										
+
 					<% end %>
 				</div>
 			</div><!--/.nav-collapse -->
-			
+
 		</div>
 	</div>
 </div>
