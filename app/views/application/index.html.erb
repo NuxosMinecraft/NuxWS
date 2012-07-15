@@ -1,5 +1,5 @@
 <div class="container">
-	
+
 	<%- if !@online_players.empty? %>
 	<div class="row">
 		<div class="span12">
@@ -28,7 +28,7 @@
 		</div>
 	</div>
 	<% end %>
-	
+
 	<div class="row homepage_row">
 		<div class="span6">
 			<h2><%= t 'index.join_us.title' %></h2>
@@ -44,7 +44,7 @@
 					<% end %>
 				</div>
 			</div>
-			
+
 			<div class="row">
 				<div class="span4">
 					<span class="badge badge-important">2</span>
@@ -57,7 +57,7 @@
 					<% end %>
 				</div>
 			</div>
-			
+
 			<div class="row">
 				<div class="span4">
 					<span class="badge badge-important">3</span>
@@ -82,7 +82,7 @@
 			</div>
 			<% end %>
 			<% end %>
-			
+
 			<p><%= @place.short_description %></p>
 			<p>
 				<%= link_to @place, :class => "btn btn-primary btn-mini" do%>
@@ -93,13 +93,13 @@
 					<%= t 'index.place.on_the_map' %>
 					<% end %>
 				<% end %>
-					
+
 			</p>
 			<% end %>
 		</div>
 	</div>
-	
-	
+
+
 	<div class="row homepage_row">
 		<div class="span4">
 			<h2><%= t 'index.news.title' %></h2>
@@ -117,25 +117,29 @@
 			</p>
 			<% end %>
 		</div>
-		
+
 		<div class="span4">
 			<h2><%= t 'index.stats.title' %></h2>
 			<ul class="unstyled">
 				<li><%= t 'index.stats.total_members', :number => User.all.count %></li>
+				<% if User.logged_in.count > 0 %>
 				<li>
 					Connectés :
 					<%= raw User.logged_in.collect { |user| link_to user.login, user, :class => "role_color_#{user.role.name}" }.join(", ")%>
 				</li>
+				<% else %>
+				<li>Personne n'est connecté au site.</li>
+				<% end %>
 				<li>&nbsp;</li>
 				<li>
 					<%= t 'index.stats.caption' %> <span class="role_color_guest"><%= t 'index.stats.guest' %></span>, <span class="role_color_padawan"><%= t 'index.stats.padawan' %></span>, <span class="role_color_player"><%= t 'index.stats.player' %></span>, <span class="role_color_moderator"><%= t 'index.stats.moderator' %></span>, <span class="role_color_admin"><%= t 'index.stats.admin' %></span>.
 			</ul>
 		</div>
-		
+
 		<div class="span4">
 			<h2><%= t 'index.donations.title' %></h2>
 			Bientôt !
 		</div>
 	</div>
-	
+
 </div> <!-- /container -->
