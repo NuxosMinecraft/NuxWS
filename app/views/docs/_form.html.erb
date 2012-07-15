@@ -30,6 +30,17 @@
     </div>
   </div>
 
+  <%- if current_user %>
+  <%- if current_user.at_least_modo? %>
+    <div class="control-group">
+    <%= f.label :modos_only, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :modos_only, :class => 'text_field' %>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary btn-mini' %>
     <%= link_to content_tag(:i, "", :class => "icon-remove") + " " + t('.cancel', :default => t("helpers.links.cancel")),
