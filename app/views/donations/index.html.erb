@@ -24,7 +24,13 @@
 
     Somme a donner (en euros): <%= select_tag :amount, options_for_select(%w{ 5 10 15 20 }), :class => "span1" %>
 
-    <% @custom_things = {:user_id => current_user.id} %>
+    <% @custom_things = {} %>
+
+    <% if current_user %>
+    <% @custom_things[:user_id] = current_user.id %>
+    <% else %>
+    <% @custom_things[:user_id] = 0 %>
+    <% end %>
     <%= hidden_field_tag :custom, @custom_things.to_yaml %>
 
     <%= submit_tag 'Supporter le serveur!' %>

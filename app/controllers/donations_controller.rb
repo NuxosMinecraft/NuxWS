@@ -112,7 +112,11 @@ class DonationsController < ApplicationController
     if notify.acknowledge
       if notify.complete?
         @custom_things = YAML::load(params[:custom])
-        @don.user_id = @custom_things[:user_id]
+        if @custom_things[:user_id] != 0
+          @don.user_id = @custom_things[:user_id]
+        else
+          @don.user_id = nil
+        end
         @don.amount = BigDecimal.new(params[:mc_gross])
         if @don.save
           Log.logit!(:donations, :important, "Saved IPN donation #{@don.id}", {:donation_id => @don.id})
