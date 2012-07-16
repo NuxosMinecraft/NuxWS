@@ -35,6 +35,10 @@
   </tbody>
 </table>
 
+<%- if current_user %>
+<%- if current_user.at_least_modo? %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_donation_path,
             :class => 'btn btn-primary' %>
+<% end %>
+<% end %>
