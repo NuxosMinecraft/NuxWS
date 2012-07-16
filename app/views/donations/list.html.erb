@@ -5,10 +5,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:amount) %></th>
-      <th><%= model_class.human_attribute_name(:anonymous) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -16,12 +14,12 @@
   <tbody>
     <% @donations.each do |donation| %>
       <tr>
-        <td><%= link_to donation.id, donation_path(donation) %></td>
-        <td><%= donation.user_id %></td>
+        <td><%= donation.anonymous ? "Anonymous" : donation.user_id %></td>
         <td><%= donation.amount %></td>
-        <td><%= donation.anonymous %></td>
         <td><%= ftime donation.created_at %></td>
         <td>
+          <%- if current_user %>
+          <%- if current_user.at_least_modo? %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_donation_path(donation), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -29,6 +27,8 @@
                       :method => :delete,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
                       :class => 'btn btn-mini btn-danger' %>
+          <% end %>
+          <% end %>
         </td>
       </tr>
     <% end %>
