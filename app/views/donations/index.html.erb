@@ -5,13 +5,16 @@
   </div>
 
   <div class="span6">
+    <% if current_user %>
+      <% @d_user = {:first_name => "Anonymous", :last_name => "Anonymous", :email => "anonymous@example.com"} %>
+    <% else %>
+      <% @d_user = {:first_name => current_user.login, :last_name => current_user.login, :email => current_user.email} %>
+    <% end %>
     <% payment_service_for 0, PAYPAL_ACCOUNT,
         :currency => 'EUR',
         :service => :paypal do |service|
 
-    service.customer :first_name => current_user.login,
-        :last_name => current_user.login,
-        :email => current_user.email
+    service.customer @d_user
 
     service.item_name "Support pour le Monde de Nuxos"
 
