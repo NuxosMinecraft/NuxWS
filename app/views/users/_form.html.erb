@@ -52,6 +52,14 @@
   <% end %>
   <% end %>
 
+  <div class="control-group">
+    <%= f.label :signature, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :signature, :class => 'text_field markItUp-bbcode' %>
+    </div>
+  </div>
+
+
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary btn-mini' %>
     <%= link_to content_tag(:i, "", :class => "icon-remove") + " " + t('.cancel', :default => t("helpers.links.cancel")),

@@ -7,14 +7,14 @@
 				<script type="text/javascript">
 					renderMCSkins('skin', 2);
 				</script>
-				
+
 				<h4><%= link_to msg.user.login, msg.user %></h4>
 				<!-- TODO: add custom role mention -->
 				<%= msg.user.role.name %><br />
-				
+
 				<%= t '.messages_count', :number => msg.user.messages.count %><br />
 			</div>
-			
+
 			<div class="span7 tb_msg">
 				<div class="row tb_msg_dating">
 					<div class="span5">
@@ -41,13 +41,17 @@
 						<% end %>
 					</div>
 				</div>
-				
+
 				<div class="row tb_msg_content">
 					<div class="span7">
 						<%= raw msg.content.bbcode_to_html %>
+						<% if !msg.user.signature.blank? %>
+						<hr>
+						<%= raw msg.user.signature.bbcode_to_html %>
+						<% end %>
 					</div>
 				</div>
-				
+
 			</div> <!-- span2 tb_msg -->
 		</div>
 	</div>

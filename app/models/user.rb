@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :password, :password_confirmation, :email, :jid, :login, :role_id
+  attr_accessible :password, :password_confirmation, :email, :jid, :login, :role_id, :signature
 
   default_scope :order => 'created_at DESC'
 
@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   friendly_id :login, use: :slugged
   acts_as_authentic
   acts_as_reader
-  
+
   validates_presence_of :password, :password_confirmation, :on => :create
   validates_presence_of :login, :email
   validates :login, :validate_minecraft_login_and_not_hacked => true
@@ -16,12 +16,12 @@ class User < ActiveRecord::Base
   belongs_to :role
   has_many :topics
   has_many :messages
-    
+
   paginates_per Settings.pagination_users.to_i
 
   before_create :create_default_role
   before_update :restrict_update_attrs
-  
+
   def create_default_role
     self.role = Role.find_by_rid("1")
     if User.count == 0
@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
       # that should never happend
       # CanCan will manage that for us
     end
-    
+
     if restrict
       self.login = self.login_was if self.login_changed?
       self.role_id = self.role_id_was if self.role_id_changed?

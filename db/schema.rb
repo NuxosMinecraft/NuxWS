@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120715184516) do
+ActiveRecord::Schema.define(:version => 20120716173721) do
 
   create_table "docs", :force => true do |t|
     t.string   "title"
@@ -178,6 +178,7 @@ ActiveRecord::Schema.define(:version => 20120715184516) do
     t.string   "current_login_ip"
     t.string   "slug"
     t.integer  "role_id"
+    t.text     "signature"
   end
 
   add_index "users", ["last_request_at"], :name => "index_users_on_last_request_at"
