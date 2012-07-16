@@ -113,9 +113,13 @@ class DonationsController < ApplicationController
       if notify.complete?
         @custom_things = YAML::load(params[:custom])
         @don.user_id = @custom_things[:user_id]
-        @don.amount = BigDecimal.new(params[:mc_gross])
-        @don.save!
-        Log.logit!(:donations, :important, "Saved IPN donation #{@don.id}", {:donation_id => @don.id})
+        @don.amount = BigDecimal.new(notify.amount)
+        if @don.save
+          Log.logit!(:donations, :important, "Saved IPN donation #{@don.id}", {:donation_id => @don.id})
+        else
+          Log.logit!(:donations, :important, "Error while saving IPN: #{@don.errors}", {:donation_id => @don.id})
+        end
+
         render :nothing => true
       else
         Log.logit!(:donations, :important, "Got incomplete IPN", {})
