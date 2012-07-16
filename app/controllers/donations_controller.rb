@@ -120,7 +120,7 @@ class DonationsController < ApplicationController
           Log.logit!(:donations, :important, "Error while saving IPN: #{@don.errors}", {:donation_id => @don.id})
         end
 
-        render :nothing => true
+        return render :nothing => true
       else
         Log.logit!(:donations, :important, "Got incomplete IPN, payement: #{notify.status}", {})
       end
