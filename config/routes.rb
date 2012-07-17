@@ -11,9 +11,7 @@ NuxWS::Application.routes.draw do
   end
   resources :user_sessions
   resources :places
-  resource :forums do
-    match :mark_all_read, :to => "forums#mark_all_read"
-  end
+  match "/forums/mark_all_read", :to => "forums#mark_all_read"
   resources :forums do
     resources :topics do
       match :pin, :to => "topics#pin"

@@ -84,7 +84,7 @@ class ForumsController < ApplicationController
     end
   end
 
-  def mark_all_read_forums
+  def mark_all_read
     if current_user
       Topic.mark_as_read! :all, :for => current_user
     end

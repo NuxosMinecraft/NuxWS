@@ -13,7 +13,7 @@
 				[<%= ftime(last_msg.created_at) %>]
 			<% end %>
 			<br />
-			<%= link_to t('.mark_all_as_read'), mark_all_read_forums_path %>
+			<%= link_to t('.mark_all_as_read'), forums_mark_all_read_path %>
 			<% else %>
 			<%= t('.no_unread_topics') %>
 			<% end %>
