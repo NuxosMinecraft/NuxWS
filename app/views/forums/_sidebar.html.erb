@@ -8,7 +8,7 @@
 			<%- Topic.unread_by(@current_user).each do |topic| %>
 				<% last_msg = topic.messages.last %>
 				<%- last_msg = topic if !last_msg %>
-				<%= link_to last_msg.title, forum_topic_path(topic.forum, topic) %> by <b><%= link_to last_msg.user.login, last_msg.user %></b>
+				<%= link_to last_msg.title, forum_topic_path(topic.forum, topic) %> <%= t '.by' %> <b><%= link_to last_msg.user.login, last_msg.user %></b>
 				<br />
 				[<%= ftime(last_msg.created_at) %>]
 			<% end %>

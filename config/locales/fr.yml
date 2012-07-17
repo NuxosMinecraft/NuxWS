@@ -47,6 +47,10 @@ fr:
         title: Titre
         description: Description
         content: Contenu
+      donation:
+        user_id: Membre
+        amount: Montant
+        anonymous: Anonyme
       forum_category:
         name: Nom
         position: Position
@@ -92,6 +96,9 @@ fr:
     submit:
       doc:
         create: Créer le document
+        update: Mettre à jour
+      donation:
+        create: Ajouter un don
         update: Mettre à jour
       forum_category:
         create: Créer la catégorie
@@ -162,6 +169,22 @@ fr:
       updated: Mis à jour le %{time}
     new:
       title: Créer un nouveau document
+  donations:
+    edit:
+      title: Éditer un don
+    index:
+      goal: "But pour ce mois : %{amount}/%{goal}"
+      this_month: Ce mois
+      item_name:  Support pour le Monde de Nuxos
+      amount: "Somme à donner (en €) :"
+      support: Supporter le serveur !
+    list:
+      title: Liste des dons
+      created_at: Le
+      anonymous: Anonyme
+      new: Ajouter un don
+    new:
+      title: Ajouter un don
   forum_categories:
     index:
       title: Les catégories du forum
@@ -171,6 +194,7 @@ fr:
   forums:
     sidebar:
       title: Sujets non-lus
+      by: par
       no_topics: Pas de sujet non-lu
       mark_all_as_read: Marquer tout comme lu
       no_unread_topics: Aucuns sujets non lu

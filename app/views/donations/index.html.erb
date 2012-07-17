@@ -1,7 +1,7 @@
 <div class="row">
   <div class="span6">
-    Goal for this month (<%= Donation.month_amount %>/<%= Settings.donations_goal_month.to_i %>)
-    <%= horizontal_bar_graph [["This month", Donation.month_percent(:this)]] %>
+    <%=  t '.goal', :amount => Donation.month_amount, :goal => Settings.donations_goal_month.to_i %>
+    <%= horizontal_bar_graph [[t('.this_month'), Donation.month_percent(:this)]] %>
   </div>
 
   <div class="span6">
@@ -16,7 +16,7 @@
 
     service.customer @d_user
 
-    service.item_name "Support pour le Monde de Nuxos"
+    service.item_name t('.item_name')
 
     # PayPal will POST a callback here when the payment is done
     service.notify_url donations_ipn_url
@@ -25,7 +25,7 @@
     # PayPal will redirect your user here if he cancels the payment
     service.cancel_return_url donations_cancel_url %>
 
-    Somme a donner (en euros): <%= select_tag :amount, options_for_select(%w{ 5 10 15 20 }), :class => "span1" %>
+    <%= t '.amount' %> <%= select_tag :amount, options_for_select(%w{ 5 10 15 20 }), :class => "span1" %>
 
     <% @custom_things = {} %>
 
@@ -36,7 +36,7 @@
     <% end %>
     <%= hidden_field_tag :custom, @custom_things.to_yaml %>
 
-    <%= submit_tag 'Supporter le serveur!' %>
+    <%= submit_tag t '.support' %>
 <% end %>
   </div>
 </div>
