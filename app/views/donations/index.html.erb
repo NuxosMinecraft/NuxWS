@@ -6,9 +6,9 @@
 
   <div class="span6">
     <% if current_user %>
-      <% @d_user = {:first_name => "Anonymous", :last_name => "Anonymous", :email => "anonymous@example.com"} %>
-    <% else %>
       <% @d_user = {:first_name => current_user.login, :last_name => current_user.login, :email => current_user.email} %>
+    <% else %>
+      <% @d_user = {:first_name => "Anonymous", :last_name => "Anonymous", :email => "anonymous@example.com"} %>
     <% end %>
     <% payment_service_for 0, PAYPAL_ACCOUNT,
         :currency => 'EUR',

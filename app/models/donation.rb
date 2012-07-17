@@ -17,6 +17,10 @@ class Donation < ActiveRecord::Base
 
   def self.month_percent(month=:this)
     amount = self.month_amount(month)
-    (amount * 100) / Settings.donations_goal_month.to_i
+    if Settings.donations_goal_month.to_i == 0
+      100
+    else
+      (amount * 100) / Settings.donations_goal_month.to_i
+    end
   end
 end
