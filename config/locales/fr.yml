@@ -172,6 +172,8 @@ fr:
     sidebar:
       title: Sujets non-lus
       no_topics: Pas de sujet non-lu
+      mark_all_as_read: Marquer tout comme lu
+      no_unread_topics: Aucuns sujets non lu
     edit:
       title: Éditer un forum
     index:

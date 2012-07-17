@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
   load_and_authorize_resource
   before_filter :at_least_modo, :only => [:pin, :unpin, :lock, :unlock]
-  
+
   # GET /topics
   # GET /topics.json
   def index
@@ -15,7 +15,11 @@ class TopicsController < ApplicationController
     @forum = Forum.find(params[:forum_id])
     @topic = Topic.find(params[:id])
     @messages = @topic.messages.page params[:page]
-    
+
+    if current_user
+      @topic.mark_as_read! :for => current_user
+    end
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @topic }
@@ -45,11 +49,11 @@ class TopicsController < ApplicationController
   def create
     @forum = Forum.find(params[:forum_id])
     @topic = Topic.new(params[:topic])
-    
+
     @topic.forum = @forum
     @topic.user = current_user
     @topic.moderation = true if current_user.role.rid <= 1
-    
+
     respond_to do |format|
       if @topic.save
         format.html { redirect_to [@forum, @topic], notice: 'Topic was successfully created.' }
@@ -66,11 +70,11 @@ class TopicsController < ApplicationController
   def update
     @forum = Forum.find(params[:forum_id])
     @topic = Topic.find(params[:id])
-    
+
     params[:user_id] = current_user.id
     params[:forum_id] = @forum.id
     params[:moderation] = true if current_user.role.rid <= 1
-    
+
     respond_to do |format|
       if @topic.update_attributes(params[:topic])
         format.html { redirect_to [@forum, @topic], notice: 'Topic was successfully updated.' }
@@ -94,13 +98,13 @@ class TopicsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   # Pin and Lock functions
   def pin
     @forum = Forum.find(params[:forum_id])
     @topic = Topic.find(params[:topic_id])
     @topic.pin!
-    
+
     respond_to do |format|
       format.html { redirect_to forum_topic_url(@forum, @topic) }
       format.json { head :no_content }
@@ -110,7 +114,7 @@ class TopicsController < ApplicationController
     @forum = Forum.find(params[:forum_id])
     @topic = Topic.find(params[:topic_id])
     @topic.unpin!
-    
+
     respond_to do |format|
       format.html { redirect_to forum_topic_url(@forum, @topic) }
       format.json { head :no_content }
@@ -120,7 +124,7 @@ class TopicsController < ApplicationController
     @forum = Forum.find(params[:forum_id])
     @topic = Topic.find(params[:topic_id])
     @topic.lock!
-    
+
     respond_to do |format|
       format.html { redirect_to forum_topic_url(@forum, @topic) }
       format.json { head :no_content }
@@ -130,11 +134,11 @@ class TopicsController < ApplicationController
     @forum = Forum.find(params[:forum_id])
     @topic = Topic.find(params[:topic_id])
     @topic.unlock!
-    
+
     respond_to do |format|
       format.html { redirect_to forum_topic_url(@forum, @topic) }
       format.json { head :no_content }
     end
   end
-  
+
 end

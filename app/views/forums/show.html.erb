@@ -9,7 +9,8 @@
 <br />
 
 
-		
+<div class="row">
+	<div class="span10">
 <table class="table topics_list_header">
 	<thead>
 		<tr class="tl_header">
@@ -35,7 +36,7 @@
 				</h4>
 				<%= t '.started_by' %> <%= link_to topic.user.login, topic.user %>
 			</td>
-	
+
 			<td width="20%" class="tl_t_infos <%= topic.pin ? "tl_t_infos_pinned" : "" %>">
 				<%- if topic.messages.last %>
 				<%= ftime(topic.messages.last.created_at) %>
@@ -43,7 +44,7 @@
 				<%= t '.by' %> <%= link_to topic.messages.last.user.login, topic.messages.last.user %>
 				<% end %>
 			</td>
-	
+
 			<td width="10%" class="tl_t_actions <%= topic.pin ? "tl_t_actions_pinned" : "" %>">
 				<h4>
 					<%- if can?(:manage, topic )%>
@@ -57,10 +58,15 @@
 					<% end %>
 				</h4>
 			</td>
-	
+
 		</tr>
 		<% end %>
 	</tbody>
 </table>
+</div>
+	<div class="span2">
+		<%= render :partial => 'forums/sidebar' %>
+	</div>
+</div>
 
 <%= paginate @topics %>

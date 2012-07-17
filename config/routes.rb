@@ -20,6 +20,9 @@ NuxWS::Application.routes.draw do
       resources :messages
     end
   end
+  resource :forums do
+    match :mark_all_read, :to => "forums#mark_all_read"
+  end
   resources :settings
   resources :galleries do
     resources :images

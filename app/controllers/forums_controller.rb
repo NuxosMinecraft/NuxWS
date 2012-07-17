@@ -1,6 +1,6 @@
 class ForumsController < ApplicationController
   load_and_authorize_resource
-  
+
   # GET /forums
   # GET /forums.json
   def index
@@ -17,7 +17,7 @@ class ForumsController < ApplicationController
   def show
     @forum = Forum.find(params[:id])
     @topics = @forum.topics.page params[:page]
-    
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @forum }
@@ -44,7 +44,7 @@ class ForumsController < ApplicationController
   # POST /forums.json
   def create
     @forum = Forum.new(params[:forum])
-    
+
     respond_to do |format|
       if @forum.save
         format.html { redirect_to @forum, notice: 'Forum was successfully created.' }
@@ -60,7 +60,7 @@ class ForumsController < ApplicationController
   # PUT /forums/.json
   def update
     @forum = Forum.find(params[:id])
-    
+
     respond_to do |format|
       if @forum.update_attributes(params[:forum])
         format.html { redirect_to @forum, notice: 'Forum was successfully updated.' }
@@ -82,6 +82,13 @@ class ForumsController < ApplicationController
       format.html { redirect_to forums_path }
       format.json { head :no_content }
     end
+  end
+
+  def mark_all_read_forums
+    if current_user
+      Topic.mark_as_read! :all, :for => current_user
+    end
+    redirect_to forums_path
   end
 
 end

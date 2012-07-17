@@ -4,7 +4,7 @@
 	</div>
 	<div class="span3">
 		<%= link_to content_tag(:i, "", :class => "icon-comment") + " " + t('.answer'), new_forum_topic_message_path(@forum, @topic), :class => "btn btn-mini" if can?(:create, Message) %>
-		
+
 		<% if @current_user %>
 		<% if @current_user.at_least_modo? %>
 		<%- if @topic.locked %>
@@ -12,7 +12,7 @@
 		<% else %>
 		<%= link_to content_tag(:i, "", :class => "icon-lock") + " " + t('.lock'), forum_topic_lock_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
 		<% end %>
-		
+
 		<%- if @topic.pin %>
 		<%= link_to content_tag(:i, "", :class => "icon-flag") + " " + t('.unpin'), forum_topic_unpin_path(@forum, @topic), :class => "btn btn-mini" if can?(:edit, @topic) %>
 		<% else %>
@@ -20,15 +20,17 @@
 		<% end %>
 		<% end %>
 		<% end %>
-		
+
 	</div>
 </div>
 
 <br />
 
 <div class="row">
+	<div class="span10">
+<div class="row">
 	<!-- 9 usable columns, two last are for last topics unread -->
-	<div class="span9 offset1 topic_header">
+	<div class="span9 topic_header">
 		<div class="row">
 			<div class="span2 th_author">
 				<h4><%= t '.author' %></h4>
@@ -52,5 +54,11 @@
 <%= render :partial => "msg", :locals => {:topic => nil, :msg => message} %>
 <% end %>
 <% end %>
+
+</div>
+	<div class="span2">
+		<%= render :partial => 'forums/sidebar' %>
+	</div>
+	</div>
 
 <%= paginate @messages %>
