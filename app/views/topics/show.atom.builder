@@ -5,7 +5,7 @@ atom_feed :language => Settings.app_lang do |feed|
   @messages.each do |msg|
     next if msg.updated_at.blank?
 
-    feed.entry( msg, :id => forum_topic_url(msg.topic.forum, msg.topic), :url => forum_topic_url(msg.topic.forum, msg.topic) ) do |entry|
+    feed.entry( msg, :id => forum_topic_url(msg.topic.forum, msg.topic, :anchor => "msg_id_#{msg.id}"), :url => forum_topic_url(msg.topic.forum, msg.topic, :anchor => "msg_id_#{msg.id}") ) do |entry|
       entry.title msg.title
       entry.content markdown(msg.content), :type => 'html'
 
