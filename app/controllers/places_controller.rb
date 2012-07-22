@@ -5,7 +5,8 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.page params[:page]
+    @places = @places.page params[:page]
+
     @feed_link = places_url(:format => :atom)
 
     respond_to do |format|
@@ -18,7 +19,6 @@ class PlacesController < ApplicationController
   # GET /places/xxx
   # GET /places/xxx.json
   def show
-    @place = Place.find(params[:id])
     @place_images = nil
     if @place
       if @place.galleries.random
@@ -35,8 +35,6 @@ class PlacesController < ApplicationController
   # GET /places/new
   # GET /places/new.json
   def new
-    @place = Place.new
-
     @markers = return_markers
 
     respond_to do |format|
@@ -47,14 +45,12 @@ class PlacesController < ApplicationController
 
   # GET /places/xxx/edit
   def edit
-    @place = Place.find(params[:id])
     @markers = return_markers
   end
 
   # POST /places
   # POST /places.json
   def create
-    @place = Place.new(params[:place])
     @place.user = current_user
 
     @markers = return_markers
@@ -77,7 +73,6 @@ class PlacesController < ApplicationController
   # PUT /places/xxx
   # PUT /places/.json
   def update
-    @place = Place.find(params[:id])
     @place.user = current_user
 
     respond_to do |format|
@@ -95,7 +90,6 @@ class PlacesController < ApplicationController
   # DELETE /places/xxx
   # DELETE /places/xxx.json
   def destroy
-    @place = Place.find(params[:id])
     Log.logit!(:places, :notice, "User deleted place " + @place.name, {:user_id => @current_user.id, :place_id => @place.id})
     @place.destroy
 

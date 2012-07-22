@@ -13,7 +13,6 @@ class TopicsController < ApplicationController
   # GET /topics/xxx.json
   def show
     @forum = Forum.find(params[:forum_id])
-    @topic = Topic.find(params[:id])
     @messages = @topic.messages.page params[:page]
     @feed_link = forum_topic_url(@forum, @topic, :format => :atom)
 
@@ -32,7 +31,6 @@ class TopicsController < ApplicationController
   # GET /topics/new.json
   def new
     @forum = Forum.find(params[:forum_id])
-    @topic = Topic.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,14 +41,13 @@ class TopicsController < ApplicationController
   # GET /topics/xxx/edit
   def edit
     @forum = Forum.find(params[:forum_id])
-    @topic = Topic.find(params[:id])
+    #@topic = Topic.find(params[:id])
   end
 
   # POST /topics
   # POST /topics.json
   def create
     @forum = Forum.find(params[:forum_id])
-    @topic = Topic.new(params[:topic])
 
     @topic.forum = @forum
     @topic.user = current_user
@@ -71,7 +68,6 @@ class TopicsController < ApplicationController
   # PUT /topics/.json
   def update
     @forum = Forum.find(params[:forum_id])
-    @topic = Topic.find(params[:id])
 
     params[:user_id] = current_user.id
     params[:forum_id] = @forum.id
@@ -92,7 +88,6 @@ class TopicsController < ApplicationController
   # DELETE /topics/xxx.json
   def destroy
     @forum = Forum.find(params[:forum_id])
-    @topic = Topic.find(params[:id])
     @topic.destroy
 
     respond_to do |format|

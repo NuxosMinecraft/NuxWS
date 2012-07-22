@@ -1,16 +1,9 @@
 class MessagesController < ApplicationController
   load_and_authorize_resource
-  # GET /topics
-  # GET /topics.json
-  def index
-    @message = Message.find(params[:message_id])
-    redirect_to @message
-  end
 
   # GET /topics/new
   # GET /topics/new.json
   def new
-    @message = Message.new
     @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
 
@@ -24,7 +17,6 @@ class MessagesController < ApplicationController
 
   # GET /topics/xxx/edit
   def edit
-    @message = Message.find(params[:id])
     @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
 
@@ -35,7 +27,6 @@ class MessagesController < ApplicationController
   # POST /topics
   # POST /topics.json
   def create
-    @message = Message.new(params[:message])
     @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
 
@@ -56,7 +47,6 @@ class MessagesController < ApplicationController
   # PUT /topics/xxx
   # PUT /topics/.json
   def update
-    @message = Message.find(params[:id])
     @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
 
@@ -77,7 +67,6 @@ class MessagesController < ApplicationController
   # DELETE /topics/xxx.json
   def destroy
     # don't really destroy
-    @message = Message.find(params[:id])
     @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
 

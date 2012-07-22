@@ -2,6 +2,7 @@ class DonationsController < ApplicationController
   include ActiveMerchant::Billing::Integrations
   protect_from_forgery :except => [:thanks, :ipn, :cancel]
   before_filter :only_admin, :except => [:thanks, :ipn, :cancel, :list, :index]
+  #load_and_authorize_resource
 
   # GET /donations
   # GET /donations.json
