@@ -11,7 +11,6 @@
 <div class="row forum_element">
 	<div class="span9">
 		<h4>&raquo; <%= link_to doc.title, doc_path(doc) %></h4>
-	<small><%= markdown doc.description %></small>
 	</div>
 	<div class="span3">
 		<%= t '.created', :time => ftime(doc.created_at) %>
