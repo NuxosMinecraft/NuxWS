@@ -17,7 +17,7 @@
 	<%- @images.each do |image| %>
 	<li class="span3">
 		<div class="thumbnail">
-			<%= image_tag image.picture.normal.url %>
+			<a class="lightbox" rel="gallery" href='<%= image.picture.url %>' title='<%= image.description %>'><img src='<%= image.picture.normal.url %>' alt='Chargement...' /></a>
 			<div class="caption">
 				<h5><%= image.title %></h5>
 				<p><%= image.description %></p>
@@ -27,5 +27,9 @@
 	</li>
 	<% end %>
 </ul>
+
+<script>
+$('a.lightbox').colorbox({rel:'gallery', maxWidth:'90%', maxHeight:'90%'});
+</script>
 	
 <%= paginate @images %>
