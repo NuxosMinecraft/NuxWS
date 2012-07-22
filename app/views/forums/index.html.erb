@@ -31,12 +31,13 @@
 						<h3>&raquo; <%= link_to forum.title, forum_topics_path(forum) %></h3>
 						<small><%= forum.description %></small>
 					</td>
-		
+
 					<td width="20%" class="fl_t_msgs">
 						<%= t '.topics_count', :count => forum.topics.count %>
 						<br />
-						<%- if forum.topics.last %>
-						<%= t '.last_topic' %> <%= link_to forum.topics.last.title, forum_topic_path(forum, forum.topics.last) %>
+						<%- last_topic = forum.topics.order("last_message_at DESC").limit(1).first %>
+						<%- if last_topic %>
+						<%= t '.last_topic' %> <%= link_to last_topic.title, forum_topic_path(forum, last_topic) %>
 						<% end %>
 					</td>
 				</tr>
