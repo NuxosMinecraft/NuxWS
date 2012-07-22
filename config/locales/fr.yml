@@ -168,6 +168,7 @@ fr:
       new: Créer un document
       created: Créé le %{time}
       updated: Mis à jour le %{time}
+      documents_list: "Liste des documents"
     new:
       title: Créer un nouveau document
   donations:
@@ -254,6 +255,7 @@ fr:
       title: Les lieux
       table_map_link: Sur la carte
       map_link: Voir »
+      places_list: "Liste des lieux"
     show:
       links_and_actions: Liens et actions
       map_link: Voir sur la carte »

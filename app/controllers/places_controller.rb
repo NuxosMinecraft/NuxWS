@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
   load_and_authorize_resource
   require 'open-uri'
-  
+
   # GET /places
   # GET /places.json
   def index
@@ -10,6 +10,7 @@ class PlacesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @places }
+      format.atom { render :layout => false }
     end
   end
 
@@ -54,12 +55,12 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(params[:place])
     @place.user = current_user
-    
+
     @markers = return_markers
-    
+
     puts params[:map_marker]
-    
-    
+
+
     respond_to do |format|
       if @place.save
         Log.logit!(:places, :notice, "User created place " + @place.name, {:user_id => @current_user.id, :place_id => @place.id})
@@ -77,7 +78,7 @@ class PlacesController < ApplicationController
   def update
     @place = Place.find(params[:id])
     @place.user = current_user
-    
+
     respond_to do |format|
       if @place.update_attributes(params[:place])
         Log.logit!(:places, :notice, "User updated place " + @place.name, {:user_id => @current_user.id, :place_id => @place.id})
@@ -102,17 +103,17 @@ class PlacesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   private
   def return_markers
     @markers = JSON.parse(open("http://map.nuxos-minecraft.fr/tiles/_markers_/marker_world.json").read)
 
     @select_markers = {}
-    
+
     @markers["sets"].keys.each do |set|
-      @select_markers[set.to_s] = [] 
+      @select_markers[set.to_s] = []
     end
-    
+
     @markers["sets"].keys.each do |set_name|
       @markers["sets"][set_name]["markers"].each do |name, set|
         value = "#{set["x"]}/#{set["y"]}/#{set["z"]}"

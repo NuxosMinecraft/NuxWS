@@ -1,6 +1,6 @@
 class DocsController < ApplicationController
   load_and_authorize_resource
-  
+
   # GET /docs
   # GET /docs.json
   def index
@@ -9,6 +9,7 @@ class DocsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @docs }
+      format.atom { render :layout => false }
     end
   end
 
@@ -16,7 +17,7 @@ class DocsController < ApplicationController
   # GET /docs/xxx.json
   def show
     @doc = Doc.find(params[:id])
-    
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @doc }
@@ -43,7 +44,7 @@ class DocsController < ApplicationController
   # POST /docs.json
   def create
     @doc = Doc.new(params[:doc])
-    
+
     respond_to do |format|
       if @doc.save
         Log.logit!(:docs, :notice, "User created doc " + @doc.title, {:user_id => @current_user.id, :doc_id => @doc.id})
@@ -60,7 +61,7 @@ class DocsController < ApplicationController
   # PUT /docs/.json
   def update
     @doc = Doc.find(params[:id])
-    
+
     respond_to do |format|
       if @doc.update_attributes(params[:doc])
         Log.logit!(:docs, :notice, "User updated doc " + @doc.title, {:user_id => @current_user.id, :doc_id => @doc.id})
@@ -85,5 +86,5 @@ class DocsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
 end
