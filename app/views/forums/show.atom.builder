@@ -6,7 +6,7 @@ atom_feed :language => Settings.app_lang do |feed|
     next if topic.updated_at.blank?
 
     feed.entry( topic.forum, topic ) do |entry|
-      entry.url forum_topic_url(topic.forum, topic.id)
+      entry.id forum_topic_url(topic.forum, topic.id)
       entry.title topic.title
       entry.content markdown(topic.content), :type => 'html'
 
@@ -14,7 +14,7 @@ atom_feed :language => Settings.app_lang do |feed|
       entry.updated(topic.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
 
       entry.author do |author|
-        author.name entry.login
+        author.name topic.user.login
       end
     end
   end
