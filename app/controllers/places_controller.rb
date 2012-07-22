@@ -6,6 +6,7 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     @places = Place.page params[:page]
+    @feed_link = places_url(:format => :atom)
 
     respond_to do |format|
       format.html # index.html.erb

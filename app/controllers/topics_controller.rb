@@ -15,6 +15,7 @@ class TopicsController < ApplicationController
     @forum = Forum.find(params[:forum_id])
     @topic = Topic.find(params[:id])
     @messages = @topic.messages.page params[:page]
+    @feed_link = forum_topic_url(@forum, @topic, :format => :atom)
 
     if current_user
       @topic.mark_as_read! :for => current_user

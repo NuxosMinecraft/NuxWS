@@ -17,6 +17,7 @@ class ForumsController < ApplicationController
   def show
     @forum = Forum.find(params[:id])
     @topics = @forum.topics.page params[:page]
+    @feed_link = forum_url(@forum, :format => :atom)
 
     respond_to do |format|
       format.html # show.html.erb

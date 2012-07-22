@@ -5,6 +5,7 @@ class DocsController < ApplicationController
   # GET /docs.json
   def index
     @docs = Doc.page params[:page]
+    @feed_link = docs_url(:format => :atom)
 
     respond_to do |format|
       format.html # index.html.erb

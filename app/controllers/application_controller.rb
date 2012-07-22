@@ -19,6 +19,8 @@ class ApplicationController < ActionController::Base
     @places = Place.limit(5)
     @forum_news = Forum.find_by_id(Settings.news_forum_id)
     @news = @forum_news.topics.limit(5) if @forum_news
+
+    @feed_link = forum_url(@forum_news, :format => :atom)
   end
 
   rescue_from CanCan::AccessDenied do |exception|
