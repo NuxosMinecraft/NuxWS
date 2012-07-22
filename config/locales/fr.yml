@@ -313,3 +313,6 @@ fr:
       last_visit: "Dernière visite :"
       email: "Adresse email :"
       last_ip: "Dernière IP :"
+  user_sessions:
+    form:
+      lost_password: "Mot de passe perdu ?"

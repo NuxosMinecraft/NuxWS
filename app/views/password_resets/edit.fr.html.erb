@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="span4 offset4 well">
+    <h1>Mettre à jour le mot de passe.</h1>
+
+    <p>Veuillez entrer votre nouveau mot de passe et sa confirmation.</p>
+
+    <%= form_tag password_reset_path, :method => :put do %>
+      <%= password_field_tag :password %>
+      <%= password_field_tag :password_confirmation %>
+      <%= submit_tag "Update Password" %>
+    <% end %>
+  </div>
+</div>

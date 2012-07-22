@@ -30,6 +30,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit nil %>
+    <%= f.submit nil, :class => "btn btn-info" %>
+    <%= link_to t('.lost_password'), new_password_reset_path, :class => "btn" %>
   </div>
 <% end %>
