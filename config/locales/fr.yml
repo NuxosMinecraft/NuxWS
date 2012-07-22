@@ -216,6 +216,7 @@ fr:
       actions: Actions
       started_by: Démarré par
       by: "par :"
+      topics_list: Liste des topics
   galleries:
     edit:
       title: Éditer une galerie
@@ -276,6 +277,7 @@ fr:
     donations_goal_month: Montant des donations pour le mois en cours
     app_conf_host: Host de l'application
     app_conf_mail_from: Envoyer les mails depuis
+  app_lang: Langue principale
   topics:
     msg:
       messages_count: "Messages : %{number}"
@@ -292,6 +294,7 @@ fr:
       pin: Punaiser
       author: Auteur
       subject: "Sujet : %{title}"
+      messages_list: "Liste des messages"
   users:
     edit:
       title: Éditer le profil d'un membre

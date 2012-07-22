@@ -4,9 +4,21 @@
     <%= number_field_tag :app_conf_host, Settings.app_conf_host, :class => 'text_field', :class => "span2", :rows => 5 %>
   </div>
 </div>
+
+<br />
+
 <div class="control-group">
   <%= label_tag :app_conf_mail_from, t(:app_conf_mail_from, :scope => :settings, :default => "Sent mails from"), :class => 'control-label' %>
   <div class="controls">
     <%= number_field_tag :app_conf_mail_from, Settings.app_conf_mail_from, :class => 'text_field', :class => "span2", :rows => 5 %>
+  </div>
+</div>
+
+<br />
+
+<div class="control-group">
+  <%= label_tag :app_lang, t(:app_lang, :scope => :settings, :default => "Principal language"), :class => 'control-label' %>
+  <div class="controls">
+    <%= number_field_tag :app_lang, Settings.app_lang, :class => 'text_field', :class => "span2", :rows => 5 %>
   </div>
 </div>

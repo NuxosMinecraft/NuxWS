@@ -7,19 +7,6 @@ class MessagesController < ApplicationController
     redirect_to @message
   end
 
-  # GET /topics/xxx
-  # GET /topics/xxx.json
-  def show
-    @message = Message.find(params[:id])
-    @topic = Topic.find(params[:topic_id])
-    @forum = Forum.find(params[:forum_id])
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @topic }
-    end
-  end
-
   # GET /topics/new
   # GET /topics/new.json
   def new
@@ -40,9 +27,9 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
-    
+
     @message.title = @topic.title if @message.title.blank?
-    
+
   end
 
   # POST /topics
@@ -51,10 +38,10 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
     @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
-    
+
     @message.topic = @topic
     @message.user = current_user
-    
+
     respond_to do |format|
       if @message.save
         format.html { redirect_to forum_topic_path(@forum, @topic), notice: 'Message was successfully created.' }
@@ -72,9 +59,9 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
-    
+
     params[:topic_id] = @topic.id
-    
+
     respond_to do |format|
       if @message.update_attributes(params[:message])
         format.html { redirect_to [@forum, @topic], notice: 'Message was successfully updated.' }
@@ -93,12 +80,12 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
-    
+
     # mark as deleted with default reason
     @message.deleted = true
     @message.deletion_reason = "Message deleted"
     @message.deletion_by = current_user.id
-    
+
     @message.save
 
     respond_to do |format|
@@ -106,5 +93,5 @@ class MessagesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
 end
