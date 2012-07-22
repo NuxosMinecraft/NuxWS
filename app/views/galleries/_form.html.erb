@@ -12,7 +12,7 @@
   <% end %>
 
 <div class="row">
-	
+
 	<div class="span4">
 		<div class="control-group">
 			<%= f.label :title, :class => 'control-label' %>
@@ -21,7 +21,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="span4">
 		<div class="control-group">
 			<%= f.label :description, :class => 'control-label' %>
@@ -30,7 +30,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="span4">
 		<div class="control-group">
 			<%= f.label :place_id, :class => 'control-label' %>
@@ -39,7 +39,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 </div>
 
 <ul class="thumbnails">
@@ -55,7 +55,7 @@
 					<%= image_form.text_field :title, :class => "span3" %>
 				</div>
 			</div>
-	
+
 			<div class="control-group">
 				<%= image_form.label :picture, :class => 'control-label '%>
 				<div class="controls">
@@ -63,7 +63,14 @@
 					<%= image_form.hidden_field :picture_cache %>
 				</div>
 			</div>
-		
+
+			<div class="control-group">
+				<%= image_form.label :remote_picture_url, :class => 'control-label '%>
+				<div class="controls">
+					<%= image_form.text_field :remote_picture_url, :class => "span3" %>
+				</div>
+			</div>
+
 			<div class="control-group">
 				<%= image_form.label :description, :class => 'control-label '%>
 				<div class="controls">
@@ -73,11 +80,11 @@
 			<p><%= image_form.link_to_remove content_tag(:i, "", :class => "icon-trash") + " " + t('.remove_image', :default => t("helpers.links.remove_image")), :class => 'btn btn-danger btn-mini'  %></p>
 		</div>
 	</li>
-	
+
 	<% end %>
-	
+
 	<%= f.link_to_add content_tag(:i, "", :class => "icon-plus") + " " + t('.add_image', :default => t("helpers.links.add_image")), :images, :class => 'btn btn-success btn-mini add_nested_fields_gallery_image' %>
-	
+
 </ul>
 
 

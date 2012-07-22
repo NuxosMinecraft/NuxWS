@@ -67,6 +67,7 @@ fr:
         title: Titre
         picture: Image
         description: Description
+        remote_picture_url: URL distante
       message:
         title: Titre
         content: Contenu
