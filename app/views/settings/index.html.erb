@@ -1,121 +1,31 @@
 <div class="row">
-	<div class="span10 offset1">
+	<div class="span12">
 		<h2><%= t '.title' %></h2>
 		<br />
+
+		<p><%= t('.parameters_with_star') %></p>
 
 		<%= form_tag("/settings", :method => :put, :html => { :class => 'form-horizontal well' }) do %>
 	</div>
 </div>
+
 <div class="row">
-	<div class="span4">
-	    <div class="control-group">
-	      <%= label_tag :app_title, t(:app_title, :scope => :settings, :default => "Application title"), :class => 'control-label' %>
-	      <div class="controls">
-	        <%= text_field_tag :app_title, Settings.app_title, :class => 'text_field', :class => "span2" %>
-	      </div>
-	    </div>
-
-		<br />
-
-	    <div class="control-group">
-	      <%= label_tag :news_forum_id, t(:news_forum_id, :scope => :settings, :default => "Which forum for news block"), :class => 'control-label' %>
-	      <div class="controls">
-	        <%= select_tag :news_forum_id, options_from_collection_for_select(Forum.all, :id, :title, Settings.news_forum_id), :class => 'text_field', :class => "span2" %>
-	      </div>
-	    </div>
-
-	    <div class="control-group">
-	      <%= label_tag :presentations_forum_id, t(:presentations_forum_id, :scope => :settings, :default => "Which forum for presentations link"), :class => 'control-label' %>
-	      <div class="controls">
-	        <%= select_tag :presentations_forum_id, options_from_collection_for_select(Forum.all, :id, :title, Settings.presentations_forum_id), :class => 'text_field', :class => "span2" %>
-	      </div>
-	    </div>
-
-	    <div class="control-group">
-	      <%= label_tag :rules_doc_id, t(:rules_doc_id, :scope => :settings, :default => "Which doc use for rules link"), :class => 'control-label' %>
-	      <div class="controls">
-	        <%= select_tag :rules_doc_id, options_from_collection_for_select(Doc.all, :id, :title, Settings.rules_doc_id), :class => 'text_field', :class => "span2" %>
-	      </div>
-	    </div>
-
-
+	<div class="span3">
+		<%= render :partial => "column_1" %>
 	</div>
 
 
-	<div class="span4">
-	    <div class="control-group">
-	      <%= label_tag :pagination_users, t(:pagination_users, :scope => :settings, :default => "Pagination, users per pages"), :class => 'control-label' %>
-	      <div class="controls">
-	        <%= number_field_tag :pagination_users, Settings.pagination_users, :class => 'text_field', :class => "span2" %>
-	      </div>
-	    </div>
-
-		<br />
-
-	    <div class="control-group">
-	      <%= label_tag :pagination_places, t(:pagination_places, :scope => :settings, :default => "Pagination, places per pages"), :class => 'control-label' %>
-	      <div class="controls">
-	        <%= number_field_tag :pagination_places, Settings.pagination_places, :class => 'text_field', :class => "span2" %>
-	      </div>
-	    </div>
-
-		<br />
-
-	    <div class="control-group">
-	      <%= label_tag :pagination_topics, t(:pagination_topics, :scope => :settings, :default => "Pagination, topics per pages"), :class => 'control-label' %>
-	      <div class="controls">
-	        <%= number_field_tag :pagination_topics, Settings.pagination_topics, :class => 'text_field', :class => "span2" %>
-	      </div>
-	    </div>
-
-		<br />
-
-	    <div class="control-group">
-	      <%= label_tag :pagination_messages, t(:pagination_messages, :scope => :settings, :default => "Pagination, messages per pages"), :class => 'control-label' %>
-	      <div class="controls">
-	        <%= number_field_tag :pagination_messages, Settings.pagination_messages, :class => 'text_field', :class => "span2" %>
-	      </div>
-	    </div>
-
-		<br />
-
-	    <div class="control-group">
-	      <%= label_tag :pagination_galleries, t(:pagination_galleries, :scope => :settings, :default => "Pagination, galleries per pages"), :class => 'control-label' %>
-	      <div class="controls">
-	        <%= number_field_tag :pagination_galleries, Settings.pagination_galleries, :class => 'text_field', :class => "span2" %>
-	      </div>
-	    </div>
-
-		<br />
-
-	    <div class="control-group">
-	      <%= label_tag :pagination_images, t(:pagination_images, :scope => :settings, :default => "Pagination, images per pages"), :class => 'control-label' %>
-	      <div class="controls">
-	        <%= number_field_tag :pagination_images, Settings.pagination_images, :class => 'text_field', :class => "span2" %>
-	      </div>
-	    </div>
-
-
+	<div class="span3">
+		<%= render :partial => "column_2" %>
 	</div>
 
-	<div class="span4">
-	    <div class="control-group">
-	      <%= label_tag :block_join_us, t(:block_join_us, :scope => :settings, :default => "Text for join us block"), :class => 'control-label' %>
-	      <div class="controls">
-	        <%= text_area_tag :block_join_us, Settings.block_join_us, :class => 'text_area', :class => "span4", :rows => 5 %>
-	      </div>
-	    </div>
+	<div class="span3">
+		<%= render :partial => "column_3" %>
 	</div>
 
-	<br />
 
-		<div class="span4">
-	    <div class="control-group">
-	      <%= label_tag :donations_goal_month, t(:donations_goal_month, :scope => :settings, :default => "Donations goal for this month"), :class => 'control-label' %>
-	      <div class="controls">
-	        <%= number_field_tag :donations_goal_month, Settings.donations_goal_month, :class => 'text_field', :class => "span2", :rows => 5 %>
-	      </div>
-	    </div>
+	<div class="span3">
+		<%= render :partial => "column_4" %>
 	</div>
 </div>
 
