@@ -6,7 +6,6 @@ atom_feed :language => Settings.app_lang do |feed|
     next if topic.updated_at.blank?
 
     feed.entry( topic.forum, topic ) do |entry|
-      entry.id forum_topic_url(topic.forum, topic.id)
       entry.title topic.title
       entry.content markdown(topic.content), :type => 'html'
 
