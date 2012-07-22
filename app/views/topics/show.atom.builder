@@ -10,7 +10,7 @@ atom_feed :language => Settings.app_lang do |feed|
       entry.content markdown(msg.content), :type => 'html'
 
       # the strftime is needed to work with Google Reader.
-      entry.updated(msg.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
+      #entry.updated(msg.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
 
       entry.author do |author|
         author.name msg.user.login
