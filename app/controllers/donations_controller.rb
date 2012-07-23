@@ -118,7 +118,7 @@ class DonationsController < ApplicationController
         if @user_id.empty?
           @don.user_id = nil
         else
-          @don.user_id = @user_id.first
+          @don.user_id = @user_id.first.id
         end
 
         @don.amount = BigDecimal.new(params[:mc_gross])
