@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
   def new
     @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
+    @messages = @topic.messages.order('created_at DESC').limit(5)
 
     @message.title = @topic.title
 
@@ -19,6 +20,7 @@ class MessagesController < ApplicationController
   def edit
     @topic = Topic.find(params[:topic_id])
     @forum = Forum.find(params[:forum_id])
+    @messages = @topic.messages.order('created_at DESC').limit(5)
 
     @message.title = @topic.title if @message.title.blank?
 

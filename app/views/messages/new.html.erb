@@ -5,3 +5,23 @@
 		<%= render :partial => 'form' %>
 	</div>
 </div>
+
+<hr>
+
+<div class="row">
+  <div class="span10 offset1">
+
+    <%- @messages.each do |message| %>
+    <%- if message.deleted %>
+    <%= render :partial => "topics/msg_deleted", :locals => {:msg => message} %>
+    <% else %>
+    <%= render :partial => "topics/msg", :locals => {:topic => nil, :msg => message} %>
+    <% end %>
+    <% end %>
+
+    <%- if @messages.count < 5 %>
+    <%= render :partial => "topics/msg", :locals => {:topic => @topic, :msg => @topic} %>
+    <% end %>
+
+  </div>
+</div>
