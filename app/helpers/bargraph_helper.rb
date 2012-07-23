@@ -275,9 +275,10 @@ module BargraphHelper
     HTML
 
     data.each do |d|
+      percent = (d[1] > 100 ? 100 : d[1])
       html += <<-"HTML"
         <div class="graph">
-          <strong class="bar" style="width: #{d[1]}%;" title="#{d[0].to_s.humanize}"><span>#{d[1]}%</span> </strong>
+          <strong class="bar" style="width: #{percent}%;" title="#{d[0].to_s.humanize}"><span>#{d[1]}%</span> </strong>
         </div>
       HTML
     end
