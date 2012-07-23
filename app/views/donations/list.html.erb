@@ -14,7 +14,12 @@
   <tbody>
     <% @donations.each do |donation| %>
       <tr>
-        <td><%= donation.anonymous ? t('.anonymous') : donation.user_id %></td>
+        <% if donation.anonymous %>
+        <td><%= t('.anonymous') %></td>
+        <% else %>
+        <% user = User.find(donation.user_id) %>
+        <td><%= link_to user.login, user %></td>
+        <% end %>
         <td><%= donation.amount %></td>
         <td><%= ftime donation.created_at %></td>
         <td>
