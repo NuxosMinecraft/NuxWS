@@ -7,6 +7,11 @@ class Donation < ActiveRecord::Base
 
   validates_presence_of :amount
 
+  def is_anonymous?
+    return true if self.user_id.nil? or self.user_id.blank? or self.anonymous
+    return false
+  end
+
   def self.month_amount(month=:this)
     if month == :this
       Donation.by_month.map(&:amount).inject(0, :+)
