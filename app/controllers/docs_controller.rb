@@ -4,7 +4,7 @@ class DocsController < ApplicationController
   # GET /docs
   # GET /docs.json
   def index
-    @docs = @docs.page params[:page]
+    @docs = @docs.order('created_at DESC').page params[:page]
     @feed_link = docs_url(:format => :atom)
 
     respond_to do |format|

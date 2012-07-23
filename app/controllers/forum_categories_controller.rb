@@ -4,6 +4,7 @@ class ForumCategoriesController < ApplicationController
   # GET /forum_categories
   # GET /forum_categories.json
   def index
+    @forum_categories = @forum_categories.order('position ASC')
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @forum_categories }

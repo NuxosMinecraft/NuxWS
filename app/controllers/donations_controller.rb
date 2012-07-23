@@ -7,7 +7,7 @@ class DonationsController < ApplicationController
   # GET /donations
   # GET /donations.json
   def index
-    @donations = Donation.all
+    @donations = Donation.order('created_at DESC').limit(10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,7 +18,7 @@ class DonationsController < ApplicationController
   # GET /donations/list
   # GET /donations/list.json
   def list
-    @donations = Donation.page params[:page]
+    @donations = Donation.order('created_at DESC').page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

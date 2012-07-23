@@ -4,7 +4,7 @@ class GalleriesController < ApplicationController
   # GET /galleries
   # GET /galleries.json
   def index
-    @galleries = @galleries.page params[:page]
+    @galleries = @galleries.order('created_at DESC').page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class GalleriesController < ApplicationController
   # GET /galleries/xxx
   # GET /galleries/xxx.json
   def show
-    @images = @gallery.images.page params[:page]
+    @images = @gallery.images.order('created_at ASC').page params[:page]
 
     respond_to do |format|
       format.html # show.html.erb

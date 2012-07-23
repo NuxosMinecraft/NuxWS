@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :password, :password_confirmation, :email, :jid, :login, :role_id, :signature
 
-  default_scope :order => 'created_at DESC'
+  # Default order : latest created at top
 
   include SentientUser
   extend FriendlyId

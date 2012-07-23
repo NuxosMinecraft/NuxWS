@@ -1,7 +1,7 @@
 class Donation < ActiveRecord::Base
   attr_accessible :amount, :anonymous, :user_id
 
-  default_scope :order => 'created_at DESC'
+  # Default order : 'created_at DESC' latest at top
 
   paginates_per 20
 

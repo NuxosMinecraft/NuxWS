@@ -5,7 +5,7 @@ class LogsController < ApplicationController
   # GET /logs
   # GET /logs.json
   def index
-    @logs = @logs.page params[:page]
+    @logs = @logs.order('created_at DESC').page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

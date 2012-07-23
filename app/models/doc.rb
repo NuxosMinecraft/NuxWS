@@ -1,7 +1,7 @@
 class Doc < ActiveRecord::Base
   attr_accessible :title, :content, :modos_only, :description
 
-  default_scope :order => 'created_at DESC'
+  # Default order : 'created_at DESC' latest at top
   before_update :restrict_update_attrs
 
   extend FriendlyId
