@@ -5,7 +5,7 @@ class Donation < ActiveRecord::Base
 
   paginates_per 20
 
-  validates_presence_of :amount, :user_id
+  validates_presence_of :amount
 
   def self.month_amount(month=:this)
     if month == :this
