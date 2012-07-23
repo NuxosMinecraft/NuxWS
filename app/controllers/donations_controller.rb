@@ -114,7 +114,7 @@ class DonationsController < ApplicationController
       if notify.complete?
         @custom_things = YAML::load(params[:custom])
 
-        @user_id = User.find_all(@custom_things[:user_id])
+        @user_id = User.find_all_by_id(@custom_things[:user_id])
         if @user_id.empty?
           @don.user_id = nil
         else
