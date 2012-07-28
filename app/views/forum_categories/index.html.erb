@@ -4,7 +4,8 @@
   <thead>
     <tr>
       <th><%= t '.table_title', :default => model_class.human_attribute_name(:title) %></th>
-	  <th><%= t '.table_position', :default => model_class.human_attribute_name(:position) %></th>
+  	  <th><%= t '.table_position', :default => model_class.human_attribute_name(:position) %></th>
+      <th><%= t '.table_role', :default => model_class.human_attribute_name(:role) %></th>
       <th></th>
     </tr>
   </thead>
@@ -12,7 +13,8 @@
     <% @forum_categories.each do |fc| %>
       <tr>
         <td><%= fc.name %></td>
-		<td><%= fc.position %></td>
+    		<td><%= fc.position %></td>
+        <td><%= Role.get_sym(fc.role).to_s %></td>
         <% if can? :edit, fc or can? :destroy, fc %>
           <td>
             <% if can? :edit, fc %>

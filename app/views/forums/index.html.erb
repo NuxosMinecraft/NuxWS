@@ -25,7 +25,7 @@
 
 		<table class="table forums_list">
 			<tbody>
-				<%- category.forums.order('position ASC').each do |forum| %>
+				<%- category.forums.accessible_by(current_ability).order('position ASC').each do |forum| %>
 				<tr class="fl_t">
 					<td width="80%" class="fl_t_title">
 						<h3>&raquo; <%= link_to forum.title, forum_topics_path(forum) %></h3>

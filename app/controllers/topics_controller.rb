@@ -1,5 +1,7 @@
 class TopicsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource :forum
+  load_and_authorize_resource :topic, :through => :forum
+
   before_filter :at_least_modo, :only => [:pin, :unpin, :lock, :unlock]
 
   # GET /topics
@@ -13,7 +15,7 @@ class TopicsController < ApplicationController
   # GET /topics/xxx.json
   def show
     @forum = Forum.find(params[:forum_id])
-    @messages = @topic.messages.page params[:page]
+    @messages = @topic.messages.accessible_by(current_ability).page params[:page]
     @feed_link = forum_topic_url(@forum, @topic, :format => :atom)
 
     if current_user

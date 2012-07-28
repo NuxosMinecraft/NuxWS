@@ -10,7 +10,7 @@
 
 				<h4><%= link_to msg.user.login, msg.user %></h4>
 				<!-- TODO: add custom role mention -->
-				<%= msg.user.role.name %><br />
+				<%= msg.user.role_name %><br />
 
 				<%= t '.messages_count', :number => msg.user.messages.count %><br />
 			</div>

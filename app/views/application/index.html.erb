@@ -125,7 +125,7 @@
 				<% if User.logged_in.count > 0 %>
 				<li>
 					Connectés :
-					<%= raw User.logged_in.collect { |user| link_to user.login, user, :class => "role_color_#{user.role.name}" }.join(", ")%>
+					<%= raw User.logged_in.collect { |user| link_to user.login, user, :class => "role_color_#{user.role_name}" }.join(", ")%>
 				</li>
 				<% else %>
 				<li>Personne n'est connecté au site.</li>

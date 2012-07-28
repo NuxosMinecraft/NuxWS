@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :password, :password_confirmation, :email, :jid, :login, :role_id, :signature
+  attr_accessible :password, :password_confirmation, :email, :jid, :login, :role, :signature
 
   # Default order : latest created at top
 
@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
   validates_presence_of :login, :email
   validates :login, :validate_minecraft_login_and_not_hacked => true
   has_many :places
-  belongs_to :role
   has_many :topics
   has_many :messages
 
@@ -23,20 +22,25 @@ class User < ActiveRecord::Base
   before_update :restrict_update_attrs
 
   def create_default_role
-    self.role = Role.find_by_rid("1")
+    self.role = Role.get_id(:guest)
     if User.count == 0
-      self.role = Role.find_by_rid("16")
+      self.role = Role.get_id(:admin)
     end
   end
 
+  def role_name
+    self.role_sym.to_s
+  end
+  def role_sym
+    Role.get_sym(self.role)
+  end
+
   def admin?
-    return false if !self.role
-    return (self.role.rid == 16)
+    self.role == Role.get_id(:admin)
   end
 
   def at_least_modo?
-    return false if !self.role
-    return (self.role.rid >= 12)
+    self.role >= Role.get_id(:moderator)
   end
 
   def restrict_update_attrs
@@ -52,7 +56,7 @@ class User < ActiveRecord::Base
 
     if restrict
       self.login = self.login_was if self.login_changed?
-      self.role_id = self.role_id_was if self.role_id_changed?
+      self.role = self.role_was if self.role_changed?
     end
   end
 

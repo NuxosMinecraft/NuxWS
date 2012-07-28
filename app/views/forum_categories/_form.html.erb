@@ -17,11 +17,18 @@
       <%= f.text_field :name, :class => 'text_field' %>
     </div>
   </div>
-  
+
   <div class="control-group">
     <%= f.label :position, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :position, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :role, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :role, Role.all.collect{|r| [r[1], r[0]]}, :class => "number_field", :include_blank => false %>
     </div>
   </div>
 

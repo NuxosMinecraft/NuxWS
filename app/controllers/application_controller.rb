@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     if !@current_user
       return redirect_to root_url, :error => "Access denied!"
     end
-    if @current_user.role.rid < 12
+    if @current_user.role < Role.get_id(:moderator)
       return redirect_to root_url, :error => "Access denied!"
     end
   end

@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource :topic
+  load_and_authorize_resource :messages, :through => :topic
 
   # GET /topics/new
   # GET /topics/new.json

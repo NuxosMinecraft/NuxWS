@@ -23,14 +23,21 @@
       <%= f.text_area :description, :class => 'text_field', :rows => 5, :cols => 5 %>
     </div>
   </div>
-  
+
   <div class="control-group">
 	  <%= f.label :forum_category_id, :class => 'control-label' %>
 	  <div class="controls">
 		  <%= f.collection_select :forum_category_id, ForumCategory.all, :id, :name, :class => "number_field", :include_blank => true %>
 	  </div>
   </div>
-  
+
+    <div class="control-group">
+    <%= f.label :role, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :role, Role.all.collect{|r| [r[1], r[0]]}, :class => "number_field", :include_blank => false %>
+    </div>
+  </div>
+
   <div class="control-group">
     <%= f.label :position, :class => 'control-label' %>
     <div class="controls">

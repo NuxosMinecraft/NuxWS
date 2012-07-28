@@ -44,9 +44,9 @@
   <% if @current_user %>
   <% if @current_user.admin? %>
   <div class="control-group">
-    <%= f.label :role_id, :class => 'control-label' %>
+    <%= f.label :role, :class => 'control-label' %>
     <div class="controls">
-      <%= f.collection_select :role_id, Role.all, :id, :name, :class => "number_field" %>
+      <%= f.select :role, Role.all.collect{|r| [r[1], r[0]]}, :class => "number_field", :include_blank => false %>
     </div>
   </div>
   <% end %>

@@ -1,5 +1,5 @@
 class ForumCategory < ActiveRecord::Base
-  attr_accessible :name, :position
+  attr_accessible :name, :position, :role
 
   # Default order : higher position = bottom
 

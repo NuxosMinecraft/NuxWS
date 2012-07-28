@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120716173721) do
+ActiveRecord::Schema.define(:version => 20120728120616) do
 
   create_table "docs", :force => true do |t|
     t.string   "title"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20120716173721) do
     t.integer  "position"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "role"
   end
 
   create_table "forums", :force => true do |t|
@@ -45,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20120716173721) do
     t.integer  "forum_category_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.integer  "role"
   end
 
   create_table "friendly_id_slugs", :force => true do |t|
@@ -177,7 +179,7 @@ ActiveRecord::Schema.define(:version => 20120716173721) do
     t.string   "last_login_ip"
     t.string   "current_login_ip"
     t.string   "slug"
-    t.integer  "role_id"
+    t.integer  "role"
     t.text     "signature"
   end
 

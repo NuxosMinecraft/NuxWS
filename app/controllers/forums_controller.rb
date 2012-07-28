@@ -4,7 +4,7 @@ class ForumsController < ApplicationController
   # GET /forums
   # GET /forums.json
   def index
-    @categories = ForumCategory.order('position ASC')
+    @categories = ForumCategory.accessible_by(current_ability).order('position ASC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class ForumsController < ApplicationController
   # GET /forums/xxx
   # GET /forums/xxx.json
   def show
-    @topics = @forum.topics.order('pin DESC', 'created_at DESC').page params[:page]
+    @topics = @forum.topics.accessible_by(current_ability).order('pin DESC', 'created_at DESC').page params[:page]
     @feed_link = forum_url(@forum, :format => :atom)
 
     respond_to do |format|
