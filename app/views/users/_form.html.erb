@@ -53,6 +53,13 @@
   <% end %>
 
   <div class="control-group">
+    <%= f.label :custom_role, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :custom_role, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
     <%= f.label :signature, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :signature, :class => 'text_field markItUp-bbcode' %>

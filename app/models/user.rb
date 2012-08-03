@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :password, :password_confirmation, :email, :jid, :login, :role, :signature
+  attr_accessible :password, :password_confirmation, :email, :jid, :login, :role, :signature, :custom_role
 
   # Default order : latest created at top
 

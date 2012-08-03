@@ -94,6 +94,7 @@ fr:
         password: "Mot de passe"
         password_confirmation: "Confirmation du mot de passe"
         role_id: Rôle
+        custom_role: "Nom de role personnalisé"
   helpers:
     submit:
       doc:
@@ -324,6 +325,7 @@ fr:
       last_visit: "Dernière visite :"
       email: "Adresse email :"
       last_ip: "Dernière IP :"
+      custom_role: "Nom de role personnalisé :"
   user_sessions:
     form:
       lost_password: "Mot de passe perdu ?"

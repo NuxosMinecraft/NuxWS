@@ -9,8 +9,8 @@
 				</script>
 
 				<h4><%= link_to msg.user.login, msg.user %></h4>
-				<!-- TODO: add custom role mention -->
-				<%= msg.user.role_name %><br />
+				<% if !msg.user.custom_role.blank? %><%= msg.user.custom_role %><br /><% end %>
+				<i class="icon-asterisk"></i> <%= msg.user.role_name %><br />
 
 				<%= t '.messages_count', :number => msg.user.messages.count %><br />
 			</div>

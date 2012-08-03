@@ -17,6 +17,10 @@
 				<td><%= @user.role_name %></td>
 			</tr>
 			<tr>
+				<th><%= t '.custom_role' %></th>
+				<td><%= @user.custom_role %></td>
+			</tr>
+			<tr>
 				<th><%= t '.join_date' %></th>
 				<td><%= ftime(@user.created_at) %></td>
 			</tr>
