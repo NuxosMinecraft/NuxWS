@@ -44,7 +44,6 @@ gem 'sentient_user'
 gem 'kaminari'
 gem 'cancan'
 gem 'friendly_id'
-gem 'ransack'
 gem 'randumb'   # https://github.com/spilliton/randumb
 gem 'carrierwave' # https://github.com/jnicklas/carrierwave
 gem 'rmagick'
@@ -54,6 +53,7 @@ gem 'markitup_rails', :git => "git://github.com/NuxosMinecraft/markitup_rails.gi
 gem 'ledermann-rails-settings', :require => 'rails-settings', :git => "git://github.com/ledermann/rails-settings.git" # https://github.com/ledermann/rails-settings
 gem 'redcarpet' # markdown
 gem 'unread' # https://github.com/ledermann/unread
+gem 'squeel' # https://github.com/ernie/squeel
 
 gem 'activemerchant', :require => 'active_merchant'
 

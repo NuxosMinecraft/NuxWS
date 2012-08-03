@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="span4 offset2">
+    <h3>Topics</h3>
+    <%= form_tag search_url(:topics_title), :method => "GET", :class => "form-horizontal" do %>
+      <%= label_tag :q_title, "Title:" %>
+      <%= text_field_tag :q_title %>
+      <%= submit_tag :search %>
+    <% end %>
+    <%= form_tag search_url(:topics_msg), :method => "GET", :class => "form-horizontal" do %>
+      <%= label_tag :q_msg, "Message:" %>
+      <%= text_field_tag :q_msg %>
+      <%= submit_tag :search %>
+    <% end %>
+  </div>
+
+  <div class="span4">
+    <h3>Messages</h3>
+    <%= form_tag search_url(:messages), :method => "GET", :class => "form-horizontal" do %>
+      <%= label_tag :q_msg, "Message:" %>
+      <%= text_field_tag :q_msg %>
+      <%= submit_tag :search %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span4 offset2">
+    <h3>Documents</h3>
+    <%= form_tag search_url(:docs_desc), :method => "GET", :class => "form-horizontal" do %>
+      <%= label_tag :q_desc, "Description:" %>
+      <%= text_field_tag :q_desc %>
+      <%= submit_tag :search %>
+    <% end %>
+    <%= form_tag search_url(:docs_content), :method => "GET", :class => "form-horizontal" do %>
+      <%= label_tag :q_content, "Contenu:" %>
+      <%= text_field_tag :q_content %>
+      <%= submit_tag :search %>
+    <% end %>
+  </div>
+
+  <div class="span4">
+    <h3>Lieux</h3>
+    <%= form_tag search_url(:places_shortdesc), :method => "GET", :class => "form-horizontal" do %>
+      <%= label_tag :q_shortdesc, "Short description:" %>
+      <%= text_field_tag :q_shortdec %>
+      <%= submit_tag :search %>
+    <% end %>
+    <%= form_tag search_url(:places_desc), :method => "GET", :class => "form-horizontal" do %>
+      <%= label_tag :q_desc, "Descripion:" %>
+      <%= text_field_tag :q_desc %>
+      <%= submit_tag :search %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span4 offset2">
+    <h3>Galleries</h3>
+    <%= form_tag search_url(:galleries_title), :method => "GET", :class => "form-horizontal" do %>
+      <%= label_tag :q_title, "Title:" %>
+      <%= text_field_tag :q_title %>
+      <%= submit_tag :search %>
+    <% end %>
+    <%= form_tag search_url(:galleries_desc), :method => "GET", :class => "form-horizontal" do %>
+      <%= label_tag :q_desc, "Description:" %>
+      <%= text_field_tag :q_desc %>
+      <%= submit_tag :search %>
+    <% end %>
+  </div>
+
+  <div class="span4">
+    <h3>Images</h3>
+    <%= form_tag search_url(:images_title), :method => "GET", :class => "form-horizontal" do %>
+      <%= label_tag :q_title, "Title:" %>
+      <%= text_field_tag :q_title %>
+      <%= submit_tag :search %>
+    <% end %>
+    <%= form_tag search_url(:images_desc), :method => "GET", :class => "form-horizontal" do %>
+      <%= label_tag :q_desc, "Description:" %>
+      <%= text_field_tag :q_desc %>
+      <%= submit_tag :search %>
+    <% end %>
+  </div>
+</div>

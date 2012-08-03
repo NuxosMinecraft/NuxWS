@@ -30,6 +30,7 @@ NuxWS::Application.routes.draw do
   resources :logs
 
   resources :password_resets, :only => [ :new, :create, :edit, :update ]
+  resources :search
 
   match "/login", :to => "user_sessions#new"
   match "/logout", :to => "user_sessions#destroy"
