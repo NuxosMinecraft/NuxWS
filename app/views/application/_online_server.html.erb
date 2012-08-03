@@ -1,0 +1,28 @@
+<%- if !@online_players.empty? %>
+<div class="row">
+  <div class="span12">
+    <h2><%= t 'index.players_connected' %></h2>
+  </div>
+</div>
+<div class="row homepage_row">
+  <div class="span10 offset1">
+    <ul class="thumbnails">
+    <%- @online_players.each do |player| %>
+    <li class="span1">
+      <% if player['world'].to_s == "world_nether" %>
+        <%- mapname = "nether" %>
+                              <% elsif player['world'].to_s == "world_the_end" %>
+        <%- mapname = "the_end" %>
+      <% else %>
+        <%- mapname = "surface" %>
+      <% end %>
+      <%- map_url = "http://map.nuxos-minecraft.fr/?x=" + player['x'].to_s + "&y=" + player['y'].to_s + "&z=" + player['z'].to_s + "&worldname=" + player['world'].to_s + "&mapname=" + mapname + "&zoom=6" %>
+      <%- avatar_url = "http://map.nuxos-minecraft.fr/tiles/faces/32x32/#{player['account']}.png" %>
+      <%= link_to map_url, :class => "thumbnail", :title => player["name"] do %>
+      <%= image_tag avatar_url %>
+      <% end %>
+    <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>

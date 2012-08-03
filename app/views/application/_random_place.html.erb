@@ -1,0 +1,24 @@
+<h2><%= t 'index.place.title' %></h2>
+<% if @place %>
+<h3><%= @place.name %></h3>
+<% if @place_images %>
+<%- @place_images.each do |img| %>
+<div class="pull-right">
+  <%= image_tag img.picture.thumb.url %>&nbsp;
+</div>
+<% end %>
+<% end %>
+
+<p><%= @place.short_description %></p>
+<p>
+  <%= link_to @place, :class => "btn btn-primary btn-mini" do%>
+  <%= t 'index.place.more_info' %>
+  <% end %>
+  <%- if @place.map_link %>
+    <%= link_to @place.map_link, :class => "btn btn-success btn-mini", :target => "_blank" do%>
+    <%= t 'index.place.on_the_map' %>
+    <% end %>
+  <% end %>
+
+</p>
+<% end %>

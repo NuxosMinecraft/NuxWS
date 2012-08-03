@@ -1,145 +1,50 @@
 <div class="container">
 
-	<%- if !@online_players.empty? %>
-	<div class="row">
-		<div class="span12">
-			<h2><%= t 'index.players_connected' %></h2>
-		</div>
-	</div>
-	<div class="row homepage_row">
-		<div class="span10 offset1">
-			<ul class="thumbnails">
-			<%- @online_players.each do |player| %>
-			<li class="span1">
-				<% if player['world'].to_s == "world_nether" %>
-					<%- mapname = "nether" %>
-                                <% elsif player['world'].to_s == "world_the_end" %>
-					<%- mapname = "the_end" %>
-				<% else %>
-					<%- mapname = "surface" %>
-				<% end %>
-				<%- map_url = "http://map.nuxos-minecraft.fr/?x=" + player['x'].to_s + "&y=" + player['y'].to_s + "&z=" + player['z'].to_s + "&worldname=" + player['world'].to_s + "&mapname=" + mapname + "&zoom=6" %>
-				<%- avatar_url = "http://map.nuxos-minecraft.fr/tiles/faces/32x32/#{player['account']}.png" %>
-				<%= link_to map_url, :class => "thumbnail", :title => player["name"] do %>
-				<%= image_tag avatar_url %>
-				<% end %>
-			<% end %>
-			</ul>
-		</div>
-	</div>
-	<% end %>
 
-	<div class="row homepage_row">
-		<div class="span6">
-			<h2><%= t 'index.join_us.title' %></h2>
-			<div class="row">
-				<div class="span4">
-					<span class="badge badge-important">1</span>
-					<%= t 'index.join_us.signup_text' %>
-				</div>
-				<div class="span2">
-					<%= link_to new_user_path, :class => "btn btn-inverse btn-mini" do %>
-					<i class="icon-pencil icon-white"></i>
-					<%= t 'index.join_us.signup' %>
-					<% end %>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="span4">
-					<span class="badge badge-important">2</span>
-					<%= t 'index.join_us.presentation_text' %>
-				</div>
-				<div class="span2">
-					<%= link_to forum_path(Settings.presentations_forum_id), :class => "btn btn-inverse btn-mini" do %>
-					<i class="icon-book icon-white"></i>
-					<%= t 'index.join_us.presentation' %>
-					<% end %>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="span4">
-					<span class="badge badge-important">3</span>
-					<%= t 'index.join_us.address_text' %>
-				</div>
-				<div class="span2">
-					<%= link_to root_url, :class => "btn btn-primary btn-mini" do %>
-					<i class="icon-signal icon-white"></i>
-					<%= t 'index.join_us.address' %>
-					<% end %>
-				</div>
-			</div>
-		</div>
-		<div class="span6">
-			<h2><%= t 'index.place.title' %></h2>
-			<% if @place %>
-			<h3><%= @place.name %></h3>
-			<% if @place_images %>
-			<%- @place_images.each do |img| %>
-			<div class="pull-right">
-				<%= image_tag img.picture.thumb.url %>&nbsp;
-			</div>
-			<% end %>
-			<% end %>
-
-			<p><%= @place.short_description %></p>
-			<p>
-				<%= link_to @place, :class => "btn btn-primary btn-mini" do%>
-				<%= t 'index.place.more_info' %>
-				<% end %>
-				<%- if @place.map_link %>
-					<%= link_to @place.map_link, :class => "btn btn-success btn-mini", :target => "_blank" do%>
-					<%= t 'index.place.on_the_map' %>
-					<% end %>
-				<% end %>
-
-			</p>
-			<% end %>
-		</div>
-	</div>
+  <%= render :partial => "online_server" %>
 
 
-	<div class="row homepage_row">
-		<div class="span4">
-			<h2><%= t 'index.news.title' %></h2>
-			<% if @forum_news %>
-			<dl class="dl-horizontal" >
-				<%- @news.each do |news| %>
-				<dt><%= link_to news.title, [news.forum, news] %></dt>
-				<dd><%= truncate(news.content, :length => 20) %></dd>
-				<% end %>
-			</dl>
-			<p>
-				<%= link_to Forum.find(Settings.news_forum_id), :class => "btn btn-mini" do %>
-				<%= t 'index.news.view_all' %>
-				<% end %>
-			</p>
-			<% end %>
-		</div>
+  <div class="row">
+    <div class="span6">
+      <%= render :partial => "news" %>
+    </div>
 
-		<div class="span4">
-			<h2><%= t 'index.stats.title' %></h2>
-			<ul class="unstyled">
-				<li><%= t 'index.stats.total_members', :number => User.all.count %></li>
-				<% if User.logged_in.count > 0 %>
-				<li>
-					Connectés :
-					<%= raw User.logged_in.collect { |user| link_to user.login, user, :class => "role_color_#{user.role_name}" }.join(", ")%>
-				</li>
-				<% else %>
-				<li>Personne n'est connecté au site.</li>
-				<% end %>
-				<li>&nbsp;</li>
-				<li>
-					<%= t 'index.stats.caption' %> <span class="role_color_guest"><%= t 'index.stats.guest' %></span>, <span class="role_color_padawan"><%= t 'index.stats.padawan' %></span>, <span class="role_color_player"><%= t 'index.stats.player' %></span>, <span class="role_color_moderator"><%= t 'index.stats.moderator' %></span>, <span class="role_color_admin"><%= t 'index.stats.admin' %></span>.
-			</ul>
-		</div>
+    <div class="span6">
+      <div class="row">
+        <div class="span6">
+          <%= render :partial => "join_us" %>
+        </div>
+      </div>
 
-		<div class="span4">
-			<h2><%= t 'index.donations.title' %></h2>
-			Bientôt !
-		</div>
-	</div>
 
-</div> <!-- /container -->
+      <br />
+      <br />
+
+      <div class="row">
+        <div class="span6">
+          <%= render :partial => "random_place" %>
+        </div>
+      </div>
+
+      <br />
+      <br />
+
+      <div class="row">
+        <div class="span6">
+          <h2><%= t 'donations.index.donations' %></h2>
+          <%=  t 'donations.index.goal', :amount => Donation.month_amount, :goal => Settings.donations_goal_month.to_i %>
+          <%= horizontal_bar_graph [[t('donations.index.this_month'), Donation.month_percent(:this)]] %>
+        </div>
+      </div>
+
+      <br />
+      <br />
+
+      <div class="row">
+        <div class="span6">
+          <%= render :partial => "online_users" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

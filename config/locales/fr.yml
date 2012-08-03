@@ -6,6 +6,7 @@ fr:
     galleries: Galeries photos
     places: Lieux
     docs: Documents
+    search: Recherches
     donations: Dons
     edit_profile: Éditer son profil
     app_settings: Configuration
@@ -146,7 +147,7 @@ fr:
       more_info: Plus d'infos »
       on_the_map: Sur la carte »
     news:
-      title: Dernières news
+      title: Les news
       view_all: Voir toute les news »
     stats:
       title: Quelques stats
@@ -175,6 +176,7 @@ fr:
     edit:
       title: Éditer un don
     index:
+      donations: "Donations"
       goal: "But pour ce mois : %{amount}/%{goal}"
       this_month: Ce mois
       item_name:  Support pour le Monde de Nuxos

@@ -1,0 +1,14 @@
+<h2><%= t 'index.news.title' %></h2>
+<% if @forum_news %>
+<div class="index_news" >
+  <%- @news.each do |news| %>
+  <h3><%= link_to news.title, [news.forum, news] %></h3>
+  <p><%= markdown news.content %></p>
+  <% end %>
+</div>
+<p>
+  <%= link_to Forum.find(Settings.news_forum_id), :class => "btn btn-mini" do %>
+  <%= t 'index.news.view_all' %>
+  <% end %>
+</p>
+<% end %>
