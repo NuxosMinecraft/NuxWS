@@ -3,7 +3,7 @@
 <div class="index_news" >
   <%- @news.each do |news| %>
   <h3><%= link_to news.title, [news.forum, news] %></h3>
-  <p><%= markdown news.content %></p>
+  <p><%= raw news.content.bbcode_to_html %></p>
   <% end %>
 </div>
 <p>
