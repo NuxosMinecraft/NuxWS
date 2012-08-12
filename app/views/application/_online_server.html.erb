@@ -4,11 +4,11 @@
     <h2><%= t 'index.players_connected' %></h2>
   </div>
 </div>
-<div class="row homepage_row">
-  <div class="span10 offset1">
+<div class="row homepage_row list_of_players">
+  <div class="span10">
     <ul class="thumbnails">
     <%- @online_players.each do |player| %>
-    <li class="span1">
+    <li class="span1 player_item_home">
       <% if player['world'].to_s == "world_nether" %>
         <%- mapname = "nether" %>
                               <% elsif player['world'].to_s == "world_the_end" %>
