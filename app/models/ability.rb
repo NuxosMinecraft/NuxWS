@@ -15,7 +15,7 @@ class Ability
     end
     can :read, Forum, ["role <= ?", user.role] do |forum|
       forum.role <= user.role
-      can :read, Topic, Topic.where(:forum_id => forum.id) do |topic|
+      can :read, Topic, ["forum_id = ?", forum.id] do |topic|
         can :read, Message, :topic_id => topic.id
       end
     end

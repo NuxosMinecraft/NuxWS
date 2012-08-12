@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  load_and_authorize_resource :forum
   load_and_authorize_resource :topic
   load_and_authorize_resource :message, :through => :topic
 
