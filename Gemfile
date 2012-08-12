@@ -60,3 +60,5 @@ gem 'activemerchant', :require => 'active_merchant'
 gem 'by_star' # https://github.com/radar/by_star
 
 gem 'exceptional' # https://www.exceptional.io/
+
+gem 'nokogiri'

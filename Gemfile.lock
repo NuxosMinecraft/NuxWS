@@ -217,6 +217,7 @@ DEPENDENCIES
   markitup_rails!
   mysql2
   nested_form!
+  nokogiri
   rails (= 3.2.3)
   randumb
   redcarpet

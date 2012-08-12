@@ -36,6 +36,8 @@ class MessagesController < ApplicationController
     @message.topic = @topic
     @message.user = current_user
 
+    @messages = @topic.messages.order('created_at DESC').limit(5)
+
     respond_to do |format|
       if @message.save
         format.html { redirect_to forum_topic_path(@forum, @topic), notice: 'Message was successfully created.' }

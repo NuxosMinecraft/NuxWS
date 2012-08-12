@@ -1,7 +1,7 @@
-<%= form_for(@pm) do |f| %>
+<%= form_for @pm, :html => { :class => 'form-horizontal well' } do |f| %>
   <% if @pm.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@pm.errors.count, "error") %> prohibited this pm from being saved:</h2>
+      <h3><%= pluralize(@pm.errors.count, "error") %> prohibited this message from being saved:</h3>
 
       <ul>
       <% @pm.errors.full_messages.each do |msg| %>
@@ -11,19 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject %>
+
+  <div class="control-group">
+    <%= f.label :subject, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :subject, :class => 'text_field', :class => "span6" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :to %><br />
-    <%= f.select :to, User.all.collect{|r| [r.login, r.id]}, :class => "number_field", :include_blank => false %>
+
+  <div class="control-group">
+    <%= f.label :to, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :to, User.all.collect{|r| [r.login, r.id]}, :class => "number_field", :include_blank => true %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :message %><br />
-    <%= f.text_area :message %>
+
+  <div class="control-group">
+    <%= f.label :message, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :message, :class => 'text_field', :rows => 10, :cols => 20, :class => "markItUp-bbcode" %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary btn-mini' %>
+    <%= link_to content_tag(:i, "", :class => "icon-remove") + " " + t('.cancel', :default => t("helpers.links.cancel")),
+                pms_path, :class => 'btn btn-mini' %>
   </div>
 <% end %>
