@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :topics
   has_many :messages
   has_many :pms
+  has_many :topic_notifications, :dependent => :delete_all
 
   paginates_per Settings.pagination_users.to_i
 

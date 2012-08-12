@@ -22,6 +22,8 @@ NuxWS::Application.routes.draw do
       match :unpin, :to => "topics#unpin"
       match :lock, :to => "topics#lock"
       match :unlock, :to => "topics#unlock"
+      match :follow, :to => "topics#follow"
+      match :unfollow, :to => "topics#unfollow"
       resources :messages
     end
   end

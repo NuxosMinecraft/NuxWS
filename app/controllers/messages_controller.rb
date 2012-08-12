@@ -41,6 +41,10 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+
+        # Notify users who want to be
+        @message.notify_users_topic_update!(current_user)
+
         format.html { redirect_to forum_topic_path(@forum, @topic), notice: 'Message was successfully created.' }
         format.json { render json: @topic, status: :created, location: @topic }
       else

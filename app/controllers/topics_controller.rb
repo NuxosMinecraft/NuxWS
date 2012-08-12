@@ -105,7 +105,7 @@ class TopicsController < ApplicationController
     @topic.pin!
 
     respond_to do |format|
-      format.html { redirect_to forum_topic_url(@forum, @topic) }
+      format.html { redirect_to forum_topic_url(@forum, @topic), notice: 'Topic was successfully pinned.' }
       format.json { head :no_content }
     end
   end
@@ -115,7 +115,7 @@ class TopicsController < ApplicationController
     @topic.unpin!
 
     respond_to do |format|
-      format.html { redirect_to forum_topic_url(@forum, @topic) }
+      format.html { redirect_to forum_topic_url(@forum, @topic), notice: 'Topic was successfully un-pin.' }
       format.json { head :no_content }
     end
   end
@@ -125,7 +125,7 @@ class TopicsController < ApplicationController
     @topic.lock!
 
     respond_to do |format|
-      format.html { redirect_to forum_topic_url(@forum, @topic) }
+      format.html { redirect_to forum_topic_url(@forum, @topic),notice: 'Topic was successfully locked.' }
       format.json { head :no_content }
     end
   end
@@ -135,9 +135,29 @@ class TopicsController < ApplicationController
     @topic.unlock!
 
     respond_to do |format|
-      format.html { redirect_to forum_topic_url(@forum, @topic) }
+      format.html { redirect_to forum_topic_url(@forum, @topic), notice: 'Topic was successfully unlocked.' }
       format.json { head :no_content }
     end
+  end
+
+  def follow
+    @forum = Forum.find(params[:forum_id])
+    @topic = Topic.find(params[:topic_id])
+    relation = TopicNotification.where(:topic_id => @topic.id, :user_id => current_user.id)
+    if relation.count == 0
+      TopicNotification.create(:topic_id => @topic.id, :user_id => current_user.id)
+    end
+    return redirect_to forum_topic_url(@forum, @topic), notice: 'You are now following this topic.'
+  end
+
+  def unfollow
+    @forum = Forum.find(params[:forum_id])
+    @topic = Topic.find(params[:topic_id])
+    relation = TopicNotification.where(:topic_id => @topic.id, :user_id => current_user.id)
+    relation.each do |rel|
+      rel.destroy
+    end
+    redirect_to forum_topic_url(@forum, @topic), notice: 'You are not following this topic anymore.'
   end
 
 end

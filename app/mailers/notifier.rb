@@ -59,4 +59,17 @@ class Notifier < ActionMailer::Base
     end
   end
 
+  def notify_users_topic_update(message, notif_user)
+    from = Settings.app_conf_mail_from
+    to = "#{notif_user.login} <#{notif_user.email}>"
+    @user = message.user
+    @message_url = forum_topic_url(message.topic.forum, message.topic, :host => Settings.app_conf_host)
+    mail(:to => to,
+      :subject => "Reply to a topic: #{message.topic.title}",
+      :from => from,
+      :fail_to => from
+    ) do |format|
+      format.text
+    end
+  end
 end

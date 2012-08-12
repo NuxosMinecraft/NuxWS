@@ -310,6 +310,8 @@ fr:
       author: Auteur
       subject: "Sujet : %{title}"
       messages_list: "Liste des messages"
+      follow: "Suivre ce topic"
+      unfollow: "Ne plus suivre ce topic"
   users:
     edit:
       title: Éditer le profil d'un membre

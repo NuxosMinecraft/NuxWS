@@ -15,6 +15,7 @@ class Topic < ActiveRecord::Base
   belongs_to :forum
   belongs_to :user
   has_many :messages, :dependent => :delete_all
+  has_many :topic_notifications, :dependent => :delete_all
 
   def anonymous?
     !self.username.blank?
