@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120803181952) do
+ActiveRecord::Schema.define(:version => 20120812092543) do
 
   create_table "docs", :force => true do |t|
     t.string   "title"
@@ -116,6 +116,16 @@ ActiveRecord::Schema.define(:version => 20120803181952) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "map_marker"
+  end
+
+  create_table "pms", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "to"
+    t.string   "subject"
+    t.text     "message"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "read",       :default => false
   end
 
   create_table "read_marks", :force => true do |t|

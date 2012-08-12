@@ -1,4 +1,8 @@
 NuxWS::Application.routes.draw do
+  resources :pms do
+    get "mark_read", :to => "pms#mark_read"
+  end
+
   match "/donations/ipn", :to => "donations#ipn"
   match "/donations/thanks", :to => "donations#thanks"
   match "/donations/cancel", :to => "donations#cancel"

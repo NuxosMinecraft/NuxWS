@@ -1,7 +1,5 @@
 Full rights tests ...
 InGame stats in user profile
-Personnal messages
 Choice custom "Doc" to show as a "Staff" page
-Send mail to all users with role = admin||moderator when new user registers
 Disable message editing if message.created_at is old more than 4 hours
 

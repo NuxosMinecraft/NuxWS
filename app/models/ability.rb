@@ -28,6 +28,10 @@ class Ability
     puts "Rights: guest"
     can :create, [Topic, Message]
     can :edit, [Topic, Message], :user_id => user.id
+
+    can :read, Pm, :to => user.id         # Can read if receptor
+    can :manage, Pm, :user_id => user.id  # Can manage if emittor
+    can :create, Pm                       # Otherwise, can create Pms
   end
 
   def padawan(user)

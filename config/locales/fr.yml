@@ -43,6 +43,12 @@ fr:
             password_confirmation:
               too_short: "trop court"
               blank: "est vide"
+        pm:
+          attributes:
+            message:
+              blank: "est vide"
+            to:
+              blank: "est vide"
     attributes:
       doc:
         title: Titre
@@ -95,6 +101,10 @@ fr:
         password_confirmation: "Confirmation du mot de passe"
         role_id: Rôle
         custom_role: "Nom de role personnalisé"
+      pm:
+        to: "Destinataire"
+        message: "Message"
+        subject: "Sujet"
   helpers:
     submit:
       doc:

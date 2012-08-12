@@ -24,10 +24,14 @@
 				<div class="btn-group pull-right">
 					<%- if current_user %>
 
+					<%= link_to pms_path, :class => "btn btn-inverse" do %>
+					<i class="icon-inbox icon-white"></i>
+					PMs: <%= current_user.unread_pms.count %>
+					<% end %>
+
 					<%= link_to users_path, :class => "btn btn-inverse" do %>
 					<i class="icon-leaf icon-white"></i>
 					<%= current_user.role_name %>
-
 					<% end %>
 
 					<%= link_to current_user, :class => "btn btn-primary" do %>

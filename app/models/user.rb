@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :places
   has_many :topics
   has_many :messages
+  has_many :pms
 
   paginates_per Settings.pagination_users.to_i
 
@@ -58,6 +59,18 @@ class User < ActiveRecord::Base
       self.login = self.login_was if self.login_changed?
       self.role = self.role_was if self.role_changed?
     end
+  end
+
+  def unread_pms
+    Pm.where(:read => 0, :to => self.id)
+  end
+
+  def sent_pms
+    self.pms
+  end
+
+  def received_pms
+    Pm.where(:to => self.id)
   end
 
 def sendmail_deliver_password_reset_instructions!

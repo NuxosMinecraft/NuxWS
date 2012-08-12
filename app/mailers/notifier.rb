@@ -42,4 +42,21 @@ class Notifier < ActionMailer::Base
       end
     end
   end
+
+  def pm_notify_user(pm)
+    user = User.find(pm.to)
+    from = Settings.app_conf_mail_from
+    to = "#{user.login} <#{user.email}>"
+    @user = user
+    @pm = pm
+    @pm_url = pm_url(pm.id, :host => Settings.app_conf_host)
+    mail(:to => to,
+      :subject => "You received a personnal message from #{user.login}",
+      :from => from,
+      :fail_to => from
+    ) do |format|
+      format.text
+    end
+  end
+
 end
