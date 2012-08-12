@@ -60,9 +60,15 @@ class User < ActiveRecord::Base
     end
   end
 
-def deliver_password_reset_instructions!
+def sendmail_deliver_password_reset_instructions!
   reset_perishable_token!
   Notifier.password_reset_instructions(self).deliver
+end
+def sendmail_register_notify_user!
+  Notifier.register_notify_user(self).deliver
+end
+def sendmail_register_notify_admins!
+  Notifier.register_notify_admins(self).deliver
 end
 
 end

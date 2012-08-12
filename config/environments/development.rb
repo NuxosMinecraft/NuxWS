@@ -34,4 +34,9 @@ NuxWS::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = false
+
+  # Better in dev for testing ...
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  ActionMailer::Base.delivery_method = :sendmail
 end

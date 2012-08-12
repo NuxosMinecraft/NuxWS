@@ -38,6 +38,8 @@ class UsersController < ApplicationController
   def create
     respond_to do |format|
       if @user.save
+        @user.sendmail_register_notify_user!
+        @user.sendmail_register_notify_admins!
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
