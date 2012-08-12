@@ -38,5 +38,4 @@ NuxWS::Application.configure do
   # Better in dev for testing ...
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
-  ActionMailer::Base.delivery_method = :sendmail
 end

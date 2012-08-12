@@ -1,0 +1,17 @@
+method: sendmail
+development:
+  :address: smtp.gmail.com
+  :port: 587
+  :authentication: plain
+  :user_name: xxx
+  :password: yyy
+  :enable_starttls_auto: true
+  :openssl_verify_mode: 'none'
+production:
+  :address: smtp.gmail.com
+  :port: 587
+  :authentication: plain
+  :user_name: xxx
+  :password: yyy
+  :enable_starttls_auto: true
+  :openssl_verify_mode: 'none'
