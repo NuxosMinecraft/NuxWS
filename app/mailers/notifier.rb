@@ -51,7 +51,7 @@ class Notifier < ActionMailer::Base
     @pm = pm
     @pm_url = pm_url(pm.id, :host => Settings.app_conf_host)
     mail(:to => to,
-      :subject => "You received a personnal message from #{user.login}",
+      :subject => "You received a personnal message from #{pm.user.login}",
       :from => from,
       :fail_to => from
     ) do |format|
