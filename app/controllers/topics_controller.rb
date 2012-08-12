@@ -53,7 +53,7 @@ class TopicsController < ApplicationController
 
     @topic.forum = @forum
     @topic.user = current_user
-    @topic.moderation = true if current_user.role.rid <= 1
+    @topic.moderation = true if current_user.role <= Role.get_id(:guest)
 
     respond_to do |format|
       if @topic.save
@@ -73,7 +73,7 @@ class TopicsController < ApplicationController
 
     params[:user_id] = current_user.id
     params[:forum_id] = @forum.id
-    params[:moderation] = true if current_user.role.rid <= 1
+    params[:moderation] = true if current_user.role <= Role.get_id(:guest)
 
     respond_to do |format|
       if @topic.update_attributes(params[:topic])
