@@ -95,4 +95,8 @@ class UsersController < ApplicationController
     end
   end
 
+  def topics_notifications
+    @notifications = TopicNotification.where(:user_id => current_user.id)
+  end
+
 end

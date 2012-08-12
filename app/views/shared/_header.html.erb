@@ -51,6 +51,13 @@
 							<% end %>
 						</li>
 
+						<li>
+							<%= link_to user_topics_notifications_path(current_user) do %>
+							<i class="icon-th-list"></i>
+							<%= t 'header.topics_notifications' %>
+							<% end %>
+						</li>
+
 						<%- if current_user.admin? %>
 						<li class="divider"></li>
 

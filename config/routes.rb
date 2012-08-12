@@ -12,6 +12,7 @@ NuxWS::Application.routes.draw do
   resources :users do
     get "messages", :to => "users#messages"
     get "topics", :to => "users#topics"
+    get "topics_notifications", :to => "users#topics_notifications"
   end
   resources :user_sessions
   resources :places
