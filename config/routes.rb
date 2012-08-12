@@ -39,6 +39,7 @@ NuxWS::Application.routes.draw do
   match "/login", :to => "user_sessions#new"
   match "/logout", :to => "user_sessions#destroy"
   match "/settings", :to => "settings#update", :via => :put
+  match "/pony", :to => "application#pony", :via => :get
 
   root :to => "application#index"
 end
