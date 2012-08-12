@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120812135033) do
+ActiveRecord::Schema.define(:version => 20120812165626) do
 
   create_table "docs", :force => true do |t|
     t.string   "title"
@@ -158,6 +158,8 @@ ActiveRecord::Schema.define(:version => 20120812135033) do
   create_table "topic_notifications", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.integer  "topic_id"
   end
 
   create_table "topics", :force => true do |t|
