@@ -12,6 +12,9 @@
 					<%- if Doc.find_all_by_id(Settings.rules_doc_id).count > 0 %>
 					<li><%= link_to t('header.rules'), Doc.find_all_by_id(Settings.rules_doc_id).first %></li>
 					<% end %>
+					<%- if Doc.find_all_by_id(Settings.staff_doc_id).count > 0 %>
+					<li><%= link_to t('header.staff'), Doc.find_all_by_id(Settings.staff_doc_id).first %></li>
+					<% end %>
 					<li><a href="http://map.nuxos-minecraft.fr/"><%= t 'header.map' %></a></li>
 					<li><%= link_to t('header.forums'), forums_url %></li>
 					<li class="<%= controller_name == "galleries" ? "active" : "" %>" ><%= link_to t('header.galleries'), galleries_url %></li>

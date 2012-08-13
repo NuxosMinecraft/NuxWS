@@ -31,3 +31,10 @@
     <%= select_tag :rules_doc_id, options_from_collection_for_select(Doc.all, :id, :title, Settings.rules_doc_id), :class => 'text_field', :class => "span2" %>
   </div>
 </div>
+
+<div class="control-group">
+  <%= label_tag :staff_doc_id, t(:staff_doc_id, :scope => :settings, :default => "Which doc use for staff link"), :class => 'control-label' %>
+  <div class="controls">
+    <%= select_tag :staff_doc_id, options_from_collection_for_select(Doc.all, :id, :title, Settings.staff_doc_id), :class => 'text_field', :class => "span2" %>
+  </div>
+</div>
