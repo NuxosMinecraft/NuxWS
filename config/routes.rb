@@ -1,4 +1,6 @@
 NuxWS::Application.routes.draw do
+  resources :mailings
+
   resources :pms do
     get "mark_read", :to => "pms#mark_read"
   end

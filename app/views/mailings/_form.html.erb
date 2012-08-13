@@ -1,0 +1,30 @@
+<%= form_for @mailing, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <div class="control-group">
+    <%= f.label :roles, :class => 'control-label' %>
+      <div class="controls">
+      Enter the list of roles to send email, space separated.<br />
+      Roles availables : <%= Role.all.map{|r| r[1]}.join(", ") %><br />
+      <%= f.text_field :roles, :class => 'text_field span6' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :subject, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :subject, :class => 'text_field span6' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :message, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :message, :class => 'text_area span6' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                mailings_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -12,6 +12,7 @@ fr:
     app_settings: Configuration
     forum_categories: Catégories du forum
     topics_notifications: Sujets suivis
+    mailing: Envois de mails
     actions_logs: Logs des actions
     logout: Se déconnecter
     singup: S'inscrire

@@ -51,7 +51,7 @@ class Ability
 
   def moderator_admin(user)
     puts "Rights: moderator or admin"
-    can :manage, [Place, Forum, Topic, Message, Gallery, Image, Doc, ForumCategory, User]
+    can :manage, [Place, Forum, Topic, Message, Gallery, Image, Doc, ForumCategory, User, Mailing]
     can :read, Log
   end
 
