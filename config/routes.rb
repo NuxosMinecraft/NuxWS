@@ -41,6 +41,13 @@ NuxWS::Application.routes.draw do
   resources :password_resets, :only => [ :new, :create, :edit, :update ]
   resources :search
 
+  # ADMIN PART
+  # This is the admin part, some are non-restfull 'cause they can't be restfull.
+  # This is not really database-backend but API calls...
+  get "/admin", :to => "admin#index"
+  # END ADMIN PART
+
+
   match "/login", :to => "user_sessions#new"
   match "/logout", :to => "user_sessions#destroy"
   match "/settings", :to => "settings#update", :via => :put
