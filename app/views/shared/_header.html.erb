@@ -20,7 +20,6 @@
 					<li class="<%= controller_name == "galleries" ? "active" : "" %>" ><%= link_to t('header.galleries'), galleries_url %></li>
 					<li class="<%= controller_name == "places" ? "active" : "" %>" ><%= link_to t('header.places'), places_url %></li>
 					<li class="<%= controller_name == "docs" ? "active" : "" %>" ><%= link_to t('header.docs'), docs_url %></li>
-					<li class="<%= controller_name == "search" ? "active" : "" %>" ><%= link_to t('header.search'), search_index_url %></li>
 					<li class="<%= controller_name == "donations" ? "active" : "" %>" ><%= link_to t('header.donations'), donations_url %></li>
 				</ul>
 
@@ -60,6 +59,13 @@
 							<%= t 'header.topics_notifications' %>
 							<% end %>
 						</li>
+
+					        <li>
+                                                  <%= link_to search_index_path do %>
+                                                  <i class="icon-search"></i>
+                                                  <%= t 'header.search' %>
+                                                  <% end %>
+                                                </li>
 
 						<%- if current_user.admin? %>
 						<li class="divider"></li>

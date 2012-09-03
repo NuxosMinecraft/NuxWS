@@ -4,10 +4,9 @@ fr:
     staff: Le staff
     map: Carte
     forums: Forums
-    galleries: Galeries photos
+    galleries: Photos
     places: Lieux
     docs: Documents
-    search: Recherches
     donations: Dons
     edit_profile: Éditer son profil
     app_settings: Configuration
@@ -18,6 +17,7 @@ fr:
     logout: Se déconnecter
     singup: S'inscrire
     login: Se connecter
+    search: Recherches
   footer:
     running_html: "Running <a href='http://github.com/NuxosMinecraft/NuxWS' target='_blank' title='Nuxos Web Site'>NuxWS</a> %{version}"
   views:
