@@ -1,131 +1,140 @@
 <div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</a>
-			<%= link_to Settings.app_title || "NuxWS", root_url, :class => "brand" %>
-			<div class="nav-collapse">
-				<ul class="nav">
-					<%- if Doc.find_all_by_id(Settings.rules_doc_id).count > 0 %>
-					<li><%= link_to t('header.rules'), Doc.find_all_by_id(Settings.rules_doc_id).first %></li>
-					<% end %>
-					<%- if Doc.find_all_by_id(Settings.staff_doc_id).count > 0 %>
-					<li><%= link_to t('header.staff'), Doc.find_all_by_id(Settings.staff_doc_id).first %></li>
-					<% end %>
-					<li><a href="http://map.nuxos-minecraft.fr/"><%= t 'header.map' %></a></li>
-					<li><%= link_to t('header.forums'), forums_url %></li>
-					<li class="<%= controller_name == "galleries" ? "active" : "" %>" ><%= link_to t('header.galleries'), galleries_url %></li>
-					<li class="<%= controller_name == "places" ? "active" : "" %>" ><%= link_to t('header.places'), places_url %></li>
-					<li class="<%= controller_name == "docs" ? "active" : "" %>" ><%= link_to t('header.docs'), docs_url %></li>
-					<li class="<%= controller_name == "donations" ? "active" : "" %>" ><%= link_to t('header.donations'), donations_url %></li>
-				</ul>
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+      </a>
+      <%= link_to Settings.app_title || "NuxWS", root_url, :class => "brand" %>
+      <div class="nav-collapse">
+	<ul class="nav">
+	  <%- if Doc.find_all_by_id(Settings.rules_doc_id).count > 0 %>
+	    <li><%= link_to t('header.rules'), Doc.find_all_by_id(Settings.rules_doc_id).first %></li>
+	  <% end %>
+	  <%- if Doc.find_all_by_id(Settings.staff_doc_id).count > 0 %>
+	    <li><%= link_to t('header.staff'), Doc.find_all_by_id(Settings.staff_doc_id).first %></li>
+	  <% end %>
+	  <li><a href="http://map.nuxos-minecraft.fr/"><%= t 'header.map' %></a></li>
+	  <li><%= link_to t('header.forums'), forums_url %></li>
+	  <li class="<%= controller_name == "galleries" ? "active" : "" %>" ><%= link_to t('header.galleries'), galleries_url %></li>
+	  <li class="<%= controller_name == "places" ? "active" : "" %>" ><%= link_to t('header.places'), places_url %></li>
+	  <li class="<%= controller_name == "docs" ? "active" : "" %>" ><%= link_to t('header.docs'), docs_url %></li>
+	  <li class="<%= controller_name == "donations" ? "active" : "" %>" ><%= link_to t('header.donations'), donations_url %></li>
+	</ul> <!-- ul nav -->
 
-				<div class="btn-group pull-right">
-					<%- if current_user %>
+	<div class="btn-group pull-right">
+	  <%- if current_user %>
 
-					<%= link_to pms_path, :class => "btn btn-inverse" do %>
-					<i class="icon-inbox icon-white"></i>
-					PMs: <%= current_user.unread_pms.count %>
-					<% end %>
+	    <%= link_to pms_path, :class => "btn btn-inverse" do %>
+	    <i class="icon-inbox icon-white"></i>
+	    PMs: <%= current_user.unread_pms.count %>
+	    <% end %>
 
-					<%= link_to users_path, :class => "btn btn-inverse" do %>
-					<i class="icon-leaf icon-white"></i>
-					<%= current_user.role_name %>
-					<% end %>
+	    <%= link_to users_path, :class => "btn btn-inverse" do %>
+	    <i class="icon-leaf icon-white"></i>
+	    <%= current_user.role_name %>
+            <% end %>
 
-					<%= link_to current_user, :class => "btn btn-primary" do %>
-					<i class="icon-user icon-white"></i>
-					<%= current_user.login %>
-					<% end %>
+            <%= link_to current_user, :class => "btn btn-primary" do %>
+	    <i class="icon-user icon-white"></i>
+	    <%= current_user.login %>
+            <% end %>
 
-					<%= link_to "#", :class => "btn btn-info dropdown-toggle", :"data-toggle" => "dropdown" do %>
-					<span class="caret"></span>
-					<% end %>
+            <%= link_to "#", :class => "btn btn-info dropdown-toggle", :"data-toggle" => "dropdown" do %>
+	    <span class="caret"></span>
+            <% end %>
 
-					<ul class="dropdown-menu">
-						<li>
-							<%= link_to edit_user_path(current_user) do %>
-							<i class="icon-pencil"></i>
-							<%= t 'header.edit_profile' %>
-							<% end %>
-						</li>
+            <ul class="dropdown-menu">
+	      <li>
+		<%= link_to edit_user_path(current_user) do %>
+		  <i class="icon-pencil"></i>
+		  <%= t 'header.edit_profile' %>
+		<% end %>
+	      </li>
 
-						<li>
-							<%= link_to user_topics_notifications_path(current_user) do %>
-							<i class="icon-th-list"></i>
-							<%= t 'header.topics_notifications' %>
-							<% end %>
-						</li>
+	      <li>
+		<%= link_to user_topics_notifications_path(current_user) do %>
+		  <i class="icon-th-list"></i>
+		  <%= t 'header.topics_notifications' %>
+		<% end %>
+	      </li>
 
-					        <li>
-                                                  <%= link_to search_index_path do %>
-                                                  <i class="icon-search"></i>
-                                                  <%= t 'header.search' %>
-                                                  <% end %>
-                                                </li>
+	      <li>
+                <%= link_to search_index_path do %>
+                  <i class="icon-search"></i>
+                  <%= t 'header.search' %>
+                <% end %>
+              </li>
 
-						<%- if current_user.admin? %>
-						<li class="divider"></li>
+	      <%- if current_user.admin? %>
+		<li class="divider"></li>
 
-						<li>
-							<%= link_to settings_path do %>
-							<i class="icon-cog"></i>
-							<%= t 'header.app_settings' %>
-							<% end %>
-						</li>
+		<li>
+		  <%= link_to settings_path do %>
+		    <i class="icon-cog"></i>
+		    <%= t 'header.app_settings' %>
+		  <% end %>
+		</li>
 
-						<li>
-							<%= link_to forum_categories_path do %>
-							<i class="icon-th-list"></i>
-							<%= t 'header.forum_categories' %>
-							<% end %>
-						</li>
+		<li>
+		  <%= link_to forum_categories_path do %>
+		    <i class="icon-th-list"></i>
+		    <%= t 'header.forum_categories' %>
+		  <% end %>
+		</li>
 
-						<li>
-							<%= link_to logs_path do %>
-							<i class="icon-info-sign"></i>
-							<%= t 'header.actions_logs' %>
-							<% end %>
-						</li>
+		<li>
+		  <%= link_to logs_path do %>
+		    <i class="icon-info-sign"></i>
+		    <%= t 'header.actions_logs' %>
+		  <% end %>
+		</li>
 
-						<li>
-							<%= link_to mailings_path do %>
-							<i class="icon-envelope"></i>
-							<%= t 'header.mailing' %>
-							<% end %>
-						</li>
-						<% end %>
+		<li>
+		  <%= link_to mailings_path do %>
+		    <i class="icon-envelope"></i>
+		    <%= t 'header.mailing' %>
+		  <% end %>
+		</li>
 
-
-						<li class="divider"></li>
-						<li>
-							<%= link_to logout_path do %>
-							<i class="icon-off"></i>
-							<%= t 'header.logout' %>
-							<% end %>
-						</li>
-					</ul>
+		<li class="divider"></li>
+		<li>
+		  <%= link_to admin_path do %>
+		    <i class="icon-cog"></i>
+		    <%= t 'header.admin' %>
+		  <% end %>
+		</li>
+	      <% end %>
 
 
-					<% else %>
+	      <li class="divider"></li>
+	      <li>
+		<%= link_to logout_path do %>
+		  <i class="icon-off"></i>
+		  <%= t 'header.logout' %>
+		<% end %>
+	      </li>
+	    </ul>
 
-					<%= link_to new_user_path, :class => "btn btn-info" do %>
-					<i class="icon-pencil icon-white"></i>
-					<%= t 'header.singup' %>
-					<% end %>
 
-					<%= link_to login_path, :class => "btn btn-danger" do %>
-					<i class="icon-lock icon-white"></i>
-					<%= t 'header.login' %>
-					<% end %>
+	  <% else %>
 
-					<% end %>
-				</div>
-			</div><!--/.nav-collapse -->
+	    <%= link_to new_user_path, :class => "btn btn-info" do %>
+	    <i class="icon-pencil icon-white"></i>
+	    <%= t 'header.singup' %>
+            <% end %>
 
-		</div>
-	</div>
+            <%= link_to login_path, :class => "btn btn-danger" do %>
+            <i class="icon-lock icon-white"></i>
+            <%= t 'header.login' %>
+            <% end %>
+
+          <% end %>
+        </div>
+      </div><!--/.nav-collapse -->
+
+    </div>
+  </div>
 </div>
+
