@@ -4,3 +4,6 @@ Disable message editing if message.created_at is old more than 4 hours
 CSS of bargraph in separate CSS file
 Finir les traductions
 Lib pour JSONAPI
+PMS: Supprimer "Message Count"
+PMS: A gauche s/destinataire/expediteur/
+PMS: Lecture d'un PM non pris en compte
