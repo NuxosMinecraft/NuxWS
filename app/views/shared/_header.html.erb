@@ -31,10 +31,12 @@
 	    PMs: <%= current_user.unread_pms.count %>
 	    <% end %>
 
+            <!--
 	    <%= link_to users_path, :class => "btn btn-inverse" do %>
 	    <i class="icon-leaf icon-white"></i>
 	    <%= current_user.role_name %>
             <% end %>
+            -->
 
             <%= link_to current_user, :class => "btn btn-primary" do %>
 	    <i class="icon-user icon-white"></i>
