@@ -2,7 +2,10 @@
 	<div class="content">
 		<div class="row">
 			<div class="span11">
-				<p><%= t 'footer.running_html', :version => "v0.1" %></p>
+				<p>
+                                  <%= t 'footer.running_html', :version => "v0.1" %><br />
+                                  <small>Bukkit: r<%= @minecraft_version[:bukkit]%>, MC: <%= @minecraft_version[:minecraft] %></small>
+                                </p>
 			</div>
 			<div class="span1">
 				<%= link_to "http://rubyonrails.org/", :target => "_blank" do %>

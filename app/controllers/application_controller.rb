@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   include SentientController
   require 'open-uri'
+  before_filter :minecraft_version
 
   def index
     @online_players = JSON.parse(open("http://map.nuxos-minecraft.fr/standalone/dynmap_world.json").read)
@@ -68,5 +69,16 @@ class ApplicationController < ActionController::Base
         redirect_to account_url
         return false
       end
-    end
+  end
+
+  def minecraft_version
+    api = JsonApi.call_api('getServer')
+    version = (api ? api["version"] : nil)
+    return ["undefined", "undefined"] if !version or !api
+    split = version.match(/^git-Bukkit-jenkins-CraftBukkit-(\d+) \(MC:\s(.*)\)$/i)
+    @minecraft_version = {
+      :bukkit => split[1],
+      :minecraft => split[2]
+    }
+  end
 end
