@@ -20,5 +20,6 @@ config/environments/*.local.yml
 public/uploads/
 
 config/database.yml
+config/jsonapi.yml
 
 email.yml

@@ -1,3 +1,10 @@
-admin here
-
-put icons here, things...
+MaxPlayers : <%= @jsonapi[:getServer]["maxPlayers"] %><br />
+Name : <%= @jsonapi[:getServer]["name"] %><br />
+ServerName : <%= @jsonapi[:getServer]["serverName"] %><br />
+Version : <%= @jsonapi[:getServer]["version"] %><br />
+Worlds:<br/>
+<ul>
+  <%- @jsonapi[:getServer]["worlds"].each do |world| %>
+    <li><%= world["name"] %></li>
+  <% end %>
+</ul>

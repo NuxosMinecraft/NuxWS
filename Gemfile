@@ -61,4 +61,6 @@ gem 'by_star' # https://github.com/radar/by_star
 
 gem 'exceptional' # https://www.exceptional.io/
 
+gem 'jsonapi', :git => "git://github.com/kreeger/jsonapi-ruby.git" # JSONAPI bukkit/minecraft API
+
 gem 'nokogiri'

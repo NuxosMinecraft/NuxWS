@@ -6,6 +6,11 @@ class AdminController < ApplicationController
   # GET /admin.json
   def index
     respond_to do |format|
+      @jsonapi = {
+        :getServer => JsonApi.call_api('getServer')
+      }
+      require "pp"
+      pp @jsonapi
       format.html # index.html.erb
       #format.json { render json: @logs }
     end
