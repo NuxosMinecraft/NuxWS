@@ -6,7 +6,5 @@ class Admin::WorldsController < ApplicationController
     @jsonapi = {
       :getWorlds => JsonApi.call_api('getWorlds')
     }
-    require "pp"
-    pp @jsonapi
   end
 end
