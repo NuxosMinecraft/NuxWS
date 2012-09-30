@@ -1,4 +1,4 @@
-<div class="row block_message">
+<div class="row block_message" id="msg_id_<%= msg.id %>">
 	<!-- 9 usable columns, two last are for last topics unread -->
 	<div class="span9 topic_block">
 		<div class="row">
@@ -19,7 +19,7 @@
 				<div class="row tb_msg_dating">
 					<div class="span5">
 						<%- if !topic %>
-						<h4><%= msg.title %></h4>
+						<h4><%= link_to msg.title, :anchor => "msg_id_#{msg.id}" %></h4>
 						<% end %>
 						<%- if !topic %>&nbsp;&nbsp;&nbsp;<% end %><b>le:</b> <%= ftime(msg.created_at) %>
 					</div>
