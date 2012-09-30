@@ -1,0 +1,11 @@
+<%= render :partial => "admin/navbar" %>
+
+<%- @jsonapi[:getWorlds].each do |world| %>
+  <div class="well well-small">
+    Monde: <%= world["name"] %> (<%= world["environment"] %>)<br />
+    Ticks restant avant le changement de temps: <%= world["remainingWeatherTicks"] %><br />
+    Full Time: <%= world["fullTime"] %><br />
+    Orage: <%= world["hasStorm"] ? "oui" : "non" %><br />
+    Éclairs: <%= world["isThundering"] ? "oui" : "non" %><br />
+  </div>
+<% end %>

@@ -45,6 +45,11 @@ NuxWS::Application.routes.draw do
   # This is the admin part, some are non-restfull 'cause they can't be restfull.
   # This is not really database-backend but API calls...
   get "/admin", :to => "admin#index"
+  namespace :admin do
+    resources :worlds, :only => [:index] do
+      post "set_time", :to => "worlds#set_time"
+    end
+  end
   # END ADMIN PART
 
 

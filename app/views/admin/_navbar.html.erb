@@ -1,0 +1,10 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <%= link_to "Admin", admin_url, :class => "brand" %>
+    <ul class="nav">
+      <li class="<%= @cur_tab == :worlds ? 'active' : '' %>" ><%= link_to "Mondes", admin_worlds_url %></li>
+      <li class="<%= @cur_tab == :players ? 'active' : '' %>" ><%= link_to "Joueurs", "" %></li>
+      <li class="<%= @cur_tab == :plugins ? 'active' : '' %>" ><%= link_to "Plugins", "" %></li>
+    </ul>
+  </div>
+</div>
