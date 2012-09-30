@@ -4,7 +4,7 @@
     <ul class="nav">
       <li class="<%= @cur_tab == :worlds ? 'active' : '' %>" ><%= link_to "Mondes", admin_worlds_url %></li>
       <li class="<%= @cur_tab == :players ? 'active' : '' %>" ><%= link_to "Joueurs", "" %></li>
-      <li class="<%= @cur_tab == :plugins ? 'active' : '' %>" ><%= link_to "Plugins", "" %></li>
+      <li class="<%= @cur_tab == :plugins ? 'active' : '' %>" ><%= link_to "Plugins", admin_plugins_url %></li>
     </ul>
   </div>
 </div>

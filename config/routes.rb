@@ -49,6 +49,7 @@ NuxWS::Application.routes.draw do
     resources :worlds, :only => [:index] do
       post "set_time", :to => "worlds#set_time"
     end
+    resources :plugins, :only => [:index]
   end
   # END ADMIN PART
 
