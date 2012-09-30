@@ -47,4 +47,12 @@ class Message < ActiveRecord::Base
     end
   end
 
+  def can_edit?(cur_user)
+    # Can't edit if Time.now - message.updated_at > 4.hours
+    # Can edit if admin
+    return true if cur_user.admin?
+    return false if (Time.now - self.updated_at) >= 4.hours
+    return true
+  end
+
 end

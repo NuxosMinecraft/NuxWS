@@ -39,4 +39,10 @@ class Topic < ActiveRecord::Base
     self.save
   end
 
+  def can_edit?(cur_user)
+    return true if cur_user.admin?
+    return false if (Time.now - self.updated_at) >= 4.hours
+    return true
+  end
+
 end
