@@ -45,7 +45,7 @@ class MessagesController < ApplicationController
         # Notify users who want to be
         @message.notify_users_topic_update!(current_user)
 
-        format.html { redirect_to forum_topic_path(@forum, @topic), notice: 'Message was successfully created.' }
+        format.html { redirect_to forum_topic_path(@forum, @topic, :anchor => "msg_id_#{@message.id}"), notice: 'Message was successfully created.' }
         format.json { render json: @topic, status: :created, location: @topic }
       else
         format.html { render action: "new" }
@@ -64,7 +64,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.update_attributes(params[:message])
-        format.html { redirect_to [@forum, @topic], notice: 'Message was successfully updated.' }
+        format.html { redirect_to forum_topic_path(@forum, @topic, :anchor => "msg_id_#{@message.id}"), notice: 'Message was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
