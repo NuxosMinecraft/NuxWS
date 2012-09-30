@@ -11,8 +11,6 @@
         <h4><%= link_to @pm.user.login, @pm.user %></h4>
         <% if !@pm.user.custom_role.blank? %><%= @pm.user.custom_role %><br /><% end %>
         <i class="icon-asterisk"></i> <%= @pm.user.role_name %><br />
-
-        <%= t '.messages_count', :number => @pm.user.messages.count %><br />
       </div>
 
       <div class="span7 tb_msg">
