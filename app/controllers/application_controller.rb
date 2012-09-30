@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
   def index
     @online_players = JSON.parse(open("http://map.nuxos-minecraft.fr/standalone/dynmap_world.json").read)
     @online_players = @online_players["players"] if @online_players
+    if !@online_players
+      @online_players = []
+    end
 
     @place = Place.random # display random place in homepage
     @place_images = nil
