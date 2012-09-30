@@ -11,12 +11,12 @@
   <div class="span6">
     <h3>Messages reçus</h3>
     <%= render :partial => "pms_table", :locals => {:pms =>
-    @current_user.received_pms.order("created_at DESC"), :side => "Expediteur"} %>
+    @current_user.received_pms.order("created_at DESC"), :side => :from} %>
   </div>
 
   <div class="span6">
     <h3>Messages envoyés</h3>
     <%= render :partial => "pms_table", :locals => {:pms =>
-    @current_user.sent_pms.order("created_at DESC"), :side => "Destinataire"} %>
+    @current_user.sent_pms.order("created_at DESC"), :side => :to} %>
   </div>
 </div>

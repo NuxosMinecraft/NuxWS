@@ -2,7 +2,13 @@
 <table class="table table-striped table-condensed">
   <thead>
     <tr>
-      <th><%= side %></th>
+      <%- if side == :to %>
+        <th><%= t '.to', :default =>
+                  model_class.human_attribute_name(:to) %></th>
+      <% else %>
+        <th><%= t '.from', :default =>
+                  model_class.human_attribute_name(:from) %></th>
+      <% end %>
       <th><%= t '.subject', :default => model_class.human_attribute_name(:subject) %></th>
       <th><%= t '.created_at', :default => model_class.human_attribute_name(:created_at) %></th>
     </tr>
@@ -10,7 +16,11 @@
   <tbody>
     <% pms.each do |pm| %>
       <tr>
-        <% u = User.find(pm.to) %>
+        <%- if side == :to %>
+          <% u = User.find(pm.to) %>
+        <% else %>
+          <% u = pm.user %>
+        <% end %>
         <%- if u %>
         <td><%= link_to u.login, u %></td>
         <% else %>

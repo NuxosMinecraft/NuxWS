@@ -105,6 +105,7 @@ fr:
         role_id: Rôle
         custom_role: "Nom de role personnalisé"
       pm:
+        from: "Expediteur"
         to: "Destinataire"
         message: "Message"
         subject: "Sujet"
