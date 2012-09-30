@@ -1,5 +1,348 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  header:
+    rules: Rules
+    staff: Staff
+    map: Map
+    forums: Forums
+    galleries: Pictures
+    places: Places
+    docs: Documents
+    donations: Donations
+    edit_profile: Edit account
+    app_settings: Configuration
+    forum_categories: Forum categories
+    topics_notifications: Followed subjects
+    mailing: Mailings
+    actions_logs: Actions logs
+    logout: Log out
+    singup: Register
+    login: Connect
+    search: Searchs
+  footer:
+    running_html: "Running <a href='http://github.com/NuxosMinecraft/NuxWS' target='_blank' title='Nuxos Web Site'>NuxWS</a> %{version}"
+  views:
+    pagination:
+      first: First page
+      previous: «
+      truncate: ...
+      next: »
+      last: Last page
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              too_short: "too short"
+              taken: "already taken"
+            login:
+              too_short: "too short"
+              taken: "already taken"
+              blank: "is empty"
+            password:
+              too_short: "too short"
+              confirmation: "too short"
+              blank: "is empty"
+            password_confirmation:
+              too_short: "too short"
+              blank: "is empty"
+        pm:
+          attributes:
+            message:
+              blank: "is empty"
+            to:
+              blank: "is empty"
+    attributes:
+      doc:
+        title: Title
+        description: Description
+        content: Content
+      donation:
+        user_id: Member
+        amount: Amount
+        anonymous: Anonymous
+      forum_category:
+        name: Name
+        position: Position
+      forum:
+        title: Title
+        description: Description
+        forum_category_id: Category
+        position: Position
+      gallery:
+        title: Title
+        description: Description
+        place_id: Places
+      image:
+        title: Title
+        picture: Image
+        description: Description
+        remote_picture_url: Remote URL
+      message:
+        title: Title
+        content: Content
+        deleted: Deleted
+        deletion_reason: Reason
+      place:
+        name: Name
+        short_description: Description (short)
+        description: Description
+        map_marker: Marker on the MAP
+        history: History
+        creators: Creators
+        various: Various
+      topic:
+        title: Title
+        content: Content
+      user_session:
+        login: Login
+        password: Password
+      user:
+        email: Email address
+        login: Login
+        password: Password
+        password_confirmation: Password confirmation
+        role_id: Role
+        custom_role: Custom role name
+      pm:
+        from: From
+        to: To
+        message: Message
+        subject: Subject
+  helpers:
+    submit:
+      doc:
+        create: Create document
+        update: Update
+      donation:
+        create: Add a donation
+        update: Update
+      forum_category:
+        create: Create category
+        update: Update
+      forum:
+        create: Create forum
+        update: Update
+      gallery:
+        create: Create gallery
+        update: Update
+      message:
+        create: Post
+        update: Update
+      place:
+        create: Create place
+        update: Update
+      topic:
+        create: Post
+        update: Update
+      user_session:
+        create: Login
+      user:
+        create: Register
+        update: Update
+    links:
+      cancel: Cancel
+      confirm: Are you sure?
+      destroy: Delete
+      edit: Edit
+      remove_image: Delete picture
+      add_image: Add picture
+  index:
+    players_connected: "Players connected:"
+    join_us:
+      title: "Join us in three steps:"
+      signup_text: "Register on the website:"
+      signup: Registration
+      presentation_text: "Post a presentation of yourself in the forum:"
+      presentation: Presentation
+      address_text: "Connection address is:"
+      address: nuxos-minecraft.fr
+    place:
+      title: Random place !
+      more_info: More infos »
+      on_the_map: On the map »
+    news:
+      title: News
+      view_all: View all news »
+    stats:
+      title: Some statistics
+      total_members: "Total members: %{number}"
+      connected: "Connected:"
+      no_connected: "Nobody connected."
+      caption: "Caption: "
+      guest: guest
+      padawan: padawan
+      player: player
+      moderator: moderator
+      admin: admin
+    donations:
+      title: Donations
+  docs:
+    edit:
+      title: Edit a document
+    index:
+      title: Documents
+      new: Create a document
+      created: Created on %{time}
+      updated: Updated on %{time}
+      documents_list: "Documents list"
+    new:
+      title: Create a new document
+  donations:
+    edit:
+      title: Edit a donation
+    index:
+      donations: "Donations"
+      goal: "Goal for this month : %{amount}/%{goal}"
+      this_month: This month
+      item_name:  Support for Monde de Nuxos
+      amount: "Ammount to donate (in €) :"
+      support: Support the server !
+    list:
+      title: Donations list
+      created_at: On
+      anonymous: Anonymous
+      new: Add a donation
+    new:
+      title: Add a donation
+  forum_categories:
+    index:
+      title: Forum categories
+      table_title: Title
+      table_position: Position
+      new: Create a category
+  forums:
+    sidebar:
+      title: Unread subjects
+      by: by
+      no_topics: No unread topics
+      mark_all_as_read: Mark all as read
+      no_unread_topics: No unread topics
+    edit:
+      title: Edit a forum
+    index:
+      title: Forums
+      new : Create a forum
+      last_message: Last message
+      topics_count: "Subject: %{count}"
+      last_topic: "Last:"
+    new:
+      title: Create a new forum
+    show:
+      new_topic: Create a new subject
+      title_started_by: Title / Started by
+      last_message: Last message
+      actions: Actiions
+      started_by: Started by
+      by: "by:"
+      topics_list: Topics list
+  galleries:
+    edit:
+      title: Gallery edit
+    index:
+      title: Galleries
+      new: New gallery
+      show: Show gallery
+    new:
+      title: Create new gallery
+    show:
+      other_sizes: Other sizes
+  images:
+    show:
+      direct_link: "Direct link:"
+      size: Size %{size}
+      full: full
+      normal: normal
+      small: small
+      thumb: thumb
+  logs:
+    index:
+      title: Logs
+      category: Categiry
+      priority: Priority
+      created_at: On
+      message: Message
+      relations: Relations
+  messages:
+    edit:
+      title: Edit message
+    new:
+      title: Reply
+  places:
+    index:
+      title: Places
+      table_map_link: On the map
+      map_link: View »
+      places_list: Places list
+    show:
+      links_and_actions: Links and actions
+      map_link: View on the map »
+      various: Various
+      history: History
+      creators: Creators
+  settings:
+    index:
+      title: Configuration
+      parameters_with_star: "Settings with star require an app reload to be effective."
+    app_title: Application title
+    news_forum_id: News forum
+    presentations_forum_id: Presentations forum
+    rules_doc_id: Document with rules
+    pagination_users: Members per page (*)
+    pagination_places: Places per page (*)
+    pagination_topics: Subjects per page (*)
+    pagination_messages: Messages per page (*)
+    pagination_galleries: Galleries per page (*)
+    pagination_images: Pictures per page (*)
+    donations_goal_month: Amount of donations for the month
+    app_conf_host: Application host
+    app_conf_mail_from: Send mails from
+  app_lang: Major language
+  topics:
+    msg:
+      messages_count: "Messages: %{number}"
+    msg_deleted:
+      at: "Le :"
+      message_deleted: "Deleted message:"
+    new:
+      title: Create a new subject
+    show:
+      answer : Reply
+      unlock: Unlock
+      lock: Lock
+      unpin: Unpin
+      pin: Pin
+      author: Author
+      subject: "Subject: %{title}"
+      messages_list: Messages list
+      follow: Follow this topic
+      unfollow: Unfollow this topic
+  users:
+    edit:
+      title: Edit member profile
+    index:
+      title: Members list
+    new:
+      title: Register
+      minecraftnet: Minecraft.net
+      alert_permissons_html: Ingame permissions are managed through the forum, the forum login is the <b>Minecraft.net</b> nick.<br /><b>Respect case !</b>
+      email: Email address
+      alert_email_html: Wrote a <b>valid</b> email address, she is used to validate the account, and to receive emails from administrators.
+      alert_hotmail_html: <b>Warning :</b> Don't use <b>Hotmail</b><br /><i>(@hotmail.com|.fr, @msn.com, @live.com|fr)</i>,<br />theire antispam filter doesn't love our mails.
+      password: Password
+      alert_password: "Please use a good password, with upper and lowercase and numbers with special characters."
+      password_confirmation: "Password confirmation:"
+      alert_finished: Now you can validate the form.
+    show:
+      title: Profil of %{login}
+      topics_count: "Opened subjects:"
+      messages_count: "Posted messages:"
+      role: "Role: "
+      join_date: "Registered on:"
+      last_visit: "Last visit:"
+      email: "Email address:"
+      last_ip: "Last IP:"
+      custom_role: "Custom role name:"
+  user_sessions:
+    form:
+      lost_password: "Lost password ?"
