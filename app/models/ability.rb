@@ -20,6 +20,9 @@ class Ability
       end
     end
 
+    # can read users profiles
+    can :read, User
+
     # special actions
     can :mark_all_read, Forum
   end
