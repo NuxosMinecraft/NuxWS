@@ -5,7 +5,7 @@ class ValidateMinecraftLoginAndNotHackedValidator < ActiveModel::EachValidator
       # http://www.minecraft.net/haspaid.jsp?user=#{USERNAME}
       require "open-uri"
       begin
-        haspaid = open("http://www.minecraft.net/haspaid.jsp?user=#{value}").read
+        haspaid = open("http://minecraft.net/haspaid.jsp?user=#{value}").read
         if haspaid != "true"
           record.errors[attribute] << "Apparently the user '#{value}' doesn't have paid his minecraft copy, sorry."
         end
