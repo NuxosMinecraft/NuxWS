@@ -3,7 +3,8 @@
 		<div class="row">
 			<div class="span11">
 				<p>
-                                  <%= t 'footer.running_html', :version => "v0.1" %><br />
+                                  <%= t 'footer.running_html',
+                                  :version => "v0.1 <small>(#{NUXWS_VERSION})</small>".html_safe %><br />
                                   <small>Bukkit: r<%= @minecraft_version[:bukkit]%>, MC: <%= @minecraft_version[:minecraft] %></small>
                                 </p>
 			</div>
