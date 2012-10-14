@@ -9,13 +9,13 @@
             :method => :delete,
             :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
             :class => 'btn btn-mini btn-danger' if can?(:destroy, @doc)%>
-		
+
 	</div>
 </div>
 <br/>
 <div class="row">
 	<div class="span10 offset1">
-		<%= markdown @doc.description %>
+		<%= @doc.description %>
 	</div>
 </div>
 
