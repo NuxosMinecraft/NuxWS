@@ -8,6 +8,10 @@ body {
 	padding-top: 5px;
 }
 
+.footer div img {
+    max-width: 200%;
+}
+
 .forums-separator {
 	/* border-top: 1px dashed lightgrey; */
 	margin-bottom: 2em;
