@@ -75,10 +75,14 @@ class ApplicationController < ActionController::Base
   end
 
   def minecraft_version
-    api = JsonApi.call_api('getServer')
-    version = (api ? api["version"] : nil)
-    return ["undefined", "undefined"] if !version or !api
-    split = version.match(/^git-Bukkit-jenkins-CraftBukkit-(\d+) \(MC:\s(.*)\)$/i)
+    if JsonApi
+      api = JsonApi.call_api('getServer')
+      version = (api ? api["version"] : nil)
+      split = version.match(/^git-Bukkit-jenkins-CraftBukkit-(\d+) \(MC:\s(.*)\)$/i)
+    else
+      api = nil
+      split = ["", "API down", "API down"]
+    end
     @minecraft_version = {
       :bukkit => split[1],
       :minecraft => split[2]
