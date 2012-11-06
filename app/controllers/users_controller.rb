@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @users }
+      format.json { render :json => @users, :except => [:perishable_token, :persistence_token, :email, :single_access_token, :last_login_ip, :current_login_ip, :crypted_password, :password_salt] }
     end
   end
 
@@ -16,7 +16,11 @@ class UsersController < ApplicationController
   def show
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @user }
+      if @current_user and @current_user == @user
+        format.json { render json: @user }
+      else
+        format.json { render :json => @user, :except => [:perishable_token, :persistence_token, :email, :single_access_token, :last_login_ip, :current_login_ip, :crypted_password, :password_salt] }
+      end
     end
   end
 

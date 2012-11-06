@@ -86,4 +86,16 @@ def sendmail_register_notify_admins!
   Notifier.register_notify_admins(self).deliver
 end
 
+   # Exclude password info from xml output.
+   def to_xml(options={})
+     options[:except] ||= [:encrypted_password, :password_salt, :crypted_password, :password_salt]
+     super(options)
+   end
+   
+   # Exclude password info from json output.
+   def to_json(options={})
+     options[:except] ||= [:encrypted_password, :password_salt, :crypted_password, :password_salt]
+     super(options)
+   end
+
 end

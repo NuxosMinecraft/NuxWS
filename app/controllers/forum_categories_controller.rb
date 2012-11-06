@@ -1,5 +1,6 @@
 class ForumCategoriesController < ApplicationController
   load_and_authorize_resource
+  before_filter :at_least_modo
 
   # GET /forum_categories
   # GET /forum_categories.json
