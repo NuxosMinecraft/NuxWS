@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
   before_filter :maintenance_mode
 
   def index
-    @online_players = JSON.parse(open("http://map.nuxos-minecraft.fr/standalone/dynmap_world.json").read)
+    begin
+      @online_players = JSON.parse(open("http://map.nuxos-minecraft.fr/standalone/dynmap_world.json").read)
+    rescue OpenURI::HTTPError
+      @online_players = nil
+    end
     @online_players = @online_players["players"] if @online_players
     if !@online_players
       @online_players = []
