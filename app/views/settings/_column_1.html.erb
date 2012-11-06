@@ -8,6 +8,21 @@
 <br />
 
 <div class="control-group">
+  <%= label_tag :app_maintenance, t(:app_maintenance, :scope => :settings, :default => "Application maintenance"), :class => 'control-label' %>
+  <div class="controls">
+    <%- if Settings.app_maintenance == "yes" %>
+      <p><%= radio_button_tag :app_maintenance, "yes",true, :class => "span2" %>yes</p>
+      <p><%= radio_button_tag :app_maintenance, "no", false, :class => "span2" %>no</p>
+    <% else %>
+      <p><%= radio_button_tag :app_maintenance, "yes",false, :class => "span2" %>yes</p>
+      <p><%= radio_button_tag :app_maintenance, "no", true, :class => "span2" %>no</p>
+    <% end %>
+  </div>
+</div> 
+
+<br />
+
+<div class="control-group">
   <%= label_tag :news_forum_id, t(:news_forum_id, :scope => :settings, :default => "Which forum for news block"), :class => 'control-label' %>
   <div class="controls">
     <%= select_tag :news_forum_id, options_from_collection_for_select(Forum.all, :id, :title, Settings.news_forum_id), :class => 'text_field', :class => "span2" %>
