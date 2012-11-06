@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include SentientController
   require 'open-uri'
   before_filter :minecraft_version
+  before_filter :maintenance_mode
 
   def index
     @online_players = JSON.parse(open("http://map.nuxos-minecraft.fr/standalone/dynmap_world.json").read)
@@ -54,6 +55,20 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def maintenance_mode
+    return if self.controller_name == "user_sessions"
+    mode = true if (!@current_user or Settings.app_maintenance == "yes")
+    mode = false if @current_user and @current_user.at_least_modo?
+
+    # Are allowed for ALL : login & logout
+    # Are allowed for MODO/ADMINS : all
+    # All other things are blocked
+    if mode
+      flash[:error] = "Maintenance is on, please come back later."
+      render :maintenance, :layout => nil
+    end
+    flash[:info] = "Maintenance mode on" if Settings.app_maintenance == "yes"
+  end
 
   private
   def current_user_session
