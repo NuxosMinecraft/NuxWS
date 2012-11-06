@@ -61,7 +61,7 @@ class ApplicationController < ActionController::Base
 
   def maintenance_mode
     return if self.controller_name == "user_sessions"
-    mode = true if (!@current_user or Settings.app_maintenance == "yes")
+    mode = true if (Settings.app_maintenance == "yes")
     mode = false if @current_user and @current_user.at_least_modo?
 
     # Are allowed for ALL : login & logout
