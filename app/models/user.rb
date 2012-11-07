@@ -75,6 +75,15 @@ class User < ActiveRecord::Base
     Pm.where(:to => self.id)
   end
 
+  def associate_posts
+    posts = Message.find_by_username(self.login)
+    posts.each do |post|
+      post.username = nil
+      post.user = self
+      post.save!
+    end
+  end
+
 def sendmail_deliver_password_reset_instructions!
   reset_perishable_token!
   Notifier.password_reset_instructions(self).deliver
