@@ -3,16 +3,22 @@
 	<div class="span9 topic_block">
 		<div class="row">
 			<div class="span2 tb_author">
-				<img class="tb_skin skin pull-left" src="http://www.minecraft.net/skin/<%= msg.user.login %>.png"/>
+				<img class="tb_skin skin pull-left" src="http://www.minecraft.net/skin/<%= msg.user ? msg.user.login : msg.username %>.png"/>
 				<script type="text/javascript">
 					renderMCSkins('skin', 2);
 				</script>
 
-				<h4><%= link_to msg.user.login, msg.user %></h4>
-				<% if !msg.user.custom_role.blank? %><%= msg.user.custom_role %><br /><% end %>
-				<i class="icon-asterisk"></i> <%= msg.user.role_name %><br />
+        <h4>
+          <%- if msg.user %>
+				    <%= link_to msg.user.login, msg.user %>
+          <% else %>
+            <%= msg.username %>
+          <% end %>
+        </h4>
+				<% if msg.user && !msg.user.custom_role.blank? %><%= msg.user.custom_role %><br /><% end %>
+				<i class="icon-asterisk"></i> <%= msg.user ? msg.user.role_name : "anonymous" %><br />
 
-				<%= t '.messages_count', :number => msg.user.messages.count %><br />
+				<%= t '.messages_count', :number => (msg.user ? msg.user.messages.count : 0 )%><br />
 			</div>
 
 			<div class="span7 tb_msg">
@@ -45,7 +51,7 @@
 				<div class="row tb_msg_content">
 					<div class="span7">
 						<%= raw msg.content.bbcode_to_html %>
-						<% if !msg.user.signature.blank? %>
+						<% if msg.user && !msg.user.signature.blank? %>
 						<hr>
 						<%= raw msg.user.signature.bbcode_to_html %>
 						<% end %>

@@ -34,14 +34,22 @@
 						<i class="<%= topic.locked ? "icon-lock" : "" %>"></i>
 					</div>
 				</h4>
-				<%= t '.started_by' %> <%= link_to topic.user.login, topic.user %>
+        <%- if topic.user %>
+          <%= t '.started_by' %> <%= link_to topic.user.login, topic.user %>
+        <% else %>
+          <%= t '.started_by' %> <%= topic.username %>
+        <% end %>
 			</td>
 
 			<td width="20%" class="tl_t_infos <%= topic.pin ? "tl_t_infos_pinned" : "" %>">
 				<%- if topic.messages.last %>
 				<%= ftime(topic.messages.last.created_at) %>
 				<br />
-				<%= t '.by' %> <%= link_to topic.messages.last.user.login, topic.messages.last.user %>
+        <%- if topic.messages.last.user %>
+  				<%= t '.by' %> <%= link_to topic.messages.last.user.login, topic.messages.last.user %>
+        <% else %>
+          <%= t '.by' %> <%= topic.messages.last.username %>
+        <% end %>
 				<% end %>
 			</td>
 
