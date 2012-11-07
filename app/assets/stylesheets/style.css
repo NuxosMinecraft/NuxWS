@@ -65,6 +65,12 @@ body {
 	border-bottom: 1px solid #FFFFFF;
 	border-right: 1px solid #FFFFFF;
 }
+.forums_list .fl_t .fl_t_title_modo {
+	background-color: #D0D0D0;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	border-right: 1px solid #FFFFFF;
+}
 
 .forums_list .fl_t .fl_t_msgs {
 	background-color: #E7EAEF;
