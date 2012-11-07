@@ -50,7 +50,11 @@
 
 				<div class="row tb_msg_content">
 					<div class="span7">
-						<%= raw msg.content.bbcode_to_html %>
+            <%- if !msg.user && !msg.username.blank? %>
+              <%= raw msg.content.bbcode_to_html({}, false) %>
+            <% else %>
+              <%= raw msg.content.bbcode_to_html %>
+            <% end %>
 						<% if msg.user && !msg.user.signature.blank? %>
 						<hr>
 						<%= raw msg.user.signature.bbcode_to_html %>
