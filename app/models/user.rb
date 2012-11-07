@@ -75,12 +75,18 @@ class User < ActiveRecord::Base
     Pm.where(:to => self.id)
   end
 
-  def associate_posts
+  def associate_posts_and_topics
     posts = Message.find_all_by_username(self.login)
     posts.each do |post|
       post.username = nil
       post.user = self
       post.save!
+    end
+    topics = Topic.find_all_by_username(self.login)
+    topics.each do |topic|
+      topic.username = nil
+      topic.user = self
+      topic.save!
     end
   end
 
