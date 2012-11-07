@@ -60,4 +60,9 @@ NuxWS::Application.routes.draw do
   match "/pony", :to => "application#pony", :via => :get
 
   root :to => "application#index"
+
+  unless Rails.application.config.consider_all_requests_local
+    match '*not_found', to: 'errors#error_404'
+  end
+
 end

@@ -41,6 +41,11 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
+  unless Rails.application.config.consider_all_requests_local
+    rescue_from Exception, with: lambda { |exception| render_error 500, exception }
+    rescue_from ActionController::RoutingError, ActionController::UnknownController, ::AbstractController::ActionNotFound, ActiveRecord::RecordNotFound, with: lambda { |exception| render_error 404, exception }
+  end
+
   def at_least_modo
     if !@current_user
       return redirect_to root_url, :error => "Access denied!"
@@ -107,4 +112,12 @@ class ApplicationController < ActionController::Base
       :minecraft => split[2]
     }
   end
+
+  def render_error(status, exception)
+    respond_to do |format|
+      format.html { render template: "errors/error_#{status}", layout: 'layouts/application', status: status }
+      format.all { render nothing: true, status: status }
+    end
+  end
+
 end
