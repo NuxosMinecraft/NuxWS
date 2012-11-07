@@ -57,5 +57,9 @@ module NuxWS
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.after_initialize do |app|
+      app.routes.append { match '*not_found', :to => 'errors#error_404' } unless config.consider_all_requests_local
+    end
   end
 end
