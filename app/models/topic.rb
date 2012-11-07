@@ -1,5 +1,5 @@
 class Topic < ActiveRecord::Base
-  attr_accessible :title, :content
+  attr_accessible :title, :content, :username, :created_at, :last_message_at, :forum_id
 
   validates_presence_of :title, :content
 

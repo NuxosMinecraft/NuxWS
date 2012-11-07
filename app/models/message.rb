@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-  attr_accessible :title, :content, :username, :edits, :last_edit_by, :deleted, :deletion_reason
+  attr_accessible :title, :content, :username, :edits, :last_edit_by, :deleted, :deletion_reason, :created_at, :updated_at, :topic_id
 
   validates_presence_of :title, :content
 
