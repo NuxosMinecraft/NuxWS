@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
   end
 
   def associate_posts
-    posts = Message.find_by_username(self.login)
+    posts = Message.find_all_by_username(self.login)
     posts.each do |post|
       post.username = nil
       post.user = self
