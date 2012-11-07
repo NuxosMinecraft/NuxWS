@@ -43,7 +43,7 @@ class Message < ActiveRecord::Base
   def notify_users_topic_update!(cur_user)
     TopicNotification.where(:topic_id => self.topic.id).each do |rel|
       next if (rel.user_id == cur_user.id)
-      Notifier.notify_users_topic_update(self, rel.user).deliver
+      Notifier.notify_users_topic_update(self, rel.user)
     end
   end
 

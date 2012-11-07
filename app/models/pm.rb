@@ -9,6 +9,6 @@ class Pm < ActiveRecord::Base
   belongs_to :user
 
   def pm_notify_user!
-    Notifier.pm_notify_user(self).deliver
+    Notifier.pm_notify_user(self)
   end
 end

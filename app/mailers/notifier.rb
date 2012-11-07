@@ -7,7 +7,7 @@ class Notifier < ActionMailer::Base
          :subject => "Password Reset",
          :from => from,
          :fail_to => from
-   ) do |format|
+   ).deliver do |format|
       format.text
     end
   end
@@ -21,7 +21,7 @@ class Notifier < ActionMailer::Base
       :subject => "Registered on http://nuxos-minecraft.fr/",
       :from => from,
       :fail_to => from
-    ) do |format|
+    ).deliver do |format|
       format.text
     end
   end
@@ -37,7 +37,7 @@ class Notifier < ActionMailer::Base
         :subject => "New user #{user.login} registered on http://nuxos-minecraft.fr/",
         :from => from,
         :fail_to => from
-      ) do |format|
+      ).deliver do |format|
         format.text
       end
     end
@@ -54,7 +54,7 @@ class Notifier < ActionMailer::Base
       :subject => "You received a personnal message from #{pm.user.login}",
       :from => from,
       :fail_to => from
-    ) do |format|
+    ).deliver do |format|
       format.text
     end
   end
@@ -68,7 +68,7 @@ class Notifier < ActionMailer::Base
       :subject => "Reply to a topic: #{message.topic.title}",
       :from => from,
       :fail_to => from
-    ) do |format|
+    ).deliver do |format|
       format.text
     end
   end
@@ -82,7 +82,7 @@ class Notifier < ActionMailer::Base
         :subject => "Message from Nuxos Minecraft: #{mailing.subject}",
         :from => from,
         :fail_to => from
-      ) do |format|
+      ).deliver do |format|
         format.text
       end
     end

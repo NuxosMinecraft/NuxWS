@@ -92,13 +92,13 @@ class User < ActiveRecord::Base
 
 def sendmail_deliver_password_reset_instructions!
   reset_perishable_token!
-  Notifier.password_reset_instructions(self).deliver
+  Notifier.password_reset_instructions(self)
 end
 def sendmail_register_notify_user!
-  Notifier.register_notify_user(self).deliver
+  Notifier.register_notify_user(self)
 end
 def sendmail_register_notify_admins!
-  Notifier.register_notify_admins(self).deliver
+  Notifier.register_notify_admins(self)
 end
 
    # Exclude password info from xml output.

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
+  before_filter :require_no_user, :only => [:new, :create]
+
   # GET /users
   # GET /users.json
   def index
