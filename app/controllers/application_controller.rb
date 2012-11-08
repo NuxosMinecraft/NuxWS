@@ -102,7 +102,8 @@ class ApplicationController < ActionController::Base
     if JsonApi
       api = JsonApi.call_api('getServer')
       version = (api ? api["version"] : nil)
-      split = version.match(/^git-Bukkit-jenkins-CraftBukkit-(\d+) \(MC:\s(.*)\)$/i)
+      split = version.match(/^git-Bukkit-.*-b(\d+)\w+ \(MC:\s(.*)\)$/i)
+      return ["", "No version", "No version"] if !split
     else
       api = nil
       split = ["", "API down", "API down"]
