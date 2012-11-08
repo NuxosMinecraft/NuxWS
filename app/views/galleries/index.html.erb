@@ -14,8 +14,10 @@
 			<%= image_tag gallery.images.random.picture.normal.url if gallery.images.count > 0 %>
 			<div class="caption">
 				<h5><%= gallery.title %></h5>
-				<p><%= gallery.description %></p>
-				<p><%= link_to content_tag(:i, "", :class => "icon-picture") + " " + t('.show'), gallery, :class => "btn btn-mini" %></p>
+				<%= gallery.description %>
+        <br />
+        <br />
+				<%= link_to content_tag(:i, "", :class => "icon-picture") + " " + t('.show'), gallery, :class => "btn btn-mini" %>
 			</div>
 		</div>
 	</li>

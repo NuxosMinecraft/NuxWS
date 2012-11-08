@@ -20,8 +20,9 @@
 			<a class="lightbox" rel="gallery" href='<%= image.picture.url %>' title='<%= image.description %>'><img src='<%= image.picture.normal.url %>' alt='Chargement...' /></a>
 			<div class="caption">
 				<h5><%= image.title %></h5>
-				<p><%= image.description %></p>
-				<p><%= link_to content_tag(:i, "", :class => "icon-eye-open") + " " + t('.other_sizes'), gallery_image_path(@gallery, image), :class => "btn btn-mini" %></p>
+          <%= image.description %>
+          <br/><br/>
+			    <%= link_to content_tag(:i, "", :class => "icon-eye-open") + " " + t('.other_sizes'), gallery_image_path(@gallery, image), :class => "btn btn-mini" %>
 			</div>
 		</div>
 	</li>
