@@ -35,7 +35,7 @@ class PlacesController < ApplicationController
   # GET /places/new
   # GET /places/new.json
   def new
-    @markers = return_markers
+    @select_markers = return_markers
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,7 +45,7 @@ class PlacesController < ApplicationController
 
   # GET /places/xxx/edit
   def edit
-    @markers = return_markers
+    @select_markers = return_markers
   end
 
   # POST /places
@@ -53,7 +53,7 @@ class PlacesController < ApplicationController
   def create
     @place.user = current_user
 
-    @markers = return_markers
+    @select_markers = return_markers
 
     puts params[:map_marker]
 
@@ -101,7 +101,11 @@ class PlacesController < ApplicationController
 
   private
   def return_markers
-    @markers = JSON.parse(open("http://map.nuxos-minecraft.fr/tiles/_markers_/marker_world.json").read)
+    begin
+      @markers = JSON.parse(open("http://map.nuxos-minecraft.fr/tiles/_markers_/marker_world.json").read)
+    rescue OpenURI::HTTPError
+      return {}
+    end
 
     @select_markers = {}
 
