@@ -13,7 +13,7 @@ atom_feed :language => Settings.app_lang do |feed|
       #entry.updated(topic.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
 
       entry.author do |author|
-        author.name topic.user.login
+        author.name (topic.user ? topic.user.login : topic.username)
       end
     end
   end
