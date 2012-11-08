@@ -1,5 +1,9 @@
 <%= render :partial => "admin/navbar" %>
 
+<%- if @jsonapi[:getPlugins].empty? %>
+  No API response from server
+<% end %>
+
 <table class="table table-striped table-condensed">
   <caption>Liste des plugins</caption>
   <thead>

@@ -4,7 +4,7 @@ class Admin::WorldsController < ApplicationController
   def index
     @cur_tab = :worlds
     @jsonapi = {
-      :getWorlds => JsonApi.call_api('getWorlds')
+      :getWorlds => JsonApi ? JsonApi.call_api('getWorlds') : []
     }
   end
 end

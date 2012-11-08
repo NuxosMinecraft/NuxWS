@@ -1,7 +1,10 @@
 <%= render :partial => "admin/navbar" %>
 
-
-MaxPlayers : <%= @jsonapi[:getServer]["maxPlayers"] %><br />
-Name : <%= @jsonapi[:getServer]["name"] %><br />
-ServerName : <%= @jsonapi[:getServer]["serverName"] %><br />
-Version : <%= @jsonapi[:getServer]["version"] %><br />
+<%- if @jsonapi[:getServer] %>
+  MaxPlayers : <%= @jsonapi[:getServer]["maxPlayers"] %><br />
+  Name : <%= @jsonapi[:getServer]["name"] %><br />
+  ServerName : <%= @jsonapi[:getServer]["serverName"] %><br />
+  Version : <%= @jsonapi[:getServer]["version"] %><br />
+<% else %>
+  No API response from server.
+<% end %>

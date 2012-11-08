@@ -1,5 +1,9 @@
 <%= render :partial => "admin/navbar" %>
 
+<%- if @jsonapi[:getWorlds].empty? %>
+  No API response from server.
+<% end %>
+
 <%- @jsonapi[:getWorlds].each do |world| %>
   <div class="well well-small">
     Monde: <%= world["name"] %> (<%= world["environment"] %>)<br />
