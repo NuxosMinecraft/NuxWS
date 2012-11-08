@@ -13,10 +13,14 @@ class Ability
     can :read, ForumCategory, ["role <= ?", user.role] do |forum_category|
       forum_category.role <= user.role
     end
+
     can :read, Forum, ["role <= ?", user.role] do |forum|
-      forum.role <= user.role
-      can :read, Topic, ["forum_id = ?", forum.id] do |topic|
-        can :read, Message, :topic_id => topic.id
+      if (forum.role <= user.role)
+        can :read, Topic
+        can :read, Message
+        true
+      else
+        false
       end
     end
 
