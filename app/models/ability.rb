@@ -6,7 +6,7 @@ class Ability
   def default(user)
     puts "Rights: default"
     # can :read, :all # doesn't do that ! We will authorize each actions
-    can :read, [Doc,Gallery, Image, Place]
+    can :read, [Doc, Gallery, Image, Place]
     can :manage, User, :id => user.id
     cannot :destroy, User, :id => user.id
 
@@ -47,8 +47,9 @@ class Ability
   def player(user)
     puts "Rights: player"
     can :manage, [Gallery, Image] # no specific user association
-    can :manage, [Place, Topic, Message], :user_id => user.id
-    cannot :destroy, [Place, Topic, Message], :user_id => user.id
+    can :manage, [Place, Topic, Message]
+    # Doesn't know if the following rule is usefull
+    # cannot :destroy, [Place, Topic, Message], :user_id => user.id
     can :manage, Doc, :modos_only => false
   end
 
