@@ -51,9 +51,7 @@ class Ability
   def player(user)
     puts "Rights: player"
     can :manage, [Gallery, Image] # no specific user association
-    can :manage, [Place, Topic, Message]
-    # Doesn't know if the following rule is usefull
-    # cannot :destroy, [Place, Topic, Message], :user_id => user.id
+    can :manage, [Place, Topic]
     can :manage, Doc, :modos_only => false
   end
 
