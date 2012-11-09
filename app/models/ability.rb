@@ -51,7 +51,7 @@ class Ability
   def player(user)
     puts "Rights: player"
     can :manage, [Gallery, Image] # no specific user association
-    can :manage, [Place, Topic]
+    can :manage, [Place]
     can :manage, Doc, :modos_only => false
   end
 
