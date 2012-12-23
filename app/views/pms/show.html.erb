@@ -3,10 +3,7 @@
   <div class="span9 topic_block offset1">
     <div class="row">
       <div class="span2 tb_author">
-        <img class="tb_skin skin pull-left" src="http://www.minecraft.net/skin/<%= @pm.user.login %>.png"/>
-        <script type="text/javascript">
-          renderMCSkins('skin', 2);
-        </script>
+        <img class="tb_skin skin pull-left" src="https://minotar.net/avatar/<%= @pm.user.login %>/40.png"/>
 
         <h4><%= link_to @pm.user.login, @pm.user %></h4>
         <% if !@pm.user.custom_role.blank? %><%= @pm.user.custom_role %><br /><% end %>
