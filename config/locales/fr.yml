@@ -153,10 +153,10 @@ fr:
       title: "Nous rejoindre en trois étapes :"
       signup_text: "Inscrivez-vous sur le site :"
       signup: Inscription
-      presentation_text: "Vous devez ensuite vous présenter dans la partie dédiée :"
+      presentation_text: "Présentez-vous sur le forum :"
       presentation: Présentation
       address_text: "L'adresse de connexion est :"
-      address: nuxos-minecraft.fr
+      address: mc.nuxos-minecraft.fr
     place:
       title: "Lieu aléatoire  à l'honneur !"
       more_info: Plus d'infos »
@@ -283,7 +283,7 @@ fr:
   settings:
     index:
       title: Configuration
-      parameters_with_star: "Les parametres avec une étoile requierent un reload de l'application pour prendre effet a certains endroits."
+      parameters_with_star: "Les paramètres avec une étoile requièrent un reload de l'application pour prendre effet à certains endroits."
     app_title: Titre de l'application
     news_forum_id: Forum de news
     presentations_forum_id: Forum de présentation
@@ -325,14 +325,14 @@ fr:
     new:
       title: Inscription
       minecraftnet: Minecraft.net
-      alert_permissons_html: Les permissions en jeu sont gérées par le forum, nous vous demandons votre pseudo <b>Minecraft.net</b><br /><b>Respectez la casse !</b>
+      alert_permissons_html: L'inscription nécessite votre pseudo <b>Minecraft.net</b> exact.<br /><b>Respectez la casse !</b>
       email: Adresse email
-      alert_email_html: Ecrivez une adresse email <b>valide</b>, elle vous servira pour vous envoyer un lien permettant de valider votre compte, ainsi que de rester en contact avec vous plus tard en jeu par messages privés.
-      alert_hotmail_html: <b>Attention :</b> N'utilisez pas d'adresse <b>Hotmail</b><br /><i>(@hotmail.com|.fr, @msn.com, @live.com|fr)</i>,<br />leur filtre anti-spam considère nos mails comme étant du spam. Ceci est un faux-positif.
+      alert_email_html: Une adresse email <b>valide</b> est requise.
+      alert_hotmail_html: <b>Attention :</b> vous pouvez recevoir nos emails dans la boîte de spam, en faux-positif, particulièrement chez hotmail.
       password: Mot de passe
-      alert_password: "Nous vous conseillons de choisir un mot de passe fort combinant des lettres majuscules et minuscules, des chiffres et des caractères spéciaux (# ou $, voire %)"
+      alert_password: "Il est recommandé d'utiliser un mot de passe suffisamment fort : lettres, chiffres, caractères spéciaux ..."
       password_confirmation: "Confirmez le mot de passe :"
-      alert_finished: Si vous avez fini de remplir ce formulaire, vous pouvez le valider.
+      alert_finished: Si tout est bon, validez ;)
     show:
       title: Profil de %{login}
       topics_count: "Sujets ouverts :"
