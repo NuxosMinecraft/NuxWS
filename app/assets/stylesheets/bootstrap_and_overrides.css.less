@@ -1,5 +1,4 @@
 @import "twitter/bootstrap/bootstrap";
-body { padding-top: 60px; }
 
 @import "twitter/bootstrap/responsive";
 
@@ -46,4 +45,51 @@ li.player_item_home {
 
 div.list_of_players {
   margin-left: -5px;
+}
+
+html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+    background-image: url('grass_side.png'), url('dirt.png');
+    background-repeat: repeat-x, repeat;
+    background-position: 0px 40px, 0px 0px;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -180px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+  height: 180px;
+  color: white;
+}
+#footer small {
+  color: white;
+}
+#push-top {
+  height: 40px;
+}
+#footer {
+  background: url('stone.png');
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.white {
+  background: white;
 }
