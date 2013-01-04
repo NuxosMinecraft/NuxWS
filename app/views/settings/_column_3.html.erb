@@ -4,3 +4,10 @@
     <%= number_field_tag :donations_goal_month, Settings.donations_goal_month, :class => 'text_field', :class => "span2", :rows => 5 %>
   </div>
 </div>
+
+<div class="control-group">
+  <%= label_tag :launcher_jar, t(:launcher_jar, :scope => :settings, :default => "Link to .jar launcher"), :class => 'control-label' %>
+  <div class="controls">
+    <%= text_field_tag :launcher_jar, Settings.launcher_jar, :class => 'text_field', :class => "span2", :rows => 5 %>
+  </div>
+</div>
