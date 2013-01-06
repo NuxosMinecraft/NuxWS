@@ -17,6 +17,12 @@ class Topic < ActiveRecord::Base
   has_many :messages, :dependent => :delete_all
   has_many :topic_notifications, :dependent => :delete_all
 
+  before_create :update_last_message_at
+
+  def update_last_message_at
+    self.last_message_at = Time.now
+  end
+
   def anonymous?
     !self.username.blank?
   end
