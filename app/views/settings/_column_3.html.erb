@@ -11,3 +11,19 @@
     <%= text_field_tag :launcher_jar, Settings.launcher_jar, :class => 'text_field', :class => "span2", :rows => 5 %>
   </div>
 </div>
+
+<div class="control-group">
+  <%= label_tag :launcher_win, t(:launcher_win, :scope => :settings, :default => "Link to .exe launcher"), :class => 'control-label' %>
+  <div class="controls">
+    <%= text_field_tag :launcher_win, Settings.launcher_win, :class => 'text_field', :class => "span2", :rows => 5 %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= label_tag :launcher_mac, t(:launcher_mac, :scope => :settings, :default => "Link to .zip launcher"), :class => 'control-label' %>
+  <div class="controls">
+    <%= text_field_tag :launcher_mac, Settings.launcher_mac, :class => 'text_field', :class => "span2", :rows => 5 %>
+  </div>
+</div>
+
+

@@ -5,7 +5,7 @@
     <%= t 'index.join_us.signup_text' %>
   </div>
   <div class="span2">
-    <%= link_to new_user_path, :class => "btn btn-inverse btn-mini" do %>
+    <%= link_to new_user_path, :class => "btn btn-danger btn-mini" do %>
     <i class="icon-pencil icon-white"></i>
     <%= t 'index.join_us.signup' %>
     <% end %>
@@ -18,7 +18,7 @@
     <%= t 'index.join_us.presentation_text' %>
   </div>
   <div class="span2">
-    <%= link_to forum_path(Settings.presentations_forum_id), :class => "btn btn-inverse btn-mini" do %>
+    <%= link_to forum_path(Settings.presentations_forum_id), :class => "btn btn-warning btn-mini" do %>
     <i class="icon-book icon-white"></i>
     <%= t 'index.join_us.presentation' %>
     <% end %>
@@ -31,8 +31,8 @@
     <%= t 'index.join_us.address_text' %>
   </div>
   <div class="span2">
-    <%= link_to root_url, :class => "btn btn-primary btn-mini" do %>
-    <i class="icon-signal icon-white"></i>
+    <%= link_to root_url, :class => "btn btn-success btn-mini" do %>
+    <i class="icon-resize-full icon-white"></i>
     <%= t 'index.join_us.address' %>
     <% end %>
   </div>
@@ -44,8 +44,16 @@
     <%= t 'index.join_us.launcher' %>
   </div>
   <div class="span2">
+    <%= link_to Settings.launcher_win, :class => "btn btn-primary btn-mini" do %>
+    <i class="icon-th-large icon-white"></i>
+    <%= t 'index.join_us.launcher_win' %>
+    <% end %>
+    <%= link_to Settings.launcher_mac, :class => "btn btn-primary btn-mini" do %>
+    <i class="icon-shopping-cart icon-white"></i>
+    <%= t 'index.join_us.launcher_mac' %>
+    <% end %>
     <%= link_to Settings.launcher_jar, :class => "btn btn-primary btn-mini" do %>
-    <i class="icon-signal icon-white"></i>
+    <i class="icon-star icon-white"></i>
     <%= t 'index.join_us.launcher_jar' %>
     <% end %>
   </div>

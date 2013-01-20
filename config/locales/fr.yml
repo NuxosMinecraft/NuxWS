@@ -130,7 +130,7 @@ fr:
         create: Poster
         update: Mettre à jour
       place:
-        create: Créer le lieux
+        create: Créer le lieu
         update: Mettre à jour
       topic:
         create: Poster
@@ -150,17 +150,19 @@ fr:
   index:
     players_connected: "Joueurs connectés sur le serveur :"
     join_us:
-      title: "Nous rejoindre en trois étapes :"
+      title: "Nous rejoindre"
       signup_text: "Inscrivez-vous sur le site :"
       signup: Inscription
       presentation_text: "Présentez-vous sur le forum :"
       presentation: Présentation
-      address_text: "L'adresse de connexion est :"
+      address_text: "Connectez-vous au serveur :"
       address: mc.nuxos-minecraft.fr
-      launcher: 'Launcher custom Nuxos:'
-      launcher_jar: '.jar'
+      launcher: "Notre launcher :"
+      launcher_jar: 'Jar'
+      launcher_win: 'Win'
+      launcher_mac: 'Mac'
     place:
-      title: "Lieu aléatoire  à l'honneur !"
+      title: "Lieu à l'honneur !"
       more_info: Plus d'infos »
       on_the_map: Sur la carte »
     news:
