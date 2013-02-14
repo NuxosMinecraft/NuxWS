@@ -12,7 +12,7 @@ gem 'rails'
 gem 'mysql2'
 
 gem 'haml'
-#gem 'twitter-bootstrap-rails', '2.1.1'
+gem 'twitter-bootstrap-rails'
 
 # Some gems aren't available under windows
 platforms :ruby do
