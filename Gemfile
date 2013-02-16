@@ -26,7 +26,8 @@ end
 # To install required stuff
 # path=c:\RailsInstaller\ImageMagick-6.7.9-Q8;%path%
 # gem install rmagick -- '--with-opt-dir="c:\RailsInstaller\ImageMagick-6.7.9-Q8"'
-gem 'rmagick'
+#gem 'rmagick'
+gem 'mini_magick'
 
 # Gems used only for assets and not required
 # in production environments by default.

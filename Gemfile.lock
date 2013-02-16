@@ -125,6 +125,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
+    mini_magick (3.5.0)
+      subexec (~> 0.2.1)
     money (5.1.0)
       i18n (~> 0.6.0)
     multi_json (1.5.0)
@@ -185,6 +187,7 @@ GEM
       activerecord (~> 3.0)
       activesupport (~> 3.0)
       polyamorous (~> 0.5.0)
+    subexec (0.2.2)
     therubyracer (0.11.3)
       libv8 (~> 3.11.8.12)
       ref
@@ -228,6 +231,7 @@ DEPENDENCIES
   kaminari
   ledermann-rails-settings!
   markitup_rails!
+  mini_magick
   mysql2
   nested_form!
   newrelic_rpm
