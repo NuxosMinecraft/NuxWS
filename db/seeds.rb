@@ -6,10 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-[[1,"guest"], [4,"padawan"], [8,"player"], [12,"moderator"], [16,"admin"]].each do |role|
-  Role.create(:name => role[1], :rid => role[0])
-end
-
 Forum.create(:title => "News", :description => "Forum news")
 
 Settings.app_title = "NuxWS"
