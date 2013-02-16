@@ -29,7 +29,9 @@ class ApplicationController < ActionController::Base
     @forum_news = Forum.find_by_id(Settings.news_forum_id)
     @news = @forum_news.topics.limit(5).order("created_at DESC") if @forum_news
 
-    @feed_link = forum_url(@forum_news, :format => :atom)
+    if @forum_news
+      @feed_link = forum_url(@forum_news, :format => :atom)
+    end
   end
 
   def pony
