@@ -4,7 +4,7 @@ class Admin::PluginsController < ApplicationController
   def index
     @cur_tab = :plugins
     @jsonapi = {
-      :getPlugins => JsonApi ? JsonApi.call_api('getPlugins') : []
+      :getPlugins => JsonApi ? JsonApi.send('getPlugins') : []
     }
   end
 end

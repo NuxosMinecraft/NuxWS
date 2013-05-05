@@ -8,7 +8,7 @@ class AdminController < ApplicationController
     @cur_tab = :admin
     respond_to do |format|
       @jsonapi = {
-        :getServer => JsonApi ? JsonApi.call_api('getServer') : nil
+        :getServer => JsonApi ? JsonApi.send('getServer') : nil
       }
       format.html # index.html.erb
       #format.json { render json: @logs }
