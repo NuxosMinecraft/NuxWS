@@ -4,12 +4,27 @@
   No API response from server.
 <% end %>
 
-<%- @jsonapi[:getWorlds].each do |world| %>
-  <div class="well well-small">
-    Monde: <%= world["name"] %> (<%= world["environment"] %>)<br />
-    Ticks restant avant le changement de temps: <%= world["remainingWeatherTicks"] %><br />
-    Full Time: <%= world["fullTime"] %><br />
-    Orage: <%= world["hasStorm"] ? "oui" : "non" %><br />
-    Éclairs: <%= world["isThundering"] ? "oui" : "non" %><br />
+<%- @jsonapi[:getWorlds].each_slice(2) do |world1, world2| %>
+<div class="row">
+  <div class="span5">
+    <div class="well well-small">
+      Monde: <%= world1["name"] %> (<%= world1["environment"] %>)<br />
+      Ticks restant avant le changement de temps: <%= world1["remainingWeatherTicks"] %><br />
+      Full Time: <%= world1["fullTime"] %><br />
+      Orage: <%= world1["hasStorm"] ? "oui" : "non" %><br />
+      Éclairs: <%= world1["isThundering"] ? "oui" : "non" %><br />
+    </div>
   </div>
+  <%- if world2 %>
+    <div class="span5">
+      <div class="well well-small">
+        Monde: <%= world2["name"] %> (<%= world2["environment"] %>)<br />
+        Ticks restant avant le changement de temps: <%= world2["remainingWeatherTicks"] %><br />
+        Full Time: <%= world2["fullTime"] %><br />
+        Orage: <%= world2["hasStorm"] ? "oui" : "non" %><br />
+        Éclairs: <%= world2["isThundering"] ? "oui" : "non" %><br />
+      </div>
+    </div>
+  <% end %>
+</div>
 <% end %>
