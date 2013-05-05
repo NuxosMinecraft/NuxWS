@@ -41,6 +41,18 @@ group :production do
   gem 'newrelic_rpm'
 end
 
+group :development do
+  # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
+  # gem 'ruby-debug'
+  #gem 'ruby-debug19'
+  gem 'sqlite3'
+  gem 'pry'
+  gem 'thin'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  #gem 'meta_request'
+end
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -72,5 +84,6 @@ gem 'squeel' # https://github.com/ernie/squeel
 gem 'activemerchant', :require => 'active_merchant'
 gem 'by_star' # https://github.com/radar/by_star
 gem 'exceptional' # https://www.exceptional.io/
-gem 'jsonapi', :git => "git://github.com/kreeger/jsonapi-ruby.git" # JSONAPI bukkit/minecraft API
+#gem 'jsonapi', :git => "git://github.com/kreeger/jsonapi-ruby.git" # JSONAPI bukkit/minecraft API
+gem 'minecraft-jsonapi', :git => "git://github.com/Fustrate/minecraft-jsonapi.git"
 gem 'nokogiri'

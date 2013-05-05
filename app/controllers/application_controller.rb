@@ -102,7 +102,7 @@ class ApplicationController < ActionController::Base
 
   def minecraft_version
     if JsonApi
-      api = JsonApi.call_api('getServer')
+      api = JsonApi.send('getServer')
       version = (api ? api["version"] : nil)
       split = version.match(/^git-Bukkit-.*-b(\d+)\w+ \(MC:\s(.*)\)$/i)
       return ["", "No version", "No version"] if !split
