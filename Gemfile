@@ -87,3 +87,6 @@ gem 'exceptional' # https://www.exceptional.io/
 #gem 'jsonapi', :git => "git://github.com/kreeger/jsonapi-ruby.git" # JSONAPI bukkit/minecraft API
 gem 'minecraft-jsonapi', :git => "git://github.com/Fustrate/minecraft-jsonapi.git"
 gem 'nokogiri'
+
+gem 'delayed_job_active_record' # https://github.com/collectiveidea/delayed_job
+gem "daemons"

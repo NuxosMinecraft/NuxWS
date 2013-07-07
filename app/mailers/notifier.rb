@@ -74,6 +74,7 @@ class Notifier < ActionMailer::Base
   end
 
   def send_mailing_to_users(mailing, users)
+    sleep 30
     users.each do |user|
       from = Settings.app_conf_mail_from
       to = "#{user.login} <#{user.email}>"
@@ -82,9 +83,7 @@ class Notifier < ActionMailer::Base
         :subject => "Message from Nuxos Minecraft: #{mailing.subject}",
         :from => from,
         :fail_to => from
-      ).deliver do |format|
-        format.text
-      end
+      )
     end
   end
 end

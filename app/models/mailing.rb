@@ -19,6 +19,6 @@ class Mailing < ActiveRecord::Base
     end
 
     puts "Will send mailing to : #{users.collect(&:login)}"
-    Notifier.send_mailing_to_users(self, users)
+    Notifier.delay.send_mailing_to_users(self, users)
   end
 end
