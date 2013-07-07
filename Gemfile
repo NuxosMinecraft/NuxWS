@@ -16,10 +16,12 @@ gem 'twitter-bootstrap-rails'
 
 # Some gems aren't available under windows
 platforms :ruby do
-	gem 'unicorn'
-	gem 'therubyracer'
-	gem 'rmagick'
+  gem 'unicorn'
+  gem 'therubyracer'
+  gem 'rmagick'
 end
+
+gem 'less-rails'
 
 # And some ...
 # Please follow https://github.com/rmagick/rmagick/wiki
