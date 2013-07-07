@@ -328,8 +328,8 @@ fr:
       title: Liste des membres
     new:
       title: Inscription
-      minecraftnet: Minecraft.net
-      alert_permissons_html: L'inscription nécessite votre pseudo <b>Minecraft.net</b> exact.<br /><b>Respectez la casse !</b>
+      minecraftnet: Pseudo
+      alert_permissons_html: L'inscription nécessite votre pseudo.
       email: Adresse email
       alert_email_html: Une adresse email <b>valide</b> est requise.
       alert_hotmail_html: <b>Attention :</b> vous pouvez recevoir nos emails dans la boîte de spam, en faux-positif, particulièrement chez hotmail.

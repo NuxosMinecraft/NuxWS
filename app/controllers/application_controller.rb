@@ -95,7 +95,7 @@ class ApplicationController < ActionController::Base
   def require_no_user
       if current_user
         flash[:notice] = "You must be logged out to access this page"
-        redirect_to account_url
+        redirect_to current_user
         return false
       end
   end
