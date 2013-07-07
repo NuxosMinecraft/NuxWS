@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
 
   validates_presence_of :password, :password_confirmation, :on => :create
   validates_presence_of :login, :email
-  validates :login, :validate_minecraft_login_and_not_hacked => true, :on => :create
   has_many :places
   has_many :topics
   has_many :messages
@@ -106,7 +105,7 @@ end
      options[:except] ||= [:encrypted_password, :password_salt, :crypted_password, :password_salt]
      super(options)
    end
-   
+
    # Exclude password info from json output.
    def to_json(options={})
      options[:except] ||= [:encrypted_password, :password_salt, :crypted_password, :password_salt]
