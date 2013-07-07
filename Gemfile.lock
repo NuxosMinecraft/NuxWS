@@ -100,6 +100,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    commonjs (0.2.6)
     daemons (1.1.9)
     debug_inspector (0.0.2)
     delayed_job (3.0.5)
@@ -127,6 +128,11 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.8.0)
+    less (2.3.2)
+      commonjs (~> 0.2.6)
+    less-rails (2.3.3)
+      actionpack (>= 3.1)
+      less (~> 2.3.1)
     libv8 (3.11.8.13)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -258,6 +264,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   ledermann-rails-settings!
+  less-rails
   markitup_rails!
   minecraft-jsonapi!
   mini_magick
