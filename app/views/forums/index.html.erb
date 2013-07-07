@@ -1,55 +1,57 @@
-<div class="row">
-	<div class="span2"><h1><%= t '.title' %></h1></div>
-	<div class="span2 offset8">
-		<%= link_to content_tag(:i, "", :class => "icon-plus") + " " + t('.new'), new_forum_path, :class => "btn btn-mini" if can?(:create, Forum) %>
-	</div>
+<div class="row page_h">
+  <div class="span10 page_h_t">
+    <h1><%= t '.title' %></h1>
+  </div>
+  <div class="span2 page_h_b">
+    <%= link_to content_tag(:i, "", :class => "icon-plus") + " " + t('.new'), new_forum_path, :class => "btn btn-mini" if can?(:create, Forum) %>
+  </div>
 </div>
 
 <br />
 
 <div class="row">
-	<div class="span10">
-		<%- @categories.each do |category| %>
+  <div class="span10">
+    <%- @categories.each do |category| %>
 
-		<% if category.forums.count > 0 %>
+      <% if category.forums.count > 0 %>
 
-		<table class="table forums_list_header">
-			<thead>
-				<tr class="fl_header">
-					<th width="80%"><%= category.name %></th>
-					<th width="20%"><%= t '.last_message' %></th>
-				</tr>
-			</thead>
-		</table>
+	<table class="table forums_list_header">
+	  <thead>
+	    <tr class="fl_header">
+	      <th width="80%"><%= category.name %></th>
+	      <th width="20%"><%= t '.last_message' %></th>
+	    </tr>
+	  </thead>
+	</table>
 
 
-		<table class="table forums_list">
-			<tbody>
-				<%- category.forums.accessible_by(current_ability).order('position ASC').each do |forum| %>
-				<tr class="fl_t">
-          <td width="80%" class="<%= (forum.role >= Role.get_id(:moderator)) ? "fl_t_title_modo" : "fl_t_title" %>">
-						<h3>&raquo; <%= link_to forum.title, forum_topics_path(forum) %></h3>
-						<small><%= forum.description %></small>
-					</td>
+	<table class="table forums_list">
+	  <tbody>
+	    <%- category.forums.accessible_by(current_ability).order('position ASC').each do |forum| %>
+	      <tr class="fl_t">
+                <td width="80%" class="<%= (forum.role >= Role.get_id(:moderator)) ? "fl_t_title_modo" : "fl_t_title" %>">
+		  <h3>&raquo; <%= link_to forum.title, forum_topics_path(forum) %></h3>
+		  <small><%= forum.description %></small>
+		</td>
 
-					<td width="20%" class="fl_t_msgs">
-						<%= t '.topics_count', :count => forum.topics.count %>
-						<br />
-						<%- last_topic = forum.topics.order("last_message_at DESC").limit(1).first %>
-						<%- if last_topic %>
-						<%= t '.last_topic' %> <%= link_to last_topic.title, forum_topic_path(forum, last_topic) %>
-						<% end %>
-					</td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
+		<td width="20%" class="fl_t_msgs">
+		  <%= t '.topics_count', :count => forum.topics.count %>
+		  <br />
+		  <%- last_topic = forum.topics.order("last_message_at DESC").limit(1).first %>
+		  <%- if last_topic %>
+		    <%= t '.last_topic' %> <%= link_to last_topic.title, forum_topic_path(forum, last_topic) %>
+		  <% end %>
+		</td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
 
-		<% end %>
+      <% end %>
 
-		<% end %>
-	</div>
-	<div class="span2">
-		<%= render :partial => 'forums/sidebar' %>
-	</div>
+    <% end %>
+  </div>
+  <div class="span2">
+    <%= render :partial => 'forums/sidebar' %>
+  </div>
 </div>

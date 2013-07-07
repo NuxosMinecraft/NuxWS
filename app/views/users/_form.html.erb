@@ -19,8 +19,6 @@
 		  <% else %>
 		  <%= f.text_field :login, :class => "text_field", :disabled => :disabled %>
 		  <% end %>
-	  <br />
-	  Login is same as your minecraft login, respect case!
     </div>
   </div>
   <div class="control-group">
@@ -62,14 +60,14 @@
   <div class="control-group">
     <%= f.label :signature, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :signature, :class => 'text_field markItUp-bbcode' %>
+      <%= f.text_area :signature, :class => 'text_field markItUp-bbcode', :cols => 10 %>
     </div>
   </div>
 
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary btn-mini' %>
+    <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to content_tag(:i, "", :class => "icon-remove") + " " + t('.cancel', :default => t("helpers.links.cancel")),
-                users_path, :class => 'btn btn-mini' %>
+                users_path, :class => 'btn' %>
   </div>
 <% end %>

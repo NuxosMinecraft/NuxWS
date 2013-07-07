@@ -1,12 +1,12 @@
 <%- model_class = Place.new.class -%>
-<div class="row">
-	<div class="span2">
-		<h1><%= t '.title' %></h1>
-	</div>
-	<div class="span2 offset8">
-		<%= link_to content_tag(:i, "", :class => "icon-plus") + " Nouveau lieu", new_place_path,
-		:class => 'btn btn-primary btn-mini' if can? :create, Place %>
-	</div>
+<div class="row page_h">
+  <div class="span10 page_h_t">
+    <h1><%= t '.title' %></h1>
+  </div>
+  <div class="span2 page_h_b">
+    <%= link_to content_tag(:i, "", :class => "icon-plus") + " Nouveau lieu", new_place_path,
+	:class => 'btn btn-primary btn-mini' if can? :create, Place %>
+  </div>
 </div>
 
 <br />

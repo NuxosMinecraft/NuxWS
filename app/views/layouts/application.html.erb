@@ -32,18 +32,12 @@
       <div class="container">
         <div class="content">
           <div class="row white">
-            <div id="push-top"></div>
-            <div class="span6 offset3">
-              <% flash.each do |name, msg| %>
-                <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-                  <a class="close" data-dismiss="alert">×</a>
-                  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-                </div>
-              <% end %>
+            <div class="span10 offset1">
+              <%= bootstrap_flash %>
             </div>
           </div>
 
-          <div class="row white">
+          <div class="row white row-content">
             <div class="span12">
               <%= yield %>
             </div>
@@ -55,7 +49,7 @@
       <div id="push"></div>
     </div>
 
-	  <%= render :partial => 'shared/footer' %>
+    <%= render :partial => 'shared/footer' %>
 
     <!-- Javascripts
     ================================================== -->

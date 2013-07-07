@@ -1,28 +1,28 @@
 <div class="sidebar">
-	<div class="s_title">
-		<h3><%= t '.title' %></h3>
-	</div>
-	<div class="s_elements">
-		<%- if @current_user %>
-		<% if Topic.unread_by(@current_user).count > 0 %>
-			<%- Topic.unread_by(@current_user).each do |topic| %>
-				<% last_msg = topic.messages.last %>
-				<%- last_msg = topic if !last_msg %>
-        <%- if last_msg.user %>
-  				<%= link_to last_msg.title, forum_topic_path(topic.forum, topic) %> <%= t '.by' %> <b><%= link_to last_msg.user.login, last_msg.user %></b>
-        <% else %>
-          <%= link_to last_msg.title, forum_topic_path(topic.forum, topic) %> <%= t '.by' %> <b><%= last_msg.username %></b>
-        <% end %>
-				<br />
-				[<%= ftime(last_msg.created_at) %>]
-			<% end %>
-			<br />
-			<%= link_to t('.mark_all_as_read'), forums_mark_all_read_path %>
-			<% else %>
-			<%= t('.no_unread_topics') %>
-			<% end %>
-		<% else %>
-			<%= t '.no_topics' %>
-		<% end %>
-	</div>
+  <div class="s_title">
+    <h5><%= t '.title' %></h5>
+  </div>
+  <div class="s_elements">
+    <%- if @current_user %>
+      <% if Topic.unread_by(@current_user).count > 0 %>
+	<%- Topic.unread_by(@current_user).each do |topic| %>
+	  <% last_msg = topic.messages.last %>
+	  <%- last_msg = topic if !last_msg %>
+          <%- if last_msg.user %>
+  	    <%= link_to last_msg.title, forum_topic_path(topic.forum, topic) %> <%= t '.by' %> <b><%= link_to last_msg.user.login, last_msg.user %></b>
+          <% else %>
+            <%= link_to last_msg.title, forum_topic_path(topic.forum, topic) %> <%= t '.by' %> <b><%= last_msg.username %></b>
+          <% end %>
+	  <br />
+	  [<%= ftime(last_msg.created_at) %>]
+	<% end %>
+	<br />
+	<%= link_to t('.mark_all_as_read'), forums_mark_all_read_path %>
+      <% else %>
+	<small><%= t('.no_unread_topics') %></small>
+      <% end %>
+    <% else %>
+      <%= t '.no_topics' %>
+    <% end %>
+  </div>
 </div>
