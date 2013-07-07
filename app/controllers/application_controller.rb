@@ -117,6 +117,7 @@ class ApplicationController < ActionController::Base
   end
 
   def render_error(status, exception)
+    logger.info "System Error: #{exception.class} error was raised for path .\n#{exception.message}"
     respond_to do |format|
       format.html { render template: "errors/error_#{status}", layout: 'layouts/application', status: status }
       format.all { render nothing: true, status: status }
